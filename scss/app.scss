@@ -78,27 +78,33 @@ body {
   padding: 20px;
   background-color: #12111F; 
   font-family: 'Fira Sans', sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
 h1 {
   margin: 0;
   padding: 0;
-
   position: absolute;
   top: 50%;
   left: 50%;
-
   color: white;
   font-family: 'Fira Sans', sans-serif;
   font-weight: 400;
   font-size: 7vmin;
-  text-align: center;
+  text-align: left;
   text-transform: uppercase;
-
+  -webkit-transform: translate3d(-50%, -50%, 0);
   transform: translate3d(-50%, -50%, 0);
-
+  
   strong {
-  	font-weight: 800;
+    font-weight: 800;
+  }
+
+  .line2 {
+    display: block;
+    margin-left: 1.5em;
+    margin-top: -1rem;
   }
 }
 
@@ -142,13 +148,13 @@ h1 {
   width: 15px;
   display: flex;
   align-items: center;
-  z-index: 3;
+  z-index: 99;
 }
 
 #navigation {
   color: white;
   list-style-type: none;
-  font-family: 'bebas_neuebook';
+  font-family: 'Fira Sans', sans-serif;
   font-size: 14px;
   letter-spacing: 1px;
   text-align: center;
