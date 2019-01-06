@@ -1,0 +1,211 @@
+@charset 'utf-8';
+
+@import 'settings';
+@import 'foundation';
+@import 'motion-ui';
+
+// Global styles
+@include foundation-global-styles;
+@include foundation-forms;
+@include foundation-typography;
+
+// Grids (choose one)
+@include foundation-xy-grid-classes;
+// @include foundation-grid;
+// @include foundation-flex-grid;
+
+// Generic components
+@include foundation-button;
+@include foundation-button-group;
+@include foundation-close-button;
+@include foundation-label;
+@include foundation-progress-bar;
+@include foundation-slider;
+@include foundation-switch;
+@include foundation-table;
+// Basic components
+@include foundation-badge;
+@include foundation-breadcrumbs;
+@include foundation-callout;
+@include foundation-card;
+@include foundation-dropdown;
+@include foundation-pagination;
+@include foundation-tooltip;
+
+// Containers
+@include foundation-accordion;
+@include foundation-media-object;
+@include foundation-orbit;
+@include foundation-responsive-embed;
+@include foundation-tabs;
+@include foundation-thumbnail;
+// Menu-based containers
+@include foundation-menu;
+@include foundation-menu-icon;
+@include foundation-accordion-menu;
+@include foundation-drilldown-menu;
+@include foundation-dropdown-menu;
+
+// Layout components
+@include foundation-off-canvas;
+@include foundation-reveal;
+@include foundation-sticky;
+@include foundation-title-bar;
+@include foundation-top-bar;
+
+// Helpers
+@include foundation-float-classes;
+@include foundation-flex-classes;
+@include foundation-visibility-classes;
+// @include foundation-prototype-classes;
+
+// Motion UI
+@include motion-ui-transitions;
+@include motion-ui-animations;
+
+@import url('https://fonts.googleapis.com/css?family=Fira+Sans:400,800');
+
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  position: relative;
+  padding: 20px;
+  background-color: #12111F; 
+  font-family: 'Fira Sans', sans-serif;
+}
+
+h1 {
+  margin: 0;
+  padding: 0;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  color: white;
+  font-family: 'Fira Sans', sans-serif;
+  font-weight: 400;
+  font-size: 7vmin;
+  text-align: center;
+  text-transform: uppercase;
+
+  transform: translate3d(-50%, -50%, 0);
+
+  strong {
+  	font-weight: 800;
+  }
+}
+
+.wrap {
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+
+  img, .bg {
+
+
+  }
+
+  .bg {
+    width: 100%;
+    height: 100%;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+
+    background:
+    	linear-gradient(
+    		rgba(18,17,31,.95),
+    		rgba(18,17,31,.95)
+		),
+    	url('../img/digitalisierung-der-industrie.jpg')
+    	no-repeat center center;
+    background-size: cover;
+
+    transform: scale(1.1);
+  }
+}
+
+#navigation-cont {
+  position: absolute;
+  right: 30px;
+  top: 0;
+  bottom: 0;
+  width: 15px;
+  display: flex;
+  align-items: center;
+  z-index: 3;
+}
+
+#navigation {
+  color: white;
+  list-style-type: none;
+  font-family: 'bebas_neuebook';
+  font-size: 14px;
+  letter-spacing: 1px;
+  text-align: center;
+  width: 15px;
+}
+
+#navigation li {
+  margin: 20px 0;
+  padding: 5px 0;
+}
+
+#navigation li span {
+  display: none;
+}
+
+#navigation li.active span {
+  display: inline-block;
+  margin-bottom: 25px;
+}
+
+#navigation li .pagination {
+  width: 3px;
+  height: 3px;
+  background-color: white;
+  margin: 0 auto;
+  -webkit-transition: all 0.5s;
+  -ms-transition: all 0.5s;
+  transition: all 0.5s;
+  -webkit-transition-timing-function: ease-in-out;
+  -ms-transition-timing-function: ease-in-out;
+  transition-timing-function: ease-in-out;
+}
+
+
+#navigation li {
+  cursor: pointer;
+}
+
+#navigation li.active {
+  pointer-events: none;
+}
+
+#navigation li.active .pagination {
+  width: 1px;
+  height: 100px;
+}
+
+
+canvas{ display: block; vertical-align: bottom; }
+/* ---- particles.js container ---- */
+#particles-js{
+	position:absolute;
+	width: 100%;
+	height: 100%;
+	background-color: #12111F;
+	background-image: url("");
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: 50% 50%;
+}
