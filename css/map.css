@@ -1,7 +1,5 @@
-body{
-  margin: 0;
-  background-color: #111629;
-  color: white;
+#mapAction{
+  list-style: none;
 }
 
 #map{

@@ -11,12 +11,12 @@ async function color(percentage, text)
   }
 
   for (var i = 0; i < circleCount; i++) {
-    circles[i].style.fill="#818181";
+    circles[i].style.fill="#ffffff";
     //await Sleep(0);
   }
 
   for (var i = circleCount - 1; i >= circleCount - circlesNeedToChangeColor; --i) {
-    circles[i].style.fill='#b33939';
+    circles[i].style.fill='#FF0000';
     circles[i].setAttribute("aria-label", text )
     circles[i].classList.add('enabled');
     //await Sleep(0);
