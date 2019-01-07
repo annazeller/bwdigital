@@ -139,9 +139,36 @@ h1 {
   }
 }
 
+#topbar {
+  position: fixed;
+  left: 1rem;
+  top: 0.5rem;
+  height: 40px;
+  z-index: 70;
+  width: 100%;
+  margin: 0px;
+
+  .info {
+    position: fixed;
+    right: 1rem;
+    top: 0.5rem;
+  }
+}
+
+#bottombar {
+  position: absolute;
+  text-align: right;
+  right: 1rem;
+  bottom: 0.5rem;
+  height: 40px;
+  z-index: 70;
+  width: 100%;
+  margin: 0px;
+}
+
 #navigation-cont {
   position: absolute;
-  right: 30px;
+  right: 3rem;
   top: 0;
   bottom: 0;
   width: 15px;
