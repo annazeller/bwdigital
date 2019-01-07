@@ -7,6 +7,19 @@
   height: 749px;
 }
 
+ul li a {
+font-weight: normal;
+color: white;
+}
+
+ul li a:active {
+font-weight: bold;
+}
+
+.highlight{
+  font-weight: bold;
+}
+
 .description {
   pointer-events: none;
   position: absolute;

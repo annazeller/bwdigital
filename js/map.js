@@ -26,6 +26,11 @@ function Sleep(milliseconds) {
  return new Promise(resolve => setTimeout(resolve, milliseconds));
 }
 
+$('ul li a').click(function() {
+     $('ul li a.highlight').removeClass('highlight');
+     $(this).addClass("highlight");
+});
+
 $( "#mapSVG" ).on( "mouseenter", ".enabled", function( event ) {
   $('.description').addClass('active');
   $('.description').html($(this).attr('aria-label'));
