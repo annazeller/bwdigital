@@ -76,7 +76,7 @@ html, body {
 body {
   position: relative;
   padding: 20px;
-  background-color: #12111F; 
+  background-color: #12111F;
   font-family: 'Fira Sans', sans-serif;
   margin: 0;
   padding: 0;
@@ -95,7 +95,7 @@ h1 {
   font-size: 5vmin;
   text-align: left;
   text-transform: uppercase;
-  
+
   strong {
     font-weight: 800;
   }
@@ -243,17 +243,14 @@ canvas{ display: block; vertical-align: bottom; }
 }
 
 .overlay {
-  position: fixed;
-  display: none;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(19,23,41,0.7);
-  z-index: 2;
-  cursor: pointer;
-  //overflow-x: hidden;
-  transition: 0.5s;
+height: 100%;
+width: 0;
+position: fixed;
+z-index: 100;
+top: 0;
+left: 0;
+background-color: rgb(0,0,0);
+background-color: rgba(0,0,0, 0.9);
+overflow-x: hidden;
+transition: 0.5s;
 }
