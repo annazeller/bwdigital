@@ -8,3 +8,11 @@ $(document).ready(function() {
     	navigation: true
 	});
 });
+
+function openInfo() {
+	document.getElementById("studyinfo").style.width = "100%";
+}
+
+function closeInfo() {
+	document.getElementById("studyinfo").style.width = "0%";
+}

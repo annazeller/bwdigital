@@ -21,20 +21,30 @@
       </div>
 
       <div id="topbar">
-        <button class="clear button medium" type="button"><a href="#firstPage"><strong>Logo</strong></a></button>
+        <button class="clear button medium" type="button" ><a href="#firstPage"><strong>Logo</strong></a></button>
         <div class="info">
-          <button class="clear button large" type="button">
+          <button class="clear button large" type="button" onClick="openInfo()">
             <span aria-hidden="true">&#8505;</span>
           </button>
         </div>
       </div>
 
       <div id="bottombar">
-        <button class="clear button small" type="button"><a href="#firstPage"><strong>Impressum</strong></a></button>
+        <button class="clear button small" type="button" ><a href="#firstPage"><strong>Impressum</strong></a></button>
       </div>
 
+
+      <div id="studyinfo" class="overlay" onClick="closeInfo()">
+         <!-- Overlay content -->
+         <div class="overlay-content">
+            <h1>BLABLABLABLA</h1>
+         </div>
+
+      </div>
+
+
       <div id="pagepiling">
-        
+
         <div class="section wrap">
           <div class="bg"></div>
           <div class="grid-container">
@@ -46,7 +56,7 @@
                       <h1><strong>Digitales</strong> <span class="line2">Baden-W&uuml;rttemberg</span></h1>
                     </div>
                     <div class="cell" style="margin-left: 5.5em; margin-top: -10px;">
-                      Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.                    
+                      Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.
                     </div>
                     <div class="cell flex-container" style="margin-left: 5.5em;">
                       <button class="hollow button medium flex-child-auto" style="margin-right: 10px" href="#">Mehr Infos</button>
@@ -76,7 +86,7 @@
                     <h1 class="">Überschrift</h1>
                   </div>
                   <div class="cell" style=" margin-top: -10px;">
-                      Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.                    
+                      Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.
                     </div>
                   <div class="cell">
                     <ul id="mapAction">
@@ -2389,7 +2399,7 @@
         </div>
 
       </div>
-  
+
       <script src="/node_modules/jquery/dist/jquery.js"></script>
       <script src="/node_modules/what-input/dist/what-input.js"></script>
       <script src="/node_modules/foundation-sites/dist/js/foundation.js"></script>
