@@ -16,3 +16,11 @@ function openInfo() {
 function closeInfo() {
 	document.getElementById("studyinfo").style.width = "0%";
 }
+
+function openImpressum() {
+	document.getElementById("impressum").style.width = "100%";
+}
+
+function closeImpressum() {
+	document.getElementById("impressum").style.width = "0%";
+}
