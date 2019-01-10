@@ -24,3 +24,33 @@ function openImpressum() {
 function closeImpressum() {
 	document.getElementById("impressum").style.width = "0%";
 }
+
+function loadNumbers() {
+	$('.number').each(function () {
+
+		var $this = $(this),
+			countTo = $this.attr('data-count');
+
+		$this.html(0);
+
+		$({countNum: $this.text()}).animate({
+				countNum: countTo
+			},
+
+			{
+				easing: 'linear',
+				duration: 1500,
+				step: function () {
+					$this.text(Math.floor(this.countNum));
+				},
+				complete: function () {
+					$this.text(this.countNum);
+					//alert('finished');
+				}
+
+			});
+
+
+	});
+}
+
