@@ -256,12 +256,15 @@ function disableScrollAndClick() {
 
 function setBarWidth(dataElement, barElement, cssProperty, barPercent) {
 	var listData = [];
+
 	$(dataElement).each(function() {
-		listData.push($(this).html());
+		listData.push($(this).html().slice(0,-1));
+		console.log("listData:" + listData);
 	});
-	var listMax = Math.max.apply(Math, listData);
+	var listMax = "100";
+	console.log("listMax:" + listMax);
 	$(barElement).each(function(index) {
 		$(this).css(cssProperty, (listData[index] / listMax) * barPercent + "%");
 	});
 }
-setBarWidth(".style-1 span", ".style-1 a", "width", 100);
+setBarWidth(".style-1 span", ".style-1 em", "width", 100);

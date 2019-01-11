@@ -390,18 +390,20 @@ main {
   width: 350px;
   li {
     position: relative;
-    height: 50px;
-    a, span {
+    margin-bottom:12px;
+    em, span {
       display: block;
       border-bottom: 5px solid #FFFFFF;
       padding-bottom: 5px;
     }
-    a {
+    em {
       font-style: normal;
       border-bottom-color: #DB6B6B;
       position: absolute;
-      overflow: visible;
+      overflow: visible !important;
       animation: grow-width 2s;
+      display: inline-block;
+      white-space: nowrap;
     }
     span {
       text-align: right;
