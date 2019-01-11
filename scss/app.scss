@@ -81,11 +81,15 @@ body {
   margin: 0;
   padding: 0;
   font-weight: 400;
-  font-size: 1.5vmin;
+  font-size: 1.8vmin;
   text-align: block;
   letter-spacing: 2px;
   line-height: 2.5vmin;
   color: white;
+
+  &.disable-click {
+    pointer-events: auto;
+  }
 }
 
 h1 {
@@ -95,6 +99,12 @@ h1 {
   font-size: 5vmin;
   text-align: left;
   text-transform: uppercase;
+  padding-bottom: 10px;
+
+  .sectionNumber {
+    font-weight:800 !important;
+    margin-left: -75px;
+  }
 
   strong {
     font-weight: 800;
@@ -107,10 +117,34 @@ h1 {
   }
 }
 
+h2 {
+  color: white;
+  font-family: 'Fira Sans', sans-serif;
+  font-weight: 400;
+  font-size: 3vmin;
+  text-align:left;
+}
+
+h3{
+  color: white;
+  font-family: 'Fira Sans', sans-serif;
+  font-weight: 400;
+  font-size: 2vmin;
+  text-align:left;
+
+  strong {
+    font-weight: 800;
+  }
+}
+
 .wrap {
   height: 100%;
+  width: 100%;
   position: relative;
   overflow: hidden;
+  display: flex;
+  align-items: center;
+
 
   img, .bg {
 
@@ -127,16 +161,28 @@ h1 {
     z-index: -1;
 
     background:
-    	linear-gradient(
-    		rgba(18,17,31,.95),
-    		rgba(18,17,31,.95)
-		),
-    	url('../img/digitalisierung-der-industrie.jpg')
-    	no-repeat center center;
+      linear-gradient(
+        rgba(18,17,31,.95),
+        rgba(18,17,31,.95)
+    ),
+      url('../img/digitalisierung-der-industrie.jpg')
+      no-repeat center center;
     background-size: cover;
 
     transform: scale(1.1);
   }
+}
+
+.number {
+  color: white;
+  font-family: 'Fira Sans', sans-serif;
+  font-weight: 800;
+  font-size: 9vmin;
+}
+
+.number-align{
+  text-align:center;
+  align-items: center;
 }
 
 #topbar {
@@ -248,9 +294,200 @@ width: 0;
 position: fixed;
 z-index: 100;
 top: 0;
-left: 0;
-background-color: rgb(0,0,0);
-background-color: rgba(0,0,0, 0.9);
+right: 0;
+background-color: rgba(19,23,41, 0.93);
 overflow-x: hidden;
-transition: 0.5s;
+transition: 0.8s;
+  -webkit-transition: 0.8s;
+}
+
+
+#map-svg, #mapSVG {
+  opacity: 0.55;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  height: 460px;
+  width: 410px;
+
+  -webkit-transition: all 0.5s;
+  -ms-transition: all 0.5s;
+  transition: all 0.5s;
+  -ms-transition-timing-function: ease-in-out;
+  transition-timing-function: ease-in-out;
+  -webkit-transition-timing-function: ease-in-out;
+}
+
+.map-svg-second-slide {
+  opacity: 1 !important;
+  right: 20px !important;
+  bottom: -50px !important;
+  height: 600px !important;
+  width: 500px !important;
+}
+
+
+.section {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+    p {
+      width: 73%;
+    }
+
+}
+
+.wrapper, .guide-wrapper {
+  width: 1024px;
+  margin: 0 auto;
+  height: 460px;
+  position: relative;
+  /*overflow: hidden;*/
+}
+
+#section-1 {
+  width: 660px;
+  height: 460px;
+  float: left;
+  padding: 80px 30px;
+}
+
+#section-map, 
+#section-compare,
+#section-industrie40 {
+  position: absolute;
+  top: -20px;
+  bottom: 0;
+  left: 0;
+  //right: 0;
+  width: 660px;
+  display: block;
+  padding: 0px 30px;
+}
+
+#compareDiagramm {
+  width: 70vw !important;
+  height: 50vh !important;
+}
+/* ---- bar chart ---- */
+@keyframes grow-width {
+  from {
+    width: 0;
+  }
+}
+main {
+  width: 400px;
+  margin: 30px auto;
+  padding: 10px 40px 50px;
+  background: #FFF;
+  box-shadow: 0 3px 5px rgba(0,0,0,0.2);
+}
+
+.style-1 {
+  list-style-type: none;
+  padding: 0;
+  width: 350px;
+  li {
+    position: relative;
+    margin-bottom:12px;
+    em, span {
+      display: block;
+      border-bottom: 5px solid #FFFFFF;
+      padding-bottom: 5px;
+    }
+    em {
+      font-style: normal;
+      border-bottom-color: #DB6B6B;
+      position: absolute;
+      overflow: visible !important;
+      animation: grow-width 2s;
+      display: inline-block;
+      white-space: nowrap;
+    }
+    span {
+      text-align: right;
+      margin-top:-6%;
+    }
+
+    .industrie40-color{
+      border-bottom-color: $red;
+    }
+    .iot-color{
+      border-bottom-color: $blue;
+    }
+    .smartServices-color{
+      border-bottom-color: $mdgreen;
+    }
+    .bigData-color{
+      border-bottom-color: $yellow;
+    }
+    .robotikUndSensorik-color{
+      border-bottom-color: $orange;
+    }
+    .ki-color{
+      border-bottom-color: $purple;
+    }
+  }
+}
+/* ---- bar chart ---- */
+@keyframes grow-width {
+  from {
+    width: 0;
+  }
+}
+main {
+  width: 400px;
+  margin: 30px auto;
+  padding: 10px 40px 50px;
+  background: #FFF;
+  box-shadow: 0 3px 5px rgba(0,0,0,0.2);
+}
+
+.style-1 {
+  list-style-type: none;
+  padding: 0;
+  width: 350px;
+  li {
+    position: relative;
+    height: 50px;
+    a, span {
+      display: block;
+      border-bottom: 5px solid #FFFFFF;
+      padding-bottom: 5px;
+    }
+    a {
+      font-style: normal;
+      border-bottom-color: #DB6B6B;
+      position: absolute;
+      overflow: visible;
+      animation: grow-width 2s;
+    }
+    span {
+      text-align: right;
+      margin-top:-6%;
+    }
+
+    .industrie40-color{
+      border-bottom-color: $red;
+    }
+    .iot-color{
+      border-bottom-color: $blue;
+    }
+    .smartServices-color{
+      border-bottom-color: $mdgreen;
+    }
+    .bigData-color{
+      border-bottom-color: $yellow;
+    }
+    .robotikUndSensorik-color{
+      border-bottom-color: $orange;
+    }
+    .ki-color{
+      border-bottom-color: $purple;
+    }
+  }
 }
