@@ -226,7 +226,7 @@ function thirdToSecond() {
 		$('#section-map').addClass('animated fadeInDown');
 		$('#section-map').show();
 		$svgMap.addClass('map-svg-second-slide');
-		$svgMap.removeClass();
+		$svgMap.removeClass('animated zoomOut');
 		$svgMap.addClass('animated zoomIn');
 
 		allowChange = true;
@@ -323,3 +323,9 @@ function setBarWidth(dataElement, barElement, cssProperty, barPercent) {
 	});
 }
 setBarWidth(".style-1 span", ".style-1 em", "width", 100);
+
+
+
+$('#mapAction li').click(function(e) {
+    $(this).addClass('active').siblings().removeClass('active');
+});

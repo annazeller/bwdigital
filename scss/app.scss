@@ -369,8 +369,13 @@ transition: 0.8s;
   padding: 0px 30px;
 }
 
+
 #section-industrie40{
   width: 1000px !important;
+}
+#section-map {
+  top: -80px !important;
+
 }
 
 #compareDiagramm {
@@ -424,9 +429,46 @@ main {
   list-style-type: none;
   padding: 0;
   width: 350px;
+  margin-top: -20px;
+
   li {
     position: relative;
-    margin-bottom:12px;
+    height:50px;
+    opacity: .55;
+    //margin-bottom:12px;
+    &:hover {
+      opacity: .8 !important;
+    }
+    &.active {
+      opacity: 1 !important;
+    }
+
+    &:before {
+      display: inline-block;
+      width: 40px;
+      height: 40px;
+      position: relative;
+      left: -55px;
+      top:30px;
+    }
+    &.li-industrie40:before{
+      content: url('/img/icon_kreis_industrie40.svg');
+    }
+    &.li-iot:before{
+      content: url('/img/icon_kreis_internetderdinge.svg');
+    }
+    &.li-smartServices:before{
+      content: url('/img/icon_kreis_smartservices.svg');
+    }
+    &.li-bigData:before{
+      content: url('/img/icon_kreis_bigdata.svg');
+    }
+    &.li-robotikUndSensorik:before{
+      content: url('/img/icon_kreis_robotiksensorik.svg');
+    }
+    &.li-ki:before{
+      content: url('/img/icon_kreis_kuenstlicheintelligenz.svg');
+    }
     em, span {
       display: block;
       border-bottom: 5px solid #FFFFFF;
@@ -440,64 +482,6 @@ main {
       animation: grow-width 2s;
       display: inline-block;
       white-space: nowrap;
-    }
-    span {
-      text-align: right;
-      margin-top:-6%;
-    }
-
-    .industrie40-color{
-      border-bottom-color: $red;
-    }
-    .iot-color{
-      border-bottom-color: $blue;
-    }
-    .smartServices-color{
-      border-bottom-color: $mdgreen;
-    }
-    .bigData-color{
-      border-bottom-color: $yellow;
-    }
-    .robotikUndSensorik-color{
-      border-bottom-color: $orange;
-    }
-    .ki-color{
-      border-bottom-color: $purple;
-    }
-  }
-}
-/* ---- bar chart ---- */
-@keyframes grow-width {
-  from {
-    width: 0;
-  }
-}
-main {
-  width: 400px;
-  margin: 30px auto;
-  padding: 10px 40px 50px;
-  background: #FFF;
-  box-shadow: 0 3px 5px rgba(0,0,0,0.2);
-}
-
-.style-1 {
-  list-style-type: none;
-  padding: 0;
-  width: 350px;
-  li {
-    position: relative;
-    height: 50px;
-    a, span {
-      display: block;
-      border-bottom: 5px solid #FFFFFF;
-      padding-bottom: 5px;
-    }
-    a {
-      font-style: normal;
-      border-bottom-color: #DB6B6B;
-      position: absolute;
-      overflow: visible;
-      animation: grow-width 2s;
     }
     span {
       text-align: right;
