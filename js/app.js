@@ -83,7 +83,7 @@ $(window).on('load', function() {
 		if(event.deltaY < 0){
 			if (!allowChange) {
 		        return;
-		    } else { 
+		    } else {
 				direction = "up";
 	          	if (section > 1) {
 	            	section--;
@@ -162,7 +162,7 @@ function firstToSecond() {
 
 function secondToFirst() {
 	console.log(section);
-	
+
 	console.log(allowChange);
 	setTimeout(function(){
 	  $('#section-1').removeClass('animated fadeOutUp');
@@ -179,16 +179,16 @@ function secondToFirst() {
 
 function secondToThird() {
 	console.log(section);
-	
+
 	console.log(allowChange);
 	setTimeout(function(){
 		$('#section-2').removeClass('animated fadeInUp');
 		$('#section-2').addClass('animated fadeOutUp');
-		
+
 		$svgMap.removeClass('map-svg-second-slide');
 		$svgMap.addClass('animated zoomOut');
 		cleanupCircles();
-		
+
 		$('#section-3').show();
 		$('#section-3').addClass('animated fadeInUp');
 		allowChange = true;
@@ -251,3 +251,17 @@ function disableScrollAndClick() {
   console.log('allow change:', allowChange);
   $('body').addClass('disable-click');
 };
+
+<!-- bar chart -->
+
+function setBarWidth(dataElement, barElement, cssProperty, barPercent) {
+	var listData = [];
+	$(dataElement).each(function() {
+		listData.push($(this).html());
+	});
+	var listMax = Math.max.apply(Math, listData);
+	$(barElement).each(function(index) {
+		$(this).css(cssProperty, (listData[index] / listMax) * barPercent + "%");
+	});
+}
+setBarWidth(".style-1 span", ".style-1 a", "width", 100);

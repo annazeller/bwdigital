@@ -169,8 +169,8 @@
 
               </p>
               <div class="cell flex-container" style="margin-left: 5.5em;  margin-top: 30px; width: 81%">
-                      <button class="hollow button medium flex-child-auto" style="margin-right: 10px" href="#">Mehr Infos</button>
-                      <button type="button" class="button medium flex-child-auto" href="#" onClick="showSection2()">Start Exploring</button>
+                      <button class="hollow button medium flex-child-auto" style="margin-right: 10px" href="#" onclick="openInfo(); onclick=loadNumbers()">Mehr Infos</button>
+                      <button type="button" class="button medium flex-child-auto" href="#" onClick="firstToSecond()">Start Exploring</button>
                     </div>
             </div>
             <!-- map -->
@@ -2465,16 +2465,28 @@
               <p style=" margin-top: -10px;">
                 Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.
               </p>
-              <div class="cell">
-                <ul id="mapAction">
-                  <li onClick='color(0.09,0.12,0.57,0.22, "industrie40")'><a>Industrie 4.0</a></li>
-                  <li onClick='color(0.48,0.11,0.28,0.13,"iot")'><a>Internet of things</a></li>
-                  <li onClick='color(0.31,0.15,0.34, 0.19,"smartServices")'><a>Smart Services</a></li>
-                  <li onClick='color(0.18, 0.06, 0.53, 0.19,"bigData")'><a>Big Data</a></li>
-                  <li onClick='color(0.06, 0.05, 0.80, 0.08,"robotikUndSensorik")'><a>Robotik&Sensorik</a></li>
-                  <li onClick='color(0.04, 0.04, 0.76, 0.15,"ki")'><a>Künstliche Intelligenz</a></li>
-                </ul>
-              </div>
+               <div class="cell">
+                  <ul id="mapAction" class="style-1">
+                     <li onClick='color(0.09,0.12,0.57,0.22, "industrie40")'><a class="industrie40-color">Industrie 4.0</a><br>
+                        <span>9%</span></li>
+                     <li onClick='color(0.48,0.11,0.28,0.13,"iot")'><a class="iot-color">Internet of things</a><br>
+                        <span>48%</span>
+                     </li>
+                     <li onClick='color(0.31,0.15,0.34, 0.19,"smartServices")'><a class="smartServices-color">Smart Services</a><br>
+                        <span>31%</span>
+                     </li>
+                     <li onClick='color(0.18, 0.06, 0.53, 0.19,"bigData")'><a class="bigData-color">Big Data</a><br>
+                        <span>18%</span>
+                     </li>
+                     <li onClick='color(0.06, 0.05, 0.80, 0.08,"robotikUndSensorik")'><a class="robotikUndSensorik-color">Robotik&Sensorik</a><br>
+                        <span>6%</span>
+                     </li>
+                     <li onClick='color(0.04, 0.04, 0.76, 0.15,"ki")'><a class="ki-color">Künstliche Intelligenz</a><br>
+                        <span>4%</span>
+                     </li>
+                  </ul>
+               </div>
+
             </div>
             <div id="section-3" style="display:none;">
               <button class="button medium" type="button" onClick="addFinanzen()" style="background-color:yellow;color:black;">Finanzen</button>
@@ -2484,7 +2496,7 @@
               <canvas id="compareDiagramm" width="1400" height="600"></canvas>
             </div>
             <div id="section-4" style="display:none;">
-              
+
             </div>
 
 
