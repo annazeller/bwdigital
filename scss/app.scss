@@ -319,6 +319,7 @@ transition: 0.8s;
 }
 
 .map-svg-second-slide {
+  opacity: 1 !important;
   right: 20px !important;
   bottom: -50px !important;
   height: 600px !important;
@@ -355,7 +356,9 @@ transition: 0.8s;
   padding: 80px 30px;
 }
 
-#section-2, #section-3{
+#section-map, 
+#section-compare,
+#section-industrie40 {
   position: absolute;
   top: -20px;
   bottom: 0;

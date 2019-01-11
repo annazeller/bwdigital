@@ -146,14 +146,19 @@ function firstToSecond() {
 	console.log(section);
 	console.log(allowChange);
 	setTimeout(function(){
-	  $('#section-1').removeClass('animated fadeInDown');
-	  $('#section-2').removeClass('animated fadeOutDown');
 
+		//section-1 ausblenden
+	  $('#section-1').removeClass('animated fadeInDown');
+	  $('#section-map').removeClass('animated fadeOutDown');
 	  $('#section-1').addClass('animated fadeOutUp');
+
+	  //section-map einblenden
 	  $svgMap.addClass('map-svg-second-slide');
 	  //$svgMap.setAttribute("viewBox", "400 50 400 550");
-	  $('#section-2').show();
-	  $('#section-2').addClass('animated fadeInUp');
+	  $('#section-map').show();
+	  $('#section-map').addClass('animated fadeInUp');
+
+
 	  allowChange = true;
 	  console.log(allowChange);
 	  $('body').removeClass('disable-click');
@@ -165,12 +170,17 @@ function secondToFirst() {
 
 	console.log(allowChange);
 	setTimeout(function(){
-	  $('#section-1').removeClass('animated fadeOutUp');
-	  $('#section-2').removeClass('animated fadeInUp');
-	  $svgMap.removeClass('map-svg-second-slide');
+
+	  //section-map ausblenden
+	  $('#section-map').removeClass();
+	  $svgMap.removeClass();
 	  cleanupCircles();
+	  $('#section-map').addClass('animated fadeOutDown');
+
+	  //section-1 einblenden
+	  $('#section-1').removeClass();
 	  $('#section-1').addClass('animated fadeInDown');
-	  $('#section-2').addClass('animated fadeOutDown');
+	  
 	  allowChange = true;
 	  console.log(allowChange);
 	  $('body').removeClass('disable-click');
@@ -182,15 +192,19 @@ function secondToThird() {
 
 	console.log(allowChange);
 	setTimeout(function(){
-		$('#section-2').removeClass('animated fadeInUp');
-		$('#section-2').addClass('animated fadeOutUp');
 
-		$svgMap.removeClass('map-svg-second-slide');
+		//section-map ausblenden
+		$('#section-map').removeClass();
+		$('#section-map').addClass('animated fadeOutUp');
+
+		$svgMap.removeClass();
 		$svgMap.addClass('animated zoomOut');
 		cleanupCircles();
 
-		$('#section-3').show();
-		$('#section-3').addClass('animated fadeInUp');
+		//section-industrie40 einblenden
+		$('#section-industrie40').show();
+		$('#section-industrie40').addClass('animated fadeInUp');
+
 		allowChange = true;
 		console.log(allowChange);
 	  	$('body').removeClass('disable-click');
@@ -202,22 +216,63 @@ function thirdToSecond() {
 	console.log(section);
 	console.log(allowChange);
 	setTimeout(function(){
-		$('#section-2').removeClass('animated fadeOutUp');
-		$('#section-3').removeClass('animated fadeInUp');
 
-		$('#section-2').addClass('animated fadeInDown');
-		$('#section-2').show();
+		//section-industrie40 ausblenden
+		$('#section-industrie40').removeClass();
+		$('#section-industrie40').addClass('animated fadeOutDown');
 
-		$('#section-3').addClass('animated fadeOutDown');
-
-
+		//section-map einblenden
+		$('#section-map').removeClass();
+		$('#section-map').addClass('animated fadeInDown');
+		$('#section-map').show();
 		$svgMap.addClass('map-svg-second-slide');
-		$svgMap.removeClass('animated zoomOut');
+		$svgMap.removeClass();
 		$svgMap.addClass('animated zoomIn');
+
 		allowChange = true;
 		console.log(allowChange);
 	  	$('body').removeClass('disable-click');
 	}, 1500);
+}
+
+function thirdToFourth() {
+	console.log(section);
+	console.log(allowChange);
+	setTimeout(function(){
+
+	//section-industrie40 ausblenden
+	$('#section-industrie40').removeClass();
+	$('#section-industrie40').addClass('animated fadeOutUp');
+
+	//section-compare einblenden
+		$('#section-compare').show();
+		$('#section-compare').removeClass();
+		$('#section-compare').addClass('animated fadeInUp');
+
+		allowChange = true;
+		console.log(allowChange);
+	  	$('body').removeClass('disable-click');
+	}, 1500);
+}
+
+function fourthToThird() {
+	console.log(section);
+	console.log(allowChange);
+	setTimeout(function(){
+
+	//section-compare ausblenden
+		$('#section-compare').removeClass();
+		$('#section-compare').addClass('animated fadeOutDown');
+
+	//section-industrie40 einblenden
+		$('#section-industrie40').removeClass();
+		$('#section-industrie40').addClass('animated fadeInDown');
+
+		allowChange = true;
+		console.log(allowChange);
+	  	$('body').removeClass('disable-click');
+	}, 1500);
+
 }
 
 
