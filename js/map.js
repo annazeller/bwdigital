@@ -9,12 +9,12 @@ async function color(nutzen, planen, nRelevant, nBefasst, kategorie)
   var keineAngabe = circleCount -nutzenWir -planenWir -nichtRelevant -nichtBefasst;
 
 //colors
-  var bigData = ["#FF0000", "#FF2E2E","#FF7474","#FFB9B9"];
-  var smartServices = ["#017201", "#469846", "#8CBF8C", "#D1E5D1"];
-  var industrie40 = ["#E14F00", "#E97F46", "#F1AF8B", "#FADFD1"];
-  var iot = ["#C500B3", "#DA5DCF", "#EAA2E3", "#F4D1F1"];
-  var ki = ["#0033FF", "#466BFF", "#8BA2FF", "#B9C7FF"];
-  var robotikUndSensorik = ["#8400E1", "#A646E9", "#C78BF1", "#DDB9F7"];
+  var bigData = ["#ffdb5b", "#FFFFFF","#FFFFFF","#FFFFFF"];
+  var smartServices = ["#56e39f", "#FFFFFF", "#FFFFFF", "#FFFFFF"];
+  var industrie40 = ["#e9242f", "#FFFFFF", "#FFFFFF", "#FFFFFF"];
+  var iot = ["#00c7ff", "#FFFFFF", "#FFFFFF", "#FFFFFF"];
+  var ki = ["#a42cd6", "#FFFFFF", "#FFFFFF", "#FFFFFF"];
+  var robotikUndSensorik = ["#fe7f2d", "#FFFFFF", "#FFFFFF", "#FFFFFF"];
 
 //Cleanup
   cleanupCircles();
