@@ -203,6 +203,7 @@ function secondToThird() {
 
 		//section-industrie40 einblenden
 		$('#section-industrie40').show();
+		$('#section-industrie40').removeClass();
 		$('#section-industrie40').addClass('animated fadeInUp');
 
 		allowChange = true;
@@ -280,13 +281,14 @@ function showSection2() {
 	if (section == 2) {
 		return;
 	} else {
-		section = 2;
-		renderNavigationUI(section);
+		
 		if (section < 2) {
 			firstToSecond();
 		} else {
 			thirdToSecond();
 		}
+		section = 2;
+		renderNavigationUI(section);
 	}
 }
 
