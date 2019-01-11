@@ -17,12 +17,7 @@ async function color(nutzen, planen, nRelevant, nBefasst, kategorie)
   var robotikUndSensorik = ["#8400E1", "#A646E9", "#C78BF1", "#DDB9F7"];
 
 //Cleanup
-  var disableCircleHover = $('.enabled');
-  for (var i = 0; i < disableCircleHover.length; i++) {
-    disableCircleHover[i].classList.remove('enabled');
-    disableCircleHover[i].style.fill="#ffffff";
-    disableCircleHover[i].removeAttribute("aria-label");
-  }
+  cleanupCircles();
 
 //Nutzen wir
 for (var i = circleCount - 1; i >= circleCount - nutzenWir; --i) {
@@ -58,6 +53,15 @@ for (var i = circleCount - nutzenWir - planenWir - nichtRelevant -nichtBefasst -
   circles[i].setAttribute("aria-label", keineAngabePercentage + "% der Unternehmen haben keine Angabe gemacht" );
   circles[i].classList.add('enabled');
 }
+}
+
+function cleanupCircles(){
+  var disableCircleHover = $('.enabled');
+  for (var i = 0; i < disableCircleHover.length; i++) {
+    disableCircleHover[i].classList.remove('enabled');
+    disableCircleHover[i].style.fill="#ffffff";
+    disableCircleHover[i].removeAttribute("aria-label");
+  }
 }
 
 $('ul li a').click(function() {
