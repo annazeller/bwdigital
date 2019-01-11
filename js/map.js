@@ -24,6 +24,7 @@ for (var i = circleCount - 1; i >= circleCount - nutzenWir; --i) {
   circles[i].style.fill=eval(kategorie)[0];
   circles[i].setAttribute("aria-label", Math.floor(nutzen*100) + "% der Unternehmen nutzen es bereits");
   circles[i].classList.add('enabled');
+  await Sleep(5);
 }
 
 //Planen wir
@@ -62,6 +63,10 @@ function cleanupCircles(){
     disableCircleHover[i].style.fill="#ffffff";
     disableCircleHover[i].removeAttribute("aria-label");
   }
+}
+
+function Sleep(milliseconds) {
+  return new Promise(resolve => setTimeout(resolve, milliseconds));
 }
 
 $('ul li a').click(function() {
