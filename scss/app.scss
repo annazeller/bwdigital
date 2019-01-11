@@ -86,6 +86,10 @@ body {
   letter-spacing: 2px;
   line-height: 2.5vmin;
   color: white;
+
+  &.disable-click {
+    pointer-events: auto;
+  }
 }
 
 h1 {
@@ -351,7 +355,7 @@ transition: 0.8s;
   padding: 80px 30px;
 }
 
-#section-2{
+#section-2, #section-3{
   position: absolute;
   top: -20px;
   bottom: 0;
@@ -360,4 +364,9 @@ transition: 0.8s;
   width: 660px;
   display: block;
   padding: 0px 30px;
+}
+
+#compareDiagramm {
+  width: 70vw !important;
+  height: 50vh !important;
 }
