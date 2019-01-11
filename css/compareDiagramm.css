@@ -1,0 +1,64 @@
+
+.branchenBtn{
+  border-radius: 25px;
+}
+
+.addButtonActive{
+  width:10%;
+  position:relative;
+  height:50px;
+  border-radius: 25px;
+  background-color: none;
+}
+
+.addButton{
+  position:relative;
+  height: 50px;
+  width: 10%;
+  max-width: 50px;
+  overflow:hidden;
+  transition: max-width 400ms ease-in-out;
+  -webkit-transition: max-width 400ms ease-in-out;
+  -moz-transition: max-width 400ms ease-in-out;
+  border-radius:50%;
+}
+
+.addButton.active {
+   max-width: 100%;
+   border-radius:25px;
+}
+
+.addButton.active:before {
+  content:"Bitte wähle aus";
+}
+
+.icon{
+  position:absolute;
+  left:18px;
+  top:9px;
+  font-size:30px;
+}
+
+.icon.active{
+  position:absolute;
+  left:12px;
+  top:9px;
+  font-size:30px;
+}
+
+.add {
+  display: block;
+  font-weight: bold;
+  height: 40px;
+  transition: all .4s ease-in-out;
+}
+
+.plus {
+  background: none;
+  border-color: white;
+  transition: all .4s ease-in-out;
+}
+
+.rotate{
+  -webkit-transform: rotate(45deg);
+}

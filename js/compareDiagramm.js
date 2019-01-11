@@ -1,7 +1,8 @@
 var compareDiagramm = document.getElementById("compareDiagramm");
 
-Chart.defaults.global.defaultFontFamily = "Lato";
+Chart.defaults.global.defaultFontFamily = "Fira Sans";
 Chart.defaults.global.defaultFontSize = 18;
+Chart.defaults.global.defaultFontColor = 'white';
 
 var data = {
   labels: ["Industrie 4.0", "Internet of Things", "Smart Services", "Big Data", "Robotik und Sensorik", "Künstliche Intelligenz"],
@@ -37,10 +38,16 @@ var barChart = new Chart(compareDiagramm, {
         }
       }],
       yAxes: [{
-            ticks: {
-                beginAtZero: true
-            }
-        }]
+           ticks: {
+                  min: 0,
+                  max: 100,
+                  callback: function(value){return value+ "%"}
+               },
+               scaleLabel: {
+                  display: true,
+                  labelString: "Percentage"
+               }
+           }]
      }
     }
 });
