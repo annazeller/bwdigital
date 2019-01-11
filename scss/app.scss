@@ -369,10 +369,43 @@ transition: 0.8s;
   padding: 0px 30px;
 }
 
+#section-industrie40{
+  width: 1000px !important;
+}
+
 #compareDiagramm {
   width: 70vw !important;
   height: 50vh !important;
 }
+
+.industrie40-image{
+  fill: #00c7ff;
+}
+
+/* ---- keyfacts ---- */
+.keyfact-headline{
+  color: white;
+  font-family: 'Fira Sans', sans-serif;
+  font-weight: 200;
+  font-size: 2vmin;
+  border-bottom: 1px solid #ffffff;
+
+}
+.keyfact-numbers{
+  color: white;
+  font-family: 'Fira Sans', sans-serif;
+  font-weight: 600;
+  font-size: 7vmin;
+}
+
+.keyfact-percent{
+  color: white;
+  font-family: 'Fira Sans', sans-serif;
+  font-weight: 400;
+  font-size: 5vmin;
+}
+
+
 /* ---- bar chart ---- */
 @keyframes grow-width {
   from {
