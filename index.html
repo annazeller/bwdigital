@@ -10,6 +10,7 @@
     <link rel="stylesheet" type="text/css" href="css/compareDiagramm.css">
     <link rel="stylesheet" href="css/app.css">
     <link rel="stylesheet" href="css/animate.css">
+    <link href="//netdna.bootstrapcdn.com/font-awesome/3.1.1/css/font-awesome.min.css" rel="stylesheet">
     <!--<link rel="stylesheet" href="css/jquery.pagepiling.css">-->
   </head>
   <body>
@@ -2522,10 +2523,72 @@
 
           </div>
           <div id="section-compare" style="display:none;">
-            <button class="button medium" type="button" onClick="addFinanzen()" style="background-color:yellow;color:black;">Finanzen</button>
-            <button class="button medium" type="button" onClick="removeFinanzen()" style="background-color:yellow;color:black;">removeFinanzen</button>
-            <button id="industrie" class="button medium" type="button" onClick="addIndustrie()" style="background-color:red;color:black;">Industrie</button>
-            <button class="button medium" type="button" onClick="addWirtschaft()" style="background-color:green;color:black;">Wirtschaft</button>
+            <h1 class=""><span class="sectionNumber">04</span> Branchenvergleich</h1>
+            <div class="branchenDropdown">
+              <button id="addTrigger" class="button medium addButton"><i class="add icon-plus icon active"></i></button>
+              <div id="branchenOverlay">
+                    <h2>Title</h2>
+                    <div class="branchenOverlayContent">
+                      <div id="Dienstleistungen">
+                        <div class="checkElement">
+                        <input type="checkbox" class="branchenCheck" id="Finanz- und Versicherungsdienstleister"/>
+                        <label for="Finanz- und Versicherungsdienstleister">Finanz- und Versicherungsdienstleister</label>
+                        </div>
+                        <div class="checkElement">
+                        <input type="checkbox" class="branchenCheck" id="Handel"/>
+                        <label for="Handel">Handel</label>
+                        </div>
+                        <div class="checkElement">
+                        <input type="checkbox" class="branchenCheck" id="Verkehr und Logistik"/>
+                        <label for="Verkehr und Logistik">Verkehr und Logistik</label>
+                        </div>
+                        <div class="checkElement">
+                        <input type="checkbox" class="branchenCheck" id="Wissensintensive Dienstleister"/>
+                        <label for="Wissensintensive Dienstleister">Wissensintensive Dienstleister</label>
+                        </div>
+                        <div class="checkElement">
+                        <input type="checkbox" class="branchenCheck" id="Kreativwirtschaft"/>
+                        <label for="Kreativwirtschaft">Kreativwirtschaft</label>
+                        </div>
+                        <div class="checkElement">
+                        <input type="checkbox" class="branchenCheck" id="IKT"/>
+                        <label for="IKT">IKT</label>
+                        </div>
+                        <div class="checkElement">
+                        <input type="checkbox" class="branchenCheck" id="Gastgewerbe"/>
+                        <label for="Gastgewerbe">Gastgewerbe</label>
+                        </div>
+                      </div>
+                      <div id="VerarbeitendesGewerbe">
+                      <div class="checkElement">
+                      <input type="checkbox" class="branchenCheck" id="Maschinenbau und Fahrzeugbau"/>
+                      <label for="Maschinenbau und Fahrzeugbau">Maschinenbau und Fahrzeugbau</label>
+                      </div>
+                      <div class="checkElement">
+                      <input type="checkbox" class="branchenCheck" id="Bauwirtschaft"/>
+                      <label for="Bauwirtschaft">Bauwirtschaft</label>
+                      </div>
+                      <div class="checkElement">
+                      <input type="checkbox" class="branchenCheck" id="Handwerk"/>
+                      <label for="Handwerk">Handwerk</label>
+                      </div>
+                      <div class="checkElement">
+                      <input type="checkbox" class="branchenCheck" id="Chemie und Gesundheitsindustrie"/>
+                      <label for="Chemie und Gesundheitsindustrie">Chemie und Gesundheitsindustrie</label>
+                      </div>
+                      <div class="checkElement">
+                      <input type="checkbox" class="branchenCheck" id="Sonstiges verarbeitendes Gewerbe"/>
+                      <label for="Sonstiges verarbeitendes Gewerbe">Sonstiges verarbeitendes Gewerbe</label>
+                      </div>
+                    </div>
+                    </div>
+              </div>
+            <div class="selectedBranchen">
+
+            </div>
+
+            </div>
+
             <canvas id="compareDiagramm" width="1400" height="600"></canvas>
           </div>
 
@@ -2612,7 +2675,7 @@
                   <div style="margin-right:30px;"><span class="keyfact-numbers">28</span><span class="keyfact-percent">%</span></div>
                   <div><span class="keyfact-text"> der Unternehmen wollen bis 2022 Industrie 4.0 im Einsatz haben</span></div>
                 </div>
-                
+
               </div>
 
             </div>
@@ -2949,9 +3012,6 @@
         </div>
       </div>
     </div>
-
-
-
 
     <script src="/node_modules/jquery/dist/jquery.js"></script>
     <script src="/node_modules/what-input/dist/what-input.js"></script>
