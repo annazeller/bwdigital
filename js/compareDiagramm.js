@@ -1,13 +1,13 @@
 var compareDiagramm = document.getElementById("compareDiagramm");
 
 Chart.defaults.global.defaultFontFamily = "Fira Sans";
-Chart.defaults.global.defaultFontSize = 28;
+Chart.defaults.global.defaultFontSize = 40;
 Chart.defaults.global.defaultFontColor = 'white';
 
 var colors = ["#e9242f", "#fe7f2d", "#ffdb5b", "#00c7ff", "#a42cd6"];
 
 var data = {
-  labels: ["Industrie 4.0", "Internet of Things", "Smart Services", "Big Data", "Robotik und Sensorik", "Künstliche Intelligenz"],
+  labels: [[["Industrie"],["4.0"]], [["Internet"],["of Things"]],[["Smart"], ["Services"]], "Big Data", [["Robotik"],["und Sensorik"]],[["Künstliche"],["Intelligenz"]]],
   datasets: []
 };
 
@@ -15,6 +15,8 @@ var barChart = new Chart(compareDiagramm, {
   type: 'bar',
   data: data,
   options: {
+    responsive:true,
+    maintainAspectRatio: false,
     legend: {
     	display: true
       },
@@ -23,6 +25,9 @@ var barChart = new Chart(compareDiagramm, {
       xAxes: [{
         ticks: {
           autoSkip: false,
+          fontSize:30,
+          fontColor: "white",
+          padding: 200,
           maxRotation: 0,
           minRotation: 0
         }
@@ -30,6 +35,8 @@ var barChart = new Chart(compareDiagramm, {
       yAxes: [{
            ticks: {
                   min: 0,
+                  fontSize:30,
+                  fontColor: "white",
                   max: 100,
                   callback: function(value){return value+ "%"}
                },
