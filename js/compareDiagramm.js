@@ -1,13 +1,13 @@
 var compareDiagramm = document.getElementById("compareDiagramm");
 
 Chart.defaults.global.defaultFontFamily = "Fira Sans";
-Chart.defaults.global.defaultFontSize = 40;
+Chart.defaults.global.defaultFontSize = 24;
 Chart.defaults.global.defaultFontColor = 'white';
 
 var colors = ["#e9242f", "#fe7f2d", "#ffdb5b", "#00c7ff", "#a42cd6"];
 
 var data = {
-  labels: [[["Industrie"],["4.0"]], [["Internet"],["of Things"]],[["Smart"], ["Services"]], "Big Data", [["Robotik"],["und Sensorik"]],[["Künstliche"],["Intelligenz"]]],
+  labels: [[[],[],["Industrie"],["4.0"]], [[],[],["Künstliche"],["Intelligenz"]],[[],[],["Internet"],["of Things"]],[[],[],["Smart"], ["Services"]], [[],["Big Data"]], [[],[],["Robotik"],["und Sensorik"]]],
   datasets: []
 };
 
@@ -24,8 +24,7 @@ var barChart = new Chart(compareDiagramm, {
       scales: {
       xAxes: [{
         ticks: {
-          autoSkip: false,
-          fontSize:30,
+          fontSize:20,
           fontColor: "white",
           padding: 200,
           maxRotation: 0,
@@ -35,7 +34,7 @@ var barChart = new Chart(compareDiagramm, {
       yAxes: [{
            ticks: {
                   min: 0,
-                  fontSize:30,
+                  fontSize:20,
                   fontColor: "white",
                   max: 100,
                   callback: function(value){return value+ "%"}
@@ -101,37 +100,37 @@ $( document ).ready(function() {
           addData('Finanz- und Versicherungsdienstleister', randColour, [0, 73, 63, 32, 9, 2]);
           break;
         case "Handel":
-          addData('Handel', randColour, [0, 60, 40, 25, 2, 4]);
+          addData('Handel', randColour, [0, 4, 60, 40, 25, 2]);
           break;
         case "Verkehr und Logistik":
-          addData('Verkehr und Logistik', randColour, [0, 57, 35, 15, 1, 1]);
+          addData('Verkehr und Logistik', randColour, [0, 1, 57, 35, 15, 1]);
           break;
         case "Wissensintensive Dienstleister":
-          addData('Wissensintensive Dienstleister', randColour, [0, 54, 28, 13, 3, 5]);
+          addData('Wissensintensive Dienstleister', randColour, [0, 5, 54, 28, 13, 3]);
           break;
         case "Kreativwirtschaft":
-          addData('Kreativwirtschaft', randColour, [0, 51, 36, 16, 9, 3]);
+          addData('Kreativwirtschaft', randColour, [0, 3, 51, 36, 16, 9]);
           break;
         case "IKT":
-          addData('IKT', randColour, [0, 51, 59, 41, 8, 16]);
+          addData('IKT', randColour, [0, 16, 51, 59, 41, 8]);
           break;
         case "Gastgewerbe":
-          addData('Gastgewerbe', randColour, [0, 44, 33, 19, 4, 0]);
+          addData('Gastgewerbe', randColour, [0, 0, 44, 33, 19, 4]);
           break;
         case "Maschinenbau und Fahrzeugbau":
-          addData('Maschinenbau und Fahrzeugbau', randColour, [19, 43, 28, 11, 26, 5]);
+          addData('Maschinenbau und Fahrzeugbau', randColour, [19, 5, 43, 28, 11, 26]);
           break;
         case "Bauwirtschaft":
-          addData('Bauwirtschaft', randColour, [11, 40, 21, 13, 4, 0]);
+          addData('Bauwirtschaft', randColour, [11, 0, 40, 21, 13, 4]);
           break;
         case "Handwerk":
-          addData('Handwerk', randColour, [5, 37, 12, 8, 7, 0]);
+          addData('Handwerk', randColour, [5, 0, 37, 12, 8, 7]);
           break;
         case "Chemie und Gesundheitsindustrie":
-          addData('Chemie und Gesundheitsindustrie', randColour, [32, 58, 34, 16, 24, 4]);
+          addData('Chemie und Gesundheitsindustrie', randColour, [32, 4, 58, 34, 16, 24]);
           break;
         case "Sonstiges verarbeitendes Gewerbe":
-          addData('Sonstiges verarbeitendes Gewerbe', randColour, [10, 35, 22, 18, 15, 7]);
+          addData('Sonstiges verarbeitendes Gewerbe', randColour, [10, 7, 35, 22, 18, 15]);
           break;
       }
     }
