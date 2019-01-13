@@ -40,6 +40,16 @@
   opacity: 0.9;
   position:absolute;
   z-index: 30;
-  background: white;
+  background: black;
   display: block;
+  padding: 20px;
+  width: 112%;
+}
+
+.branchenOverlayContent{
+  display: flex;
+}
+
+label{
+  color: white !important;
 }
