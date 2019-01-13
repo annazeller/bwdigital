@@ -301,6 +301,10 @@ transition: 0.8s;
   -webkit-transition: 0.8s;
 }
 
+.close-button{
+  color:#1779ba;
+  font-size: 7vmin;
+}
 
 #map-svg, #mapSVG {
   opacity: 0.55;
@@ -358,7 +362,12 @@ transition: 0.8s;
 
 #section-map, 
 #section-compare,
-#section-industrie40 {
+#section-industrie40,
+#section-iot,
+#section-smartServices,
+#section-bigData,
+#section-robotikUndSensorik,
+#section-ki {
   position: absolute;
   top: -20px;
   bottom: 0;
@@ -373,6 +382,27 @@ transition: 0.8s;
 #section-industrie40{
   width: 1000px !important;
 }
+
+#section-iot{
+  width: 1000px !important;
+}
+
+#section-smartServices{
+  width: 1000px !important;
+}
+
+#section-bigData{
+  width: 1000px !important;
+}
+
+#section-robotikUndSensorik{
+  width: 1000px !important;
+}
+
+#section-ki{
+  width: 1000px !important;
+}
+
 #section-map {
   top: -40px !important;
 
@@ -384,8 +414,47 @@ transition: 0.8s;
 }
 
 .industrie40-image{
-  fill: #00c7ff;
+  fill:none;
+  stroke: #e9242f;
+  stroke-width:3;
+  stroke-miterlimit:10;
 }
+
+.iot-image{
+  fill:none;
+  stroke: #00c7ff;
+  stroke-width:3;
+  stroke-miterlimit:10;
+}
+
+.smartServices-image{
+  fill:none;
+  stroke: #56e39f;
+  stroke-width:3;
+  stroke-miterlimit:10;
+}
+
+.bigData-image{
+  fill:none;
+  stroke: #ffdb5b;
+  stroke-width:3;
+  stroke-miterlimit:10;
+}
+
+.robotikUndSensorik-image{
+  fill:none;
+  stroke: #fe7f2d;
+  stroke-width:3;
+  stroke-miterlimit:10;
+}
+
+.ki-image{
+  fill:none;
+  stroke: #a42cd6;
+  stroke-width:3;
+  stroke-miterlimit:10;
+}
+
 
 /* ---- keyfacts ---- */
 .keyfact-headline{

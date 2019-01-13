@@ -10,6 +10,7 @@
     <link rel="stylesheet" type="text/css" href="css/compareDiagramm.css">
     <link rel="stylesheet" href="css/app.css">
     <link rel="stylesheet" href="css/animate.css">
+    <link href="//netdna.bootstrapcdn.com/font-awesome/3.1.1/css/font-awesome.min.css" rel="stylesheet">
     <!--<link rel="stylesheet" href="css/jquery.pagepiling.css">-->
   </head>
   <body>
@@ -19,6 +20,11 @@
         <li li-data="2" data-menuanchor="secondPage"><span><a href="#secondPage">02</a></span><div class="pagination"></div></li>
         <li li-data="3" data-menuanchor="thirdPage"><span><a href="#thirdPage">03</a></span><div class="pagination"></div></li>
         <li li-data="4" data-menuanchor="fourthPage"><span><a href="#fourthPage">04</a></span><div class="pagination"></div></li>
+        <li li-data="5" data-menuanchor="fifthPage"><span><a href="#fifthPage">05</a></span><div class="pagination"></div></li>
+        <li li-data="6" data-menuanchor="sixtPage"><span><a href="#sixtPage">06</a></span><div class="pagination"></div></li>
+        <li li-data="7" data-menuanchor="seventhPage"><span><a href="#seventhPage">07</a></span><div class="pagination"></div></li>
+        <li li-data="8" data-menuanchor="eigthPage"><span><a href="#eigthPage">08</a></span><div class="pagination"></div></li>
+        <li li-data="9" data-menuanchor="ninthPage"><span><a href="#ninthPage">09</a></span><div class="pagination"></div></li>
       </ul>
     </div>
 
@@ -36,7 +42,11 @@
     </div>
 
 
-    <div id="studyinfo" class="overlay" onClick="closeInfo()">
+    <div id="studyinfo" class="overlay">
+
+       <button class="close-button" style="color: #1779ba;" type="button" onClick="closeInfo();">
+          <span aria-hidden="true">&times;</span>
+       </button>
        <!-- Overlay content -->
       <div class="grid-container">
         <div class="grid-x grid-margin-x" style="margin-top: 10%;">
@@ -98,7 +108,11 @@
 
 
 
-    <div id="impressum" class="overlay" onClick="closeImpressum()">
+    <div id="impressum" class="overlay">
+
+       <button class="close-button" type="button" onClick="closeImpressum();">
+          <span aria-hidden="true">&times;</span>
+       </button>
 
        <!-- Overlay content -->
        <div class="grid-container">
@@ -124,11 +138,11 @@
                       <div class="grid-y grid-margin-y" style="margin-top:1%">
                       <p><strong>Herausgeber:</strong></p>
                       <p style="margin-top: -2%;" >Ministerium für Wirtschaft, Arbeit und Wohnungsbau Baden-Württemberg<br>
-                         Neues Schloss, Schlossplatz 4, 70173 Stuttgart<br>
-                         Tel.: 0711/123-0<br>
-                         Fax: 0711/123-2121<br>
-                         poststelle@wm.bwl.de<br>
-                         www.wm.baden-wuerttemberg.de</p>
+                         Autoren: Prof. Dr. Irene Bertschek, Dr. Jörg Ohnemus,<br>
+                         Dr. Daniel Erdsiek, Dr. Sabine Graumann, Tobias Weber<br>
+                      </p>
+                      <p>Hier können Sie die <a href="https://www.kantartns.de/wissensforum/studien/pdf/bmwi/kantar-tns-mrwd-bawue-2017-lang.pdf">Studie einsehen</a>.
+                      </p>
                    </div>
                 </div>
 
@@ -137,11 +151,13 @@
                 <div class="grid-y grid-margin-y" style="margin-top:1%">
                    <div class="cell" style="margin-top: 0%;">
                       <p><strong>Projektinformation:</strong></p>
-                      <p style="margin-top: -2%;" >Digitales Baden-Württemberg<br>
+                      <p style="margin-top: -2%;" >Titel: "Digitales Baden-Württemberg"<br>
                          Studenten: Pia Freilinger, Lena Hetzel, Anna Schweikert, Anna Zeller<br>
                          Dozent: Dipl.-Des. Lothar B-Blum<br>
                          DHBW Campus Mosbach, Fachbereich Onlinemedien<br>
                          Abgabe: 28.01.2019</p>
+
+                      <p>Icons: <a href="https://www.flaticon.com">flaticon.com</a></p>
                    </div>
                 </div>
              </div>
@@ -2507,79 +2523,140 @@
 
           </div>
           <div id="section-compare" style="display:none;">
-            <button class="button medium" type="button" onClick="addFinanzen()" style="background-color:yellow;color:black;">Finanzen</button>
-            <button class="button medium" type="button" onClick="removeFinanzen()" style="background-color:yellow;color:black;">removeFinanzen</button>
-            <button id="industrie" class="button medium" type="button" onClick="addIndustrie()" style="background-color:red;color:black;">Industrie</button>
-            <button class="button medium" type="button" onClick="addWirtschaft()" style="background-color:green;color:black;">Wirtschaft</button>
-            <canvas id="compareDiagramm" width="1400" height="600"></canvas>
+            <h1 class=""><span class="sectionNumber">04</span> Branchenvergleich</h1>
+            <div class="branchenDropdown">
+              <button id="addTrigger" class="button medium addButton"><i class="add icon-plus icon active"></i></button>
+              <div id="branchenOverlay">
+                    <h2>Title</h2>
+                    <div class="branchenOverlayContent">
+                      <div id="Dienstleistungen">
+                        <div class="checkElement">
+                        <input type="checkbox" class="branchenCheck" id="Finanz- und Versicherungsdienstleister"/>
+                        <label for="Finanz- und Versicherungsdienstleister">Finanz- und Versicherungsdienstleister</label>
+                        </div>
+                        <div class="checkElement">
+                        <input type="checkbox" class="branchenCheck" id="Handel"/>
+                        <label for="Handel">Handel</label>
+                        </div>
+                        <div class="checkElement">
+                        <input type="checkbox" class="branchenCheck" id="Verkehr und Logistik"/>
+                        <label for="Verkehr und Logistik">Verkehr und Logistik</label>
+                        </div>
+                        <div class="checkElement">
+                        <input type="checkbox" class="branchenCheck" id="Wissensintensive Dienstleister"/>
+                        <label for="Wissensintensive Dienstleister">Wissensintensive Dienstleister</label>
+                        </div>
+                        <div class="checkElement">
+                        <input type="checkbox" class="branchenCheck" id="Kreativwirtschaft"/>
+                        <label for="Kreativwirtschaft">Kreativwirtschaft</label>
+                        </div>
+                        <div class="checkElement">
+                        <input type="checkbox" class="branchenCheck" id="IKT"/>
+                        <label for="IKT">IKT</label>
+                        </div>
+                        <div class="checkElement">
+                        <input type="checkbox" class="branchenCheck" id="Gastgewerbe"/>
+                        <label for="Gastgewerbe">Gastgewerbe</label>
+                        </div>
+                      </div>
+                      <div id="VerarbeitendesGewerbe">
+                      <div class="checkElement">
+                      <input type="checkbox" class="branchenCheck" id="Maschinenbau und Fahrzeugbau"/>
+                      <label for="Maschinenbau und Fahrzeugbau">Maschinenbau und Fahrzeugbau</label>
+                      </div>
+                      <div class="checkElement">
+                      <input type="checkbox" class="branchenCheck" id="Bauwirtschaft"/>
+                      <label for="Bauwirtschaft">Bauwirtschaft</label>
+                      </div>
+                      <div class="checkElement">
+                      <input type="checkbox" class="branchenCheck" id="Handwerk"/>
+                      <label for="Handwerk">Handwerk</label>
+                      </div>
+                      <div class="checkElement">
+                      <input type="checkbox" class="branchenCheck" id="Chemie und Gesundheitsindustrie"/>
+                      <label for="Chemie und Gesundheitsindustrie">Chemie und Gesundheitsindustrie</label>
+                      </div>
+                      <div class="checkElement">
+                      <input type="checkbox" class="branchenCheck" id="Sonstiges verarbeitendes Gewerbe"/>
+                      <label for="Sonstiges verarbeitendes Gewerbe">Sonstiges verarbeitendes Gewerbe</label>
+                      </div>
+                    </div>
+                    </div>
+              </div>
+            <div class="selectedBranchen">
+
+            </div>
+
+            </div>
+
+            <canvas id="compareDiagramm" width="1800" height="600"></canvas>
           </div>
 
           <div id="section-industrie40" style="display:none;">
             <div class="cell">
-              <h1><span class="sectionNumber">04</span> Industrie 4.0 noch ausbaufähig</h1>
+              <h1><span class="sectionNumber">04</span> Industrie 4.0 noch in Deutschland noch ausbaufähig</h1>
               <p style=" margin-top: -10px;">Unter Industrie 4.0 wird die unternehmens- und standortübergreifende digitale Vernetzung verstanden.</p>
             </div>
             <div style="display:flex;">
-              <div style="width:40%; margin-right:40px;"><!--?xml version="1.0" encoding="utf-8"?-->
-                <!-- Generator: Adobe Illustrator 23.0.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-                <svg version="1.1" id="Ebene_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" style="" xml:space="preserve">
-                  <style type="text/css">
-                  .st0{fill:none;stroke:#E9242F;stroke-width:3;stroke-miterlimit:10;}
-                  </style>
-                  <path class="st0 PREGJqDl_0" d="M162.1,277.3v-28.9c9.3-2.4,18.2-6,26.4-10.9l20.4,20.4c3.3,3.3,8.7,3.3,12.1,0l24.1-24.1
-                  c3.3-3.3,3.3-8.7,0-12.1l-20.4-20.4c4.9-8.2,8.5-17.1,10.9-26.4h28.9c4.7,0,8.5-3.8,8.5-8.5v-34.1c0-4.7-3.8-8.5-8.5-8.5h-28.9
-                  c-2.4-9.3-6-18.2-10.9-26.4l20.4-20.4c3.3-3.3,3.3-8.7,0-12.1L221,40.7c-3.3-3.3-8.7-3.3-12.1,0l-20.4,20.4
-                  c-8.2-4.9-17.1-8.5-26.4-10.9V21.3c0-4.7-3.8-8.5-8.5-8.5h-34.1c-4.7,0-8.5,3.8-8.5,8.5v28.9c-9.3,2.4-18.2,6-26.4,10.9L64.1,40.7
-                  c-3.3-3.3-8.7-3.3-12.1,0L27.9,64.9c-3.3,3.3-3.3,8.7,0,12.1l20.4,20.4c-4.9,8.2-8.5,17.1-10.9,26.4H8.5c-4.7,0-8.5,3.8-8.5,8.5
-                  v34.1c0,4.7,3.8,8.5,8.5,8.5h28.9c2.4,9.3,6,18.2,10.9,26.4l-20.4,20.4c-3.3,3.3-3.3,8.7,0,12.1l24.1,24.1c3.3,3.3,8.7,3.3,12.1,0
-                  l20.4-20.4c8.2,4.9,17.1,8.5,26.4,10.9v28.9c0,4.7,3.8,8.5,8.5,8.5h34.1C158.3,285.9,162.1,282,162.1,277.3z M145.1,241.6v27.2H128
-                  v-27.2c0-4.1-2.9-7.7-7-8.4c-11.8-2.1-23-6.8-32.8-13.6c-3.4-2.3-8-1.9-10.9,1l-19.2,19.2L46,227.8l19.2-19.2
-                  c2.9-2.9,3.3-7.5,1-10.9c-6.8-9.9-11.4-21-13.6-32.8c-0.7-4.1-4.3-7-8.4-7H17.1v-17.1h27.2c4.1,0,7.7-2.9,8.4-7
-                  c2.1-11.8,6.8-23,13.6-32.8c2.3-3.4,1.9-8-1-10.9L46,70.9l12.1-12.1L77.3,78c2.9,2.9,7.5,3.3,10.9,1c9.8-6.8,21-11.4,32.8-13.6
-                  c4.1-0.7,7-4.3,7-8.4V29.9h17.1v27.2c0,4.1,2.9,7.6,7,8.4c11.8,2.1,23,6.8,32.8,13.6c3.4,2.3,8,1.9,10.9-1L215,58.8L227,70.9
-                  l-19.2,19.2c-2.9,2.9-3.3,7.5-1,10.9c6.8,9.8,11.4,21,13.6,32.8c0.7,4.1,4.3,7,8.4,7H256v17.1h-27.2c-4.1,0-7.6,2.9-8.4,7
-                  c-2.1,11.8-6.8,23-13.6,32.8c-2.3,3.4-1.9,8,1,10.9l19.2,19.2L215,239.8l-19.2-19.2c-2.9-2.9-7.5-3.3-10.9-1
-                  c-9.9,6.8-21,11.4-32.8,13.6C148,233.9,145.1,237.5,145.1,241.6z"></path>
-                  <path class="st0 PREGJqDl_1" d="M136.5,81.1c-37.7,0-68.3,30.6-68.3,68.3s30.6,68.3,68.3,68.3s68.3-30.6,68.3-68.3
-                  C204.8,111.7,174.2,81.1,136.5,81.1z M136.5,200.5c-28.3,0-51.2-22.9-51.2-51.2s22.9-51.2,51.2-51.2s51.2,22.9,51.2,51.2
-                  C187.7,177.6,164.8,200.5,136.5,200.5z"></path>
-                  <path class="st0 PREGJqDl_2" d="M136.5,123.7c-14.1,0-25.6,11.5-25.6,25.6c0,14.1,11.5,25.6,25.6,25.6s25.6-11.5,25.6-25.6
-                  C162.1,135.2,150.7,123.7,136.5,123.7z M136.5,157.9c-4.7,0-8.5-3.8-8.5-8.5c0-4.7,3.8-8.5,8.5-8.5s8.5,3.8,8.5,8.5
-                  C145.1,154,141.2,157.9,136.5,157.9z"></path>
-                  <path class="st0 PREGJqDl_3" d="M332.8,379.7h-22l-0.4-1l15.6-15.6c3.3-3.3,3.3-8.7,0-12.1l-24.1-24.1c-3.3-3.3-8.7-3.3-12.1,0l-15.6,15.6
-                  l-1-0.4V320c0-4.7-3.8-8.5-8.5-8.5h-34.1c-4.7,0-8.5,3.8-8.5,8.5v22.1l-1.1,0.4l-15.6-15.6c-3.3-3.3-8.7-3.3-12.1,0L169,351
-                  c-3.3,3.3-3.3,8.7,0,12.1l15.6,15.6l-0.4,1h-22.1c-4.7,0-8.5,3.8-8.5,8.5v34.1c0,4.7,3.8,8.5,8.5,8.5h22.1l0.4,1L169,447.6
-                  c-3.3,3.3-3.3,8.7,0,12.1l24.1,24.1c3.3,3.3,8.7,3.3,12.1,0l15.6-15.6l1.1,0.4v22c0,4.7,3.8,8.5,8.5,8.5h34.1c4.7,0,8.5-3.8,8.5-8.5
-                  v-22l1-0.4l15.6,15.6c3.3,3.3,8.7,3.3,12.1,0l24.1-24.1c3.3-3.3,3.3-8.7,0-12.1L310.3,432l0.4-1h22c4.7,0,8.5-3.8,8.5-8.5v-34.1
-                  C341.3,383.6,337.5,379.7,332.8,379.7z M324.3,413.9h-19.6c-3.8,0-7.1,2.5-8.2,6.1c-1,3.4-2.3,6.6-4,9.7c-1.8,3.3-1.2,7.4,1.5,10.1
-                  l13.8,13.8l-12.1,12.1l-13.8-13.8c-2.7-2.7-6.8-3.3-10.1-1.5c-3.1,1.7-6.3,3-9.7,4c-3.6,1.1-6.1,4.4-6.1,8.2v19.6h-17.1v-19.6
-                  c0-3.8-2.5-7.1-6.1-8.2c-3.4-1-6.6-2.3-9.7-4c-3.3-1.8-7.4-1.2-10.1,1.5l-13.8,13.8l-12.1-12.1l13.8-13.8c2.7-2.7,3.3-6.8,1.5-10.1
-                  c-1.7-3.1-3-6.3-4-9.7c-1.1-3.6-4.4-6.1-8.2-6.1h-19.6v-17.1h19.6c3.8,0,7.1-2.5,8.2-6.1c1-3.4,2.3-6.6,4-9.7
-                  c1.8-3.3,1.2-7.4-1.5-10.1l-13.8-13.8l12.1-12.1l13.8,13.8c2.7,2.7,6.8,3.3,10.1,1.5c3.1-1.7,6.3-3,9.7-4c3.6-1.1,6.1-4.4,6.1-8.2
-                  v-19.6H256v19.6c0,3.8,2.5,7.1,6.1,8.2c3.4,1,6.6,2.3,9.7,4c3.3,1.8,7.4,1.2,10.1-1.5l13.8-13.8l12.1,12.1L294,370.9
-                  c-2.7,2.7-3.3,6.8-1.5,10.1c1.7,3.1,3,6.4,4,9.7c1.1,3.6,4.4,6.1,8.2,6.1h19.6V413.9z"></path>
-                  <path class="st0 PREGJqDl_4" d="M247.5,371.2c-18.8,0-34.1,15.3-34.1,34.1s15.3,34.1,34.1,34.1s34.1-15.3,34.1-34.1S266.3,371.2,247.5,371.2z
-                  M247.5,422.4c-9.4,0-17.1-7.6-17.1-17.1c0-9.4,7.6-17.1,17.1-17.1c9.4,0,17.1,7.6,17.1,17.1C264.5,414.8,256.9,422.4,247.5,422.4z"></path>
-                  <path class="st0 PREGJqDl_5" d="M401.1,192c-18.9,0-34.1,15.3-34.1,34.1s15.3,34.1,34.1,34.1s34.1-15.3,34.1-34.1S419.9,192,401.1,192z
-                  M401.1,243.2c-9.4,0-17.1-7.6-17.1-17.1c0-9.4,7.6-17.1,17.1-17.1c9.4,0,17.1,7.6,17.1,17.1C418.1,235.6,410.5,243.2,401.1,243.2z"></path>
-                  <path class="st0 PREGJqDl_6" d="M503.5,200.5h-30.1c-0.9-2.5-1.9-5-3.1-7.4l21.2-21.3c3.3-3.3,3.3-8.7,0-12.1l-24.1-24.1
-                  c-3.3-3.3-8.7-3.3-12.1,0l-21.3,21.2c-2.4-1.2-4.9-2.2-7.5-3.1v-30.1c0-4.7-3.8-8.5-8.5-8.5H384c-4.7,0-8.5,3.8-8.5,8.5v30.1
-                  c-2.5,0.9-5,1.9-7.4,3.1l-21.3-21.2c-3.3-3.3-8.7-3.3-12.1,0l-24.1,24.1c-3.3,3.3-3.3,8.7,0,12.1l21.2,21.3
-                  c-1.2,2.4-2.2,4.9-3.1,7.4h-30.1c-4.7,0-8.5,3.8-8.5,8.5v34.1c0,4.7,3.8,8.5,8.5,8.5h30.1c0.9,2.5,1.9,5,3.1,7.5l-21.2,21.3
-                  c-3.3,3.3-3.3,8.7,0,12.1l24.1,24.1c3.3,3.3,8.7,3.3,12.1,0l21.3-21.2c2.4,1.2,4.9,2.2,7.4,3.1v30.1c0,4.7,3.8,8.5,8.5,8.5h34.1
-                  c4.7,0,8.5-3.8,8.5-8.5v-30.1c2.5-0.9,5-1.9,7.5-3.1l21.3,21.2c3.3,3.3,8.7,3.3,12.1,0l24.1-24.1c3.3-3.3,3.3-8.7,0-12.1l-21.2-21.3
-                  c1.2-2.4,2.2-4.9,3.1-7.5h30.1c4.7,0,8.5-3.8,8.5-8.5v-34.1C512,204.4,508.2,200.5,503.5,200.5z M494.9,234.7h-27.8
-                  c-3.9,0-7.3,2.6-8.3,6.4c-1.4,5.4-3.5,10.6-6.4,15.4c-2,3.4-1.4,7.6,1.3,10.4l19.7,19.7l-12.1,12.1l-19.7-19.7
-                  c-2.8-2.8-7-3.3-10.4-1.3c-4.8,2.8-10,5-15.4,6.4c-3.8,1-6.4,4.4-6.4,8.3V320h-17.1v-27.8c0-3.9-2.6-7.3-6.4-8.3
-                  c-5.4-1.4-10.6-3.5-15.4-6.4c-3.4-2-7.6-1.4-10.4,1.3l-19.7,19.7l-12.1-12.1l19.7-19.7c2.8-2.8,3.3-7,1.3-10.4
-                  c-2.8-4.8-5-10-6.4-15.4c-1-3.8-4.4-6.4-8.3-6.4h-27.8v-17.1H335c3.9,0,7.3-2.6,8.3-6.4c1.4-5.4,3.5-10.6,6.4-15.4
-                  c2-3.4,1.4-7.6-1.3-10.4l-19.7-19.7l12.1-12.1l19.7,19.7c2.8,2.8,7,3.3,10.4,1.3c4.8-2.8,10-5,15.4-6.4c3.8-1,6.4-4.4,6.4-8.3v-27.8
-                  h17.1v27.8c0,3.9,2.6,7.3,6.4,8.3c5.4,1.4,10.6,3.5,15.4,6.4c3.4,2,7.6,1.4,10.4-1.3l19.7-19.7l12.1,12.1l-19.7,19.7
-                  c-2.8,2.8-3.3,7-1.3,10.4c2.8,4.8,5,10,6.4,15.4c1,3.8,4.4,6.4,8.3,6.4h27.8V234.7z"></path>
-                  <style data-made-with="vivus-instant">
-                    .PREGJqDl_0{stroke-dasharray:2226 2228;stroke-dashoffset:2227;animation:PREGJqDl_draw_0 7200ms linear 0ms infinite,PREGJqDl_fade 7200ms linear 0ms infinite;}.PREGJqDl_1{stroke-dasharray:751 753;stroke-dashoffset:752;animation:PREGJqDl_draw_1 7200ms linear 0ms infinite,PREGJqDl_fade 7200ms linear 0ms infinite;}.PREGJqDl_2{stroke-dasharray:215 217;stroke-dashoffset:216;animation:PREGJqDl_draw_2 7200ms linear 0ms infinite,PREGJqDl_fade 7200ms linear 0ms infinite;}.PREGJqDl_3{stroke-dasharray:1558 1560;stroke-dashoffset:1559;animation:PREGJqDl_draw_3 7200ms linear 0ms infinite,PREGJqDl_fade 7200ms linear 0ms infinite;}.PREGJqDl_4{stroke-dasharray:322 324;stroke-dashoffset:323;animation:PREGJqDl_draw_4 7200ms linear 0ms infinite,PREGJqDl_fade 7200ms linear 0ms infinite;}.PREGJqDl_5{stroke-dasharray:322 324;stroke-dashoffset:323;animation:PREGJqDl_draw_5 7200ms linear 0ms infinite,PREGJqDl_fade 7200ms linear 0ms infinite;}.PREGJqDl_6{stroke-dasharray:1930 1932;stroke-dashoffset:1931;animation:PREGJqDl_draw_6 7200ms linear 0ms infinite,PREGJqDl_fade 7200ms linear 0ms infinite;}@keyframes PREGJqDl_draw{100%{stroke-dashoffset:0;}}@keyframes PREGJqDl_fade{0%{stroke-opacity:1;}94.44444444444444%{stroke-opacity:1;}100%{stroke-opacity:0;}}@keyframes PREGJqDl_draw_0{11.11111111111111%{stroke-dashoffset: 2227}52.77777777777778%{ stroke-dashoffset: 0;}100%{ stroke-dashoffset: 0;}}@keyframes PREGJqDl_draw_1{11.11111111111111%{stroke-dashoffset: 752}52.77777777777778%{ stroke-dashoffset: 0;}100%{ stroke-dashoffset: 0;}}@keyframes PREGJqDl_draw_2{11.11111111111111%{stroke-dashoffset: 216}52.77777777777778%{ stroke-dashoffset: 0;}100%{ stroke-dashoffset: 0;}}@keyframes PREGJqDl_draw_3{11.11111111111111%{stroke-dashoffset: 1559}52.77777777777778%{ stroke-dashoffset: 0;}100%{ stroke-dashoffset: 0;}}@keyframes PREGJqDl_draw_4{11.11111111111111%{stroke-dashoffset: 323}52.77777777777778%{ stroke-dashoffset: 0;}100%{ stroke-dashoffset: 0;}}@keyframes PREGJqDl_draw_5{11.11111111111111%{stroke-dashoffset: 323}52.77777777777778%{ stroke-dashoffset: 0;}100%{ stroke-dashoffset: 0;}}@keyframes PREGJqDl_draw_6{11.11111111111111%{stroke-dashoffset: 1931}52.77777777777778%{ stroke-dashoffset: 0;}100%{ stroke-dashoffset: 0;}}
-                  </style>
-                </svg>
+              <div style="width:40%; margin-right:40px;"><?xml version="1.0" encoding="utf-8"?>
+                 <!-- Generator: Adobe Illustrator 23.0.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+                 <svg class="industrie40-image" version="1.1" id="Ebene_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                      viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
+
+                                         <path class="st0" d="M162.1,277.3v-28.9c9.3-2.4,18.2-6,26.4-10.9l20.4,20.4c3.3,3.3,8.7,3.3,12.1,0l24.1-24.1
+                         c3.3-3.3,3.3-8.7,0-12.1l-20.4-20.4c4.9-8.2,8.5-17.1,10.9-26.4h28.9c4.7,0,8.5-3.8,8.5-8.5v-34.1c0-4.7-3.8-8.5-8.5-8.5h-28.9
+                         c-2.4-9.3-6-18.2-10.9-26.4l20.4-20.4c3.3-3.3,3.3-8.7,0-12.1L221,40.7c-3.3-3.3-8.7-3.3-12.1,0l-20.4,20.4
+                         c-8.2-4.9-17.1-8.5-26.4-10.9V21.3c0-4.7-3.8-8.5-8.5-8.5h-34.1c-4.7,0-8.5,3.8-8.5,8.5v28.9c-9.3,2.4-18.2,6-26.4,10.9L64.1,40.7
+                         c-3.3-3.3-8.7-3.3-12.1,0L27.9,64.9c-3.3,3.3-3.3,8.7,0,12.1l20.4,20.4c-4.9,8.2-8.5,17.1-10.9,26.4H8.5c-4.7,0-8.5,3.8-8.5,8.5
+                         v34.1c0,4.7,3.8,8.5,8.5,8.5h28.9c2.4,9.3,6,18.2,10.9,26.4l-20.4,20.4c-3.3,3.3-3.3,8.7,0,12.1l24.1,24.1c3.3,3.3,8.7,3.3,12.1,0
+                         l20.4-20.4c8.2,4.9,17.1,8.5,26.4,10.9v28.9c0,4.7,3.8,8.5,8.5,8.5h34.1C158.3,285.9,162.1,282,162.1,277.3z M145.1,241.6v27.2H128
+                         v-27.2c0-4.1-2.9-7.7-7-8.4c-11.8-2.1-23-6.8-32.8-13.6c-3.4-2.3-8-1.9-10.9,1l-19.2,19.2L46,227.8l19.2-19.2
+                         c2.9-2.9,3.3-7.5,1-10.9c-6.8-9.9-11.4-21-13.6-32.8c-0.7-4.1-4.3-7-8.4-7H17.1v-17.1h27.2c4.1,0,7.7-2.9,8.4-7
+                         c2.1-11.8,6.8-23,13.6-32.8c2.3-3.4,1.9-8-1-10.9L46,70.9l12.1-12.1L77.3,78c2.9,2.9,7.5,3.3,10.9,1c9.8-6.8,21-11.4,32.8-13.6
+                         c4.1-0.7,7-4.3,7-8.4V29.9h17.1v27.2c0,4.1,2.9,7.6,7,8.4c11.8,2.1,23,6.8,32.8,13.6c3.4,2.3,8,1.9,10.9-1L215,58.8L227,70.9
+                         l-19.2,19.2c-2.9,2.9-3.3,7.5-1,10.9c6.8,9.8,11.4,21,13.6,32.8c0.7,4.1,4.3,7,8.4,7H256v17.1h-27.2c-4.1,0-7.6,2.9-8.4,7
+                         c-2.1,11.8-6.8,23-13.6,32.8c-2.3,3.4-1.9,8,1,10.9l19.2,19.2L215,239.8l-19.2-19.2c-2.9-2.9-7.5-3.3-10.9-1
+                         c-9.9,6.8-21,11.4-32.8,13.6C148,233.9,145.1,237.5,145.1,241.6z"/>
+                                         <path class="st0" d="M136.5,81.1c-37.7,0-68.3,30.6-68.3,68.3s30.6,68.3,68.3,68.3s68.3-30.6,68.3-68.3
+                         C204.8,111.7,174.2,81.1,136.5,81.1z M136.5,200.5c-28.3,0-51.2-22.9-51.2-51.2s22.9-51.2,51.2-51.2s51.2,22.9,51.2,51.2
+                         C187.7,177.6,164.8,200.5,136.5,200.5z"/>
+                                         <path class="st0" d="M136.5,123.7c-14.1,0-25.6,11.5-25.6,25.6c0,14.1,11.5,25.6,25.6,25.6s25.6-11.5,25.6-25.6
+                         C162.1,135.2,150.7,123.7,136.5,123.7z M136.5,157.9c-4.7,0-8.5-3.8-8.5-8.5c0-4.7,3.8-8.5,8.5-8.5s8.5,3.8,8.5,8.5
+                         C145.1,154,141.2,157.9,136.5,157.9z"/>
+                                         <path class="st0" d="M332.8,379.7h-22l-0.4-1l15.6-15.6c3.3-3.3,3.3-8.7,0-12.1l-24.1-24.1c-3.3-3.3-8.7-3.3-12.1,0l-15.6,15.6
+                         l-1-0.4V320c0-4.7-3.8-8.5-8.5-8.5h-34.1c-4.7,0-8.5,3.8-8.5,8.5v22.1l-1.1,0.4l-15.6-15.6c-3.3-3.3-8.7-3.3-12.1,0L169,351
+                         c-3.3,3.3-3.3,8.7,0,12.1l15.6,15.6l-0.4,1h-22.1c-4.7,0-8.5,3.8-8.5,8.5v34.1c0,4.7,3.8,8.5,8.5,8.5h22.1l0.4,1L169,447.6
+                         c-3.3,3.3-3.3,8.7,0,12.1l24.1,24.1c3.3,3.3,8.7,3.3,12.1,0l15.6-15.6l1.1,0.4v22c0,4.7,3.8,8.5,8.5,8.5h34.1c4.7,0,8.5-3.8,8.5-8.5
+                         v-22l1-0.4l15.6,15.6c3.3,3.3,8.7,3.3,12.1,0l24.1-24.1c3.3-3.3,3.3-8.7,0-12.1L310.3,432l0.4-1h22c4.7,0,8.5-3.8,8.5-8.5v-34.1
+                         C341.3,383.6,337.5,379.7,332.8,379.7z M324.3,413.9h-19.6c-3.8,0-7.1,2.5-8.2,6.1c-1,3.4-2.3,6.6-4,9.7c-1.8,3.3-1.2,7.4,1.5,10.1
+                         l13.8,13.8l-12.1,12.1l-13.8-13.8c-2.7-2.7-6.8-3.3-10.1-1.5c-3.1,1.7-6.3,3-9.7,4c-3.6,1.1-6.1,4.4-6.1,8.2v19.6h-17.1v-19.6
+                         c0-3.8-2.5-7.1-6.1-8.2c-3.4-1-6.6-2.3-9.7-4c-3.3-1.8-7.4-1.2-10.1,1.5l-13.8,13.8l-12.1-12.1l13.8-13.8c2.7-2.7,3.3-6.8,1.5-10.1
+                         c-1.7-3.1-3-6.3-4-9.7c-1.1-3.6-4.4-6.1-8.2-6.1h-19.6v-17.1h19.6c3.8,0,7.1-2.5,8.2-6.1c1-3.4,2.3-6.6,4-9.7
+                         c1.8-3.3,1.2-7.4-1.5-10.1l-13.8-13.8l12.1-12.1l13.8,13.8c2.7,2.7,6.8,3.3,10.1,1.5c3.1-1.7,6.3-3,9.7-4c3.6-1.1,6.1-4.4,6.1-8.2
+                         v-19.6H256v19.6c0,3.8,2.5,7.1,6.1,8.2c3.4,1,6.6,2.3,9.7,4c3.3,1.8,7.4,1.2,10.1-1.5l13.8-13.8l12.1,12.1L294,370.9
+                         c-2.7,2.7-3.3,6.8-1.5,10.1c1.7,3.1,3,6.4,4,9.7c1.1,3.6,4.4,6.1,8.2,6.1h19.6V413.9z"/>
+                                         <path class="st0" d="M247.5,371.2c-18.8,0-34.1,15.3-34.1,34.1s15.3,34.1,34.1,34.1s34.1-15.3,34.1-34.1S266.3,371.2,247.5,371.2z
+                          M247.5,422.4c-9.4,0-17.1-7.6-17.1-17.1c0-9.4,7.6-17.1,17.1-17.1c9.4,0,17.1,7.6,17.1,17.1C264.5,414.8,256.9,422.4,247.5,422.4z"
+                                         />
+                                         <path class="st0" d="M401.1,192c-18.9,0-34.1,15.3-34.1,34.1s15.3,34.1,34.1,34.1s34.1-15.3,34.1-34.1S419.9,192,401.1,192z
+                          M401.1,243.2c-9.4,0-17.1-7.6-17.1-17.1c0-9.4,7.6-17.1,17.1-17.1c9.4,0,17.1,7.6,17.1,17.1C418.1,235.6,410.5,243.2,401.1,243.2z"
+                                         />
+                                         <path class="st0" d="M503.5,200.5h-30.1c-0.9-2.5-1.9-5-3.1-7.4l21.2-21.3c3.3-3.3,3.3-8.7,0-12.1l-24.1-24.1
+                         c-3.3-3.3-8.7-3.3-12.1,0l-21.3,21.2c-2.4-1.2-4.9-2.2-7.5-3.1v-30.1c0-4.7-3.8-8.5-8.5-8.5H384c-4.7,0-8.5,3.8-8.5,8.5v30.1
+                         c-2.5,0.9-5,1.9-7.4,3.1l-21.3-21.2c-3.3-3.3-8.7-3.3-12.1,0l-24.1,24.1c-3.3,3.3-3.3,8.7,0,12.1l21.2,21.3
+                         c-1.2,2.4-2.2,4.9-3.1,7.4h-30.1c-4.7,0-8.5,3.8-8.5,8.5v34.1c0,4.7,3.8,8.5,8.5,8.5h30.1c0.9,2.5,1.9,5,3.1,7.5l-21.2,21.3
+                         c-3.3,3.3-3.3,8.7,0,12.1l24.1,24.1c3.3,3.3,8.7,3.3,12.1,0l21.3-21.2c2.4,1.2,4.9,2.2,7.4,3.1v30.1c0,4.7,3.8,8.5,8.5,8.5h34.1
+                         c4.7,0,8.5-3.8,8.5-8.5v-30.1c2.5-0.9,5-1.9,7.5-3.1l21.3,21.2c3.3,3.3,8.7,3.3,12.1,0l24.1-24.1c3.3-3.3,3.3-8.7,0-12.1l-21.2-21.3
+                         c1.2-2.4,2.2-4.9,3.1-7.5h30.1c4.7,0,8.5-3.8,8.5-8.5v-34.1C512,204.4,508.2,200.5,503.5,200.5z M494.9,234.7h-27.8
+                         c-3.9,0-7.3,2.6-8.3,6.4c-1.4,5.4-3.5,10.6-6.4,15.4c-2,3.4-1.4,7.6,1.3,10.4l19.7,19.7l-12.1,12.1l-19.7-19.7
+                         c-2.8-2.8-7-3.3-10.4-1.3c-4.8,2.8-10,5-15.4,6.4c-3.8,1-6.4,4.4-6.4,8.3V320h-17.1v-27.8c0-3.9-2.6-7.3-6.4-8.3
+                         c-5.4-1.4-10.6-3.5-15.4-6.4c-3.4-2-7.6-1.4-10.4,1.3l-19.7,19.7l-12.1-12.1l19.7-19.7c2.8-2.8,3.3-7,1.3-10.4
+                         c-2.8-4.8-5-10-6.4-15.4c-1-3.8-4.4-6.4-8.3-6.4h-27.8v-17.1H335c3.9,0,7.3-2.6,8.3-6.4c1.4-5.4,3.5-10.6,6.4-15.4
+                         c2-3.4,1.4-7.6-1.3-10.4l-19.7-19.7l12.1-12.1l19.7,19.7c2.8,2.8,7,3.3,10.4,1.3c4.8-2.8,10-5,15.4-6.4c3.8-1,6.4-4.4,6.4-8.3v-27.8
+                         h17.1v27.8c0,3.9,2.6,7.3,6.4,8.3c5.4,1.4,10.6,3.5,15.4,6.4c3.4,2,7.6,1.4,10.4-1.3l19.7-19.7l12.1,12.1l-19.7,19.7
+                         c-2.8,2.8-3.3,7-1.3,10.4c2.8,4.8,5,10,6.4,15.4c1,3.8,4.4,6.4,8.3,6.4h27.8V234.7z"/>
+                     </svg>
+
               </div>
 
               <div>
@@ -2598,17 +2675,343 @@
                   <div style="margin-right:30px;"><span class="keyfact-numbers">28</span><span class="keyfact-percent">%</span></div>
                   <div><span class="keyfact-text"> der Unternehmen wollen bis 2022 Industrie 4.0 im Einsatz haben</span></div>
                 </div>
-                
+
               </div>
 
             </div>
           </div>
+
+           <div id="section-iot" style="display:none;">
+              <div class="cell">
+                 <h1><span class="sectionNumber">05</span> Fast jedes zweite Unternehmen nutzt das Internet der Dinge</h1>
+                 <p style=" margin-top: -10px;">Unter Smart Services wird die digitale Vernetzung von Geräten und Gegenständen verstanden.</p>
+              </div>
+              <div style="display:flex;">
+                 <div style="width:40%; margin-right:40px;"><?xml version="1.0" encoding="utf-8"?>
+                    <!-- Generator: Adobe Illustrator 23.0.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+                    <svg class="iot-image" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                         viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
+                             <path class="st0" d="M137.4,365.9c-11-7.3-25.5-6.9-36.1,1c-3.3,2.5-4,7.2-1.6,10.5c1.5,2,3.7,3,6,3c1.6,0,3.1-0.5,4.5-1.5
+                                 c5.6-4.1,13.2-4.3,18.9-0.5c3.5,2.3,8.1,1.3,10.4-2.1C141.8,372.9,140.8,368.2,137.4,365.9z"/>
+                             <path class="st0" d="M156.7,340.3c-22.2-15.7-51.9-15.5-74,0.5c-3.4,2.4-4.1,7.1-1.7,10.5c1.5,2,3.8,3.1,6.1,3.1
+                                 c1.5,0,3.1-0.5,4.4-1.4c16.8-12.2,39.5-12.3,56.5-0.4c3.4,2.4,8.1,1.6,10.5-1.8C160.9,347.3,160,342.7,156.7,340.3z"/>
+                             <path class="st0" d="M175,314c-33.2-23.4-77.6-23.2-110.6,0.4c-3.4,2.4-4.1,7.1-1.7,10.5c1.5,2,3.8,3.1,6.1,3.1
+                                 c1.5,0,3-0.5,4.4-1.4c27.8-19.9,65.3-20.1,93.3-0.4c3.4,2.4,8.1,1.6,10.4-1.8C179.2,321,178.4,316.3,175,314z"/>
+                             <path class="st0" d="M183.9,208.4H55.6c-13,0-23.5,10.6-23.5,23.5v256.5c0,13,10.6,23.5,23.5,23.5h128.3c13,0,23.5-10.6,23.5-23.5
+                                 V232C207.4,219,196.8,208.4,183.9,208.4z M192.4,488.5c0,4.7-3.8,8.5-8.5,8.5H55.6c-4.7,0-8.5-3.8-8.5-8.5V232
+                                 c0-4.7,3.8-8.5,8.5-8.5h128.3c4.7,0,8.5,3.8,8.5,8.5V488.5z"/>
+                             <path class="st0" d="M167.8,448.9H71.6c-4.1,0-7.5,3.4-7.5,7.5s3.4,7.5,7.5,7.5h96.2c4.1,0,7.5-3.4,7.5-7.5
+                                 C175.3,452.3,172,448.9,167.8,448.9z"/>
+                             <path class="st0" d="M127.7,473h-16c-4.1,0-7.5,3.4-7.5,7.5s3.4,7.5,7.5,7.5h16c4.1,0,7.5-3.4,7.5-7.5S131.9,473,127.7,473z"/>
+                             <path class="st0" d="M464.4,240.5h-0.5V31.5c0-17.4-14.2-31.5-31.5-31.5H127.7c-17.4,0-31.5,14.2-31.5,31.5v152.3
+                                 c0,4.1,3.4,7.5,7.5,7.5s7.5-3.4,7.5-7.5V31.5c0-9.1,7.4-16.5,16.5-16.5h304.6c9.1,0,16.5,7.4,16.5,16.5v208.9H232
+                                 c-4.1,0-7.5,3.4-7.5,7.5s3.4,7.5,7.5,7.5h24.6c0,0.2,0,0.3,0,0.5c0,4.1,3.4,7.5,7.5,7.5h32.1c4.1,0,7.5-3.4,7.5-7.5
+                                 c0-0.2,0-0.3,0-0.5h160.9c0.3,0,0.5,0.2,0.5,0.5v16c0,0.3-0.2,0.5-0.5,0.5H232c-4.1,0-7.5,3.4-7.5,7.5s3.4,7.5,7.5,7.5h232.5
+                                 c8.6,0,15.5-7,15.5-15.5v-16C479.9,247.4,473,240.5,464.4,240.5z"/>
+                             <path class="st0" d="M424.3,32.1H135.8c-4.1,0-7.5,3.4-7.5,7.5v144.3c0,4.1,3.4,7.5,7.5,7.5s7.5-3.4,7.5-7.5V47.1h273.6v161.4H232
+                                 c-4.1,0-7.5,3.4-7.5,7.5s3.4,7.5,7.5,7.5h192.4c4.1,0,7.5-3.4,7.5-7.5V39.6C431.8,35.4,428.5,32.1,424.3,32.1z"/>
+                     </svg>
+
+                 </div>
+
+                 <div>
+
+                    <div style="">
+                       <p class="keyfact-headline">Finanz- und Versicherungsdienstleister</p>
+                    </div>
+                    <div style="display: flex;">
+                       <div style="margin-right:30px;"><span class="keyfact-numbers">73</span><span class="keyfact-percent">%</span></div>
+                       <div><span class="keyfact-text"> und somit aktuell höchste Nutzungsrate für das Internet der Dinge weisen die Finanz- und Versicherungsdienstleister auf.</span></div>
+                    </div>
+                    <div style="">
+                       <p class="keyfact-headline">Die Unternehmensgröße und das Internet der Dinge</p>
+                    </div>
+                    <div style="display: flex;">
+                       <div style="margin-right:30px;"><span class="keyfact-numbers">48</span><span class="keyfact-percent">%</span></div>
+                       <div><span class="keyfact-text"> der Unternehmen nutzen das Internet der Dinge, die Unternehmensgröße wirkt sich nicht auf den Einsatz des Internet der Dinge aus.</span></div>
+                    </div>
+
+                 </div>
+
+              </div>
+           </div>
+
+           <div id="section-smartServices" style="display:none;">
+              <div class="cell">
+                 <h1><span class="sectionNumber">06</span> Knapp ein Drittel der Unternehmen setzen auf Smart Services</h1>
+                 <p style=" margin-top: -10px;">Unter dem Intenet der Dinge wird die Digitalisierung von Dienstleistungen aller Art verstanden.</p>
+              </div>
+              <div style="display:flex;">
+                 <div style="width:40%; margin-right:40px;"><?xml version="1.0" encoding="utf-8"?>
+                    <!-- Generator: Adobe Illustrator 23.0.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+                    <svg class="smartServices-image" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                         viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
+                       <path class="st0" d="M49.5,165.2h33v16.5h-33V165.2z"/>
+                       <path class="st0" d="M487.2,132.1c13.7,0,24.8-11.1,24.8-24.8V24.8C512,11.1,500.9,0,487.2,0H371.6c-13.7,0-24.8,11.1-24.8,24.8
+	                    v82.6c0,13.7,11.1,24.8,24.8,24.8h24.8v16.5h-16.5v16.5h41.3v82.6h-34.1c-6.6-6.4-14.7-11.4-23.8-14.1c0-0.8,0.1-1.6,0.1-2.5
+                        c0-36.4-29.6-66.1-66.1-66.1c-22.6,0-43.6,11.8-55.6,30.6c-8.5-3.8-17.6-5.8-26.9-5.8c-27.4,0-52.1,17.3-61.7,42.6
+                        c-6.3,1.3-12.1,3.8-17.4,6.9H74.3v-24.8h33c13.7,0,24.8-11.1,24.8-24.8v-165C132.1,11.1,121,0,107.4,0H24.8C11.1,0,0,11.1,0,24.8
+                        V190c0,13.7,11.1,24.8,24.8,24.8h33V256H118c-3.5,5-6.2,10.5-8,16.5H74.3v90.8h-33c-13.7,0-24.8,11.1-24.8,24.8v74.3H0v24.8
+                        C0,500.9,11.1,512,24.8,512h132.1c13.7,0,24.8-11.1,24.8-24.8v-24.8h-16.5v-74.3c0-13.7-11.1-24.8-24.8-24.8H90.8V289h16.5
+                        c0,31.9,25.9,57.8,57.8,57.8h181.7c29.1,0,53.1-21.6,57.1-49.5h33.7v66.1h-57.8V512H512V363.4h-57.8v-82.6H404
+                        c-0.9-5.8-2.6-11.3-5.1-16.5h38.9v-99.1H479v-16.5h-16.5v-16.5L487.2,132.1L487.2,132.1z M115.6,132.1H16.5V49.5h99.1V132.1z
+                         M24.8,16.5h82.6c4.6,0,8.3,3.7,8.3,8.3V33H16.5v-8.3C16.5,20.2,20.2,16.5,24.8,16.5z M16.5,189.9v-41.3h99.1v41.3
+                        c0,4.6-3.7,8.3-8.3,8.3H24.8C20.2,198.2,16.5,194.5,16.5,189.9z M165.2,487.2c0,4.6-3.7,8.3-8.3,8.3H24.8c-4.6,0-8.3-3.7-8.3-8.3
+                        V479h148.6L165.2,487.2L165.2,487.2z M148.6,388.1v74.3H33v-74.3c0-4.6,3.7-8.3,8.3-8.3h99.1C144.9,379.9,148.6,383.6,148.6,388.1z
+                         M396.4,495.5V446h99.1v49.5H396.4z M495.5,429.4h-99.1v-49.5h99.1V429.4z M346.8,330.3H165.2c-22.8,0-41.3-18.5-41.3-41.3
+                        c0-20.9,15.6-38.5,36.3-41l5.4-0.7l1.5-5.2c6.1-21,25.7-35.7,47.6-35.7c9.1,0,18.1,2.6,25.9,7.4l7.9,4.9l3.9-8.4
+                        c8.1-17.4,25.7-28.6,44.9-28.6c27.3,0,49.5,22.2,49.5,49.5c0,2.3-0.2,4.7-0.7,7.6l-1.2,8.2l8.2,1.2c20,3,35,20.6,35,40.8
+                        C388.1,311.8,369.6,330.3,346.8,330.3z M371.6,16.5h115.6c4.6,0,8.3,3.7,8.3,8.3v57.8H363.4V24.8C363.4,20.2,367.1,16.5,371.6,16.5z
+                        M363.4,107.4v-8.3h132.1v8.3c0,4.6-3.7,8.3-8.3,8.3H371.6C367.1,115.6,363.4,111.9,363.4,107.4z M445.9,148.6h-33v-16.5h33V148.6z"
+                       />
+                       <path class="st0" d="M412.9,396.4h16.5v16.5h-16.5V396.4z"/>
+                       <path class="st0" d="M462.5,462.5H479V479h-16.5V462.5z"/>
+                       <path class="st0" d="M445.9,396.4h33v16.5h-33V396.4z"/>
+                       <path class="st0" d="M412.9,462.5h33V479h-33V462.5z"/>
+                     </svg>
+
+                 </div>
+
+                 <div>
+
+                    <div style="">
+                       <p class="keyfact-headline">Hoch digitalisierte Unternehmen</p>
+                    </div>
+                    <div style="display: flex;">
+                       <div style="margin-right:30px;"><span class="keyfact-numbers">70</span><span class="keyfact-percent">%</span></div>
+                       <div><span class="keyfact-text"> der hoch digitalisierten Unternehmen werden in Zukunft Smart Services nutzen.</span></div>
+                    </div>
+                    <div style="">
+                       <p class="keyfact-headline">Dienstleistungsbranche</p>
+                    </div>
+                    <div style="display: flex;">
+                       <div style="margin-right:30px;"><span class="keyfact-numbers">50</span><span class="keyfact-percent">%</span></div>
+                       <div><span class="keyfact-text"> der wissensintensiven Dienstleister sehen Smart Services als nicht relevant an</span></div>
+                    </div>
+
+                 </div>
+
+              </div>
+           </div>
+
+           <div id="section-bigData" style="display:none;">
+              <div class="cell">
+                 <h1><span class="sectionNumber">07</span> Jedes fünfte Unternehmen ist im Bereich Big Data aktiv</h1>
+                 <p style=" margin-top: -10px;">Unter Big Data wird die systematische Auswertung von großen Datensätzen zur strategischen Unterstützung des Geschäftsbetriebs verstanden.</p>
+              </div>
+              <div style="display:flex;">
+                 <div style="width:40%; margin-right:40px;"><?xml version="1.0" encoding="utf-8"?>
+                    <!-- Generator: Adobe Illustrator 23.0.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+                    <svg class="bigData-image" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                         viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
+                       <path class="st0" d="M437,75C388.7,26.6,324.4,0,256,0S123.3,26.6,75,75C26.6,123.3,0,187.6,0,256s26.6,132.7,75,181
+                           c48.4,48.4,112.6,75,181,75s132.7-26.6,181-75c48.4-48.4,75-112.6,75-181S485.4,123.3,437,75z M495.5,247.8h-49.1
+                           c-2-46.4-20.6-88.6-50.1-120.7L431,92.4C469.4,133.5,493.5,187.9,495.5,247.8z M256,16.3c63.1,0,120.6,24.6,163.5,64.6l-34.7,34.7
+                           c-34-31.2-79.2-50.3-128.8-50.3s-94.9,19.1-128.8,50.3L92.5,80.9C135.4,40.9,192.9,16.3,256,16.3z M80.9,92.5l34.7,34.7
+                           c-29.5,32.1-48.1,74.3-50.1,120.7h-49C18.5,187.9,42.6,133.5,80.9,92.5z M144.4,389.7c-3.5-2.9-8.6-2.4-11.5,1
+                           c-2.9,3.5-2.4,8.6,1,11.5c32.1,26.9,72.3,42.4,114,44.2v49C122.2,491.3,20.7,389.8,16.5,264.2h49c1.8,41.7,17.3,81.8,44.2,114
+                           c2.9,3.5,8,3.9,11.5,1s3.9-8,1-11.5c-26.1-31.3-40.5-71-40.5-111.7c0-96.1,78.2-174.3,174.3-174.3S430.3,159.9,430.3,256
+                           S352.1,430.3,256,430.3C215.3,430.3,175.6,415.9,144.4,389.7z M264.2,495.5v-49.1c72.9-3.1,135.3-47.3,164.6-110l45.3,18.8
+                           C437.4,435.6,357.5,492.4,264.2,495.5z M480.4,340.1l-45.3-18.8c6.6-18,10.5-37.2,11.4-57.2h49.1
+                           C494.6,290.8,489.3,316.3,480.4,340.1z"/>
+
+                       <path class="st0" d="M256,108.9c-81.1,0-147.1,66-147.1,147.1s66,147.1,147.1,147.1s147.1-66,147.1-147.1S337.1,108.9,256,108.9z
+                            M386.5,247.8h-76.1c-0.4-21.7-2.5-42.6-6-61.3c15.5-5.4,30.1-13.4,43.1-23.8C369.9,184.7,384.4,214.6,386.5,247.8z M334.9,151.8
+                           c-10.4,7.9-21.9,14.1-34,18.6c-1.3-5.3-2.8-10.4-4.4-15.2c-3.6-10.8-7.7-19.8-12.2-26.9C302.9,132.5,320.1,140.6,334.9,151.8z
+                            M218,247.8c0.4-20.2,2.3-39.5,5.4-56.8c10.6,2.4,21.6,3.7,32.6,3.7s22-1.3,32.6-3.7c3.2,17.3,5,36.6,5.4,56.8H218z M294,264.2
+                           c-0.4,20.2-2.3,39.5-5.4,56.8c-10.6-2.4-21.6-3.7-32.6-3.7s-22,1.3-32.6,3.7c-3.2-17.3-5-36.6-5.4-56.8H294z M256,125.3
+                           c6.4,0,16.3,9.2,25,35.1c1.5,4.6,2.9,9.5,4.2,14.7c-9.5,2.2-19.3,3.3-29.2,3.3s-19.7-1.1-29.2-3.3c1.3-5.1,2.7-10,4.2-14.7
+                           C239.7,134.5,249.6,125.3,256,125.3z M227.8,128.4c-4.5,7.1-8.6,16.1-12.2,26.9c-1.6,4.8-3.1,9.9-4.4,15.2
+                           c-12.1-4.4-23.6-10.7-34-18.6C191.9,140.6,209.1,132.5,227.8,128.4z M164.5,162.7c13,10.4,27.6,18.4,43.1,23.8
+                           c-3.5,18.7-5.6,39.6-6,61.3h-76.1C127.6,214.6,142.1,184.7,164.5,162.7z M125.5,264.2h76.1c0.4,21.7,2.5,42.6,6,61.3
+                           c-15.5,5.4-30.1,13.4-43.1,23.8C142.1,327.3,127.6,297.4,125.5,264.2z M177.1,360.2c10.4-7.9,21.9-14.1,34-18.6
+                           c1.3,5.3,2.8,10.4,4.4,15.2c3.6,10.8,7.7,19.8,12.2,26.9C209.1,379.5,191.9,371.4,177.1,360.2z M256,386.7
+                           c-6.4,0-16.3-9.2-25-35.1c-1.5-4.6-2.9-9.5-4.2-14.7c9.5-2.2,19.3-3.3,29.2-3.3s19.7,1.1,29.2,3.3c-1.3,5.1-2.7,10-4.2,14.7
+                           C272.3,377.5,262.4,386.7,256,386.7z M284.2,383.6c4.5-7.1,8.6-16.1,12.2-26.9c1.6-4.8,3.1-9.9,4.4-15.2
+                           c12.1,4.4,23.6,10.7,34,18.6C320.1,371.4,302.9,379.5,284.2,383.6z M347.5,349.3c-13-10.4-27.6-18.4-43.1-23.8
+                           c3.5-18.7,5.6-39.6,6-61.3h76.1C384.4,297.4,369.9,327.3,347.5,349.3z"/>
+                    </svg>
+
+                 </div>
+
+                 <div>
+
+                    <div style="">
+                       <p class="keyfact-headline">Hoch digitalisierte Unternehmen</p>
+                    </div>
+                    <div style="display: flex;">
+                       <div style="margin-right:30px;"><span class="keyfact-numbers">55</span><span class="keyfact-percent">%</span></div>
+                       <div><span class="keyfact-text"> der Kleinstunternehmen sehen Big Data als nicht relevant an.</span></div>
+                    </div>
+                    <div style="">
+                       <p class="keyfact-headline">Großunternehmen</p>
+                    </div>
+                    <div style="display: flex;">
+                       <div style="margin-right:30px;"><span class="keyfact-numbers">48</span><span class="keyfact-percent">%</span></div>
+                       <div><span class="keyfact-text"> der Großunternehmen haben Big Data Anwendungen im Einsatz.</span></div>
+                    </div>
+
+                 </div>
+
+              </div>
+           </div>
+
+           <div id="section-robotikUndSensorik" style="display:none;">
+              <div class="cell">
+                 <h1><span class="sectionNumber">08</span> Robotik aktuell nur wenig im Einsatz</h1>
+                 <p style=" margin-top: -10px;">Roboter- & Sensortechnik wird auch als die automatische Prozesssteuerung verstanden.</p>
+              </div>
+              <div style="display:flex;">
+                 <div style="width:40%; margin-right:40px;"><?xml version="1.0" encoding="utf-8"?>
+                    <!-- Generator: Adobe Illustrator 23.0.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+                    <svg class="robotikUndSensorik-image" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                         viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
+                       <path class="st0" d="M286.8,354.8c-1.6-1.4-3.7-2.2-5.8-2.2h-26.1l32-32.8c3.1-3.7,2.6-9.2-1.1-12.2c-3.3-2.7-8.1-2.7-11.3,0.2
+	                    l-46.3,47.6c-3.4,3.4-3.3,8.9,0.1,12.3c1.6,1.6,3.8,2.5,6.1,2.5h26.8l-32.9,36.7c-3.2,3.6-2.9,9,0.6,12.2l0,0
+	                    c3.6,3.2,9,2.9,12.2-0.6l46.3-51.3C290.6,363.5,290.3,358,286.8,354.8z"/>
+                       <path class="st0" d="M449.3,278.8L449.3,278.8c-0.2-18.6-15.4-33.6-34-33.4c-15.6,0.1-29,10.9-32.5,26.1l-23.2,4.5H152.5l-23.2-4.5
+                        c-4-18.2-21.9-29.7-40.1-25.7s-29.7,21.9-25.7,40.1c2.7,12.4,12.1,22.2,24.3,25.4v64.9c-14.7,3.9-24.9,17.2-25,32.4V424
+                        c0,4.8,3.9,8.7,8.7,8.7s8.7-3.9,8.7-8.7v-15.5c0-9,7.3-16.3,16.3-16.3s16.3,7.3,16.3,16.3V424c0,4.8,3.9,8.7,8.7,8.7
+                        s8.7-3.9,8.7-8.7v-15.5c-0.1-15.2-10.3-28.5-25-32.4v-64.9c11-3,19.8-11.4,23.3-22.2l14.5,2.9v107.2c0,15.7,3.3,31.3,9.7,45.6v0.8
+                        c25.6,56.9,92.5,82.2,149.4,56.5c25.1-11.3,45.2-31.4,56.5-56.5l0.4-1c6.5-14.3,9.9-29.8,10-45.4V291.9l14.5-2.9
+                        c3.5,10.9,12.2,19.3,23.3,22.2v64.9c-14.7,3.9-24.9,17.2-25,32.4V424c0,4.8,3.9,8.7,8.7,8.7s8.7-3.9,8.7-8.7v-15.5
+                        c0-9,7.3-16.3,16.3-16.3c9,0,16.3,7.3,16.3,16.3V424c0,4.8,3.9,8.7,8.7,8.7c4.8,0,8.7-3.9,8.7-8.7v-15.5
+                        c-0.1-15.2-10.3-28.5-25-32.4v-64.9C438.9,307.4,449.3,294.1,449.3,278.8z M96.5,295.2c-9,0-16.3-7.3-16.3-16.3s7.3-16.3,16.3-16.3
+                        s16.3,7.3,16.3,16.3C112.8,287.9,105.5,295.2,96.5,295.2z M256,494.7c-32.7,0-63.2-16.8-80.7-44.4h161.4
+                        C319.2,478,288.8,494.7,256,494.7z M351.6,399.2c0,11.6-2.2,23.1-6.3,33.9H166.7c-4.2-10.8-6.3-22.3-6.3-33.9V293.4h191.3V399.2z
+                        M415.7,295.2C415.7,295.2,415.7,295.2,415.7,295.2l-0.3-0.3c-9,0-16.3-7.3-16.3-16.3s7.3-16.3,16.3-16.3c9,0,16.3,7.3,16.3,16.3
+                        C431.9,287.6,424.7,295,415.7,295.2z"/>
+                       <path class="st0" d="M305.7,207.3h-99.4c-4.8,0-8.7,3.9-8.7,8.7c0,4.8,3.9,8.7,8.7,8.7h99.4c4.8,0,8.7-3.9,8.7-8.7
+	                    C314.4,211.2,310.5,207.3,305.7,207.3z"/>
+                       <path class="st0" d="M411.7,154.2c-3.7-20.6-20.4-36.5-41.1-39.3c-5.7-21.2-22.2-39.3-55.4-39.3h-50.4V56.5
+                        c15.2-4.8,23.7-21,18.9-36.3c-4.8-15.2-21-23.7-36.3-18.9c-15.2,4.8-23.7,21-18.9,36.3c2.8,9,9.9,16.1,18.9,18.9v18.7h-50.3
+                        c-23.5,0-48.1,10.8-55.6,39.3c-26.5,3.6-45,28-41.4,54.5c2.8,20.8,18.7,37.3,39.4,41l-0.1,0.4c2.6,38.1,30.9,52.1,57.6,52.1h118.2
+                        c39.7,0,55.6-26.1,57.6-52.1C399,205.7,416.5,180.5,411.7,154.2z M139.1,193.1c-16.4-4.7-25.9-21.9-21.1-38.3
+                        c2.9-10.2,10.9-18.2,21.1-21.1V193.1z M244.5,29.4c0-6.4,5.2-11.6,11.6-11.6s11.6,5.2,11.6,11.6S262.4,41,256,41
+                        C249.7,41,244.5,35.8,244.5,29.4z M355.6,204.2c0,15.1-5.3,40.5-40.5,40.5H197.1c-15.1,0-40.5-5.3-40.5-40.5l-0.1-70.5
+                        c0-35.3,25.4-40.5,40.5-40.5h118.2c35.3,0,40.5,25.4,40.5,40.5V204.2z M372.6,192.5v-59.4c13.2,3.8,22.4,15.9,22.4,29.7
+                        C395,176.6,385.9,188.7,372.6,192.5z"/>
+                       <path class="st0" d="M305.7,114.2c-19.2,0-34.8,15.6-34.8,34.8s15.6,34.8,34.8,34.8c19.2,0,34.8-15.6,34.8-34.8
+	                    S324.9,114.2,305.7,114.2z M305.7,166.3c-9.6,0-17.4-7.8-17.4-17.4c0-9.6,7.8-17.3,17.4-17.3v-0.1c9.6,0,17.4,7.8,17.4,17.4
+	                    S315.3,166.3,305.7,166.3z"/>
+                       <path class="st0" d="M206.4,114.2c-19.2,0-34.8,15.6-34.8,34.8s15.6,34.8,34.8,34.8s34.8-15.6,34.8-34.8S225.5,114.2,206.4,114.2z
+	                    M206.4,166.3c-9.6,0-17.4-7.8-17.4-17.4c0-9.6,7.8-17.3,17.4-17.3v-0.1c9.6,0,17.4,7.8,17.4,17.4S216,166.3,206.4,166.3z"/>
+                    </svg>
+
+                 </div>
+
+                 <div>
+
+                    <div style="">
+                       <p class="keyfact-headline">Großunternehmen</p>
+                    </div>
+                    <div style="display: flex;">
+                       <div style="margin-right:30px;"><span class="keyfact-numbers">40</span><span class="keyfact-percent">%</span></div>
+                       <div><span class="keyfact-text"> der Großunternehmen haben Robotik und Sensorik bereits im Einsatz.</span></div>
+                    </div>
+                    <div style="">
+                       <p class="keyfact-headline">Verkehr- und Logistikbranche</p>
+                    </div>
+                    <div style="display: flex;">
+                       <div style="margin-right:30px;"><span class="keyfact-numbers">1</span><span class="keyfact-percent">%</span></div>
+                       <div><span class="keyfact-text"> der Verkehr- und Logistikunternehmen setzt aktuell Roboter- und Sensortechnologie ein.</span></div>
+                    </div>
+
+                 </div>
+
+              </div>
+           </div>
+
+           <div id="section-ki" style="display:none;">
+              <div class="cell">
+                 <h1><span class="sectionNumber">09</span> Große Unternehmen planen verstärkt den Einsatz von Künstlicher Intelligenz für die Zukunft</h1>
+                 <p style=" margin-top: -10px;">Unter Künstlicher Intelligenz werden selbstlernende Computersysteme, die menschliche Intelligenz und Verhaltensweisen nachbilden verstanden.</p>
+              </div>
+              <div style="display:flex;">
+                 <div style="width:40%; margin-right:40px;"><?xml version="1.0" encoding="utf-8"?>
+                    <!-- Generator: Adobe Illustrator 23.0.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+                    <svg class="ki-image" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                         viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
+                       <path class="st0" d="M469.8,247.5c13.3-72.4-8.4-171.9-87.7-219.3C332.1,0.1,273-7.4,217.5,7.5C140.7,28,84.2,83.1,66.4,155
+                            c-4,14.6-5.6,29.7-5,44.7c0.9,9.4,2.6,18.6,5.2,27.6c3.5,11.5,5.2,23.5,5.1,35.5c-0.4,14.3-10.2,29.1-18.9,42.2
+                            c-9.5,14.3-17.7,26.6-12.9,38c4.5,7.7,12.4,12.8,21.3,13.7c0.5,0.1,1,0.1,1.5,0.2c2.4-0.3,4.8,0.5,6.5,2.1c1.7,1.7,2.6,4,2.5,6.4
+                            c0,17.7,0.4,26.9,7.8,31.1c-0.6,1.3-1.1,2.8-1.3,4.2c-0.7,5,1.1,10,4.8,13.4c3.7,3.6,8.4,6,13.5,6.9c0.4,0.1,0.7,0.1,1,0.2
+                            c0.2,1.3,0.3,2.6,0.3,3.8c-0.1,3.2-0.3,6.3-0.7,9.5c-1.4,13.6-3.4,32.3,23.9,41.3c5.5,1.5,11.2,2.2,16.8,2
+                            c25.9-1.1,51.4-6,75.8-14.5c7.1,12.3,11.3,26,12.5,40.2c0,2.3,0.9,4.4,2.5,6c1.6,1.6,3.8,2.5,6,2.5H448c3.6,0,6.9-2.4,8-5.9
+                            c1.1-3.5-0.1-7.4-3-9.6c-8.8-6.7-38.1-77.3-39-102.7c2.6-5.8,6-12.4,10.1-20C446.3,334.6,461.8,291.9,469.8,247.5z M396.8,393
+                            c0.2,20.4,18.6,74.3,34.4,102H242.5c-2.1-13.1-6.4-25.7-12.5-37.4c24.7-9.7,46.5-22.1,56.9-35.8c2.8-3.7,2.1-9.1-1.6-11.9
+                            c-3.7-2.9-9.1-2.1-11.9,1.6c-24.1,31.6-124.6,55.6-147,48.2c-14.2-4.6-13.6-10.1-12.3-23.3c0.5-3.7,0.7-7.5,0.8-11.3
+                            c0-14.4-5.8-18.7-14.5-20.7c-1.6-0.2-3.2-0.8-4.6-1.8c1.7-1.6,3.6-2.9,5.6-4c3.6-1.7,5.4-5.7,4.5-9.6c-0.9-3.9-4.3-6.6-8.3-6.6
+                            c-3.1,0-6.5,0-8.3-0.2c-0.5-5.6-0.7-11.2-0.5-16.8c0.2-6.7-2.4-13.2-7.1-18.1c-4.7-4.8-11.1-7.5-17.9-7.5c-6.1-1.3-8-3-8.2-3.3
+                            c-1.2-3,7-15.3,11.4-22c9.5-14.3,21.3-32,21.7-51.2c0.2-10.7-0.9-21.3-3.5-31.6c9.3-8.2,20.3-14.2,32.2-17.7
+                            c4.2-0.7,8.6-0.4,12.7,0.9c4.5,1.3,9.2-1.4,10.5-6c1.3-4.5-1.4-9.2-6-10.5c-6.7-2.1-13.8-2.5-20.7-1.1
+                            c-12.1,3.1-23.3,8.7-33.1,16.4c-1.2-5-2-10-2.4-15.1c-0.6-13.3,0.9-26.6,4.5-39.4C99.5,92.4,150.1,43.1,221.9,23.9
+                            c51-13.7,105.3-6.9,151.4,18.9c72.3,43.2,92,134.8,79.7,201.6c-7.7,42.6-22.6,83.7-44,121.3c-4.7,8.8-8.7,16.3-11.7,23.3
+                            C396.9,390.3,396.7,391.6,396.8,393z"/>
+
+                        <path class="st1" d="M439.3,185.4c-1-11-9.1-20.1-19.9-22.5l-12.8-25.6c9-9.2,9.8-23.6,1.8-33.6c-8-10.1-22.2-12.7-33.2-6
+                            L361,85.8c1.1-2.8,1.6-5.8,1.7-8.9c0-10.5-6.3-19.9-16-23.8c-9.7-3.9-20.8-1.5-28,6.1l-25.3-6.3c-3-11-13-18.6-24.4-18.7
+                            s-21.4,7.4-24.6,18.4l-33.8,6.8c-8.8-9.5-23.4-10.9-33.8-3.2c-10.4,7.7-13.4,22-6.9,33.2l-16.6,22.1c-11.9,2.1-20.6,12.3-21,24.4
+                            s7.8,22.7,19.5,25.5l13.7,33.8c-7.5,7.4-9.7,18.6-5.6,28.3c4.1,9.7,13.8,15.8,24.3,15.5c10.5-0.3,19.8-7.1,23.3-17h45.8
+                            c3.8,11.8,15.8,18.9,27.9,16.7l28.3,43.1c-7.3,8.1-8.6,19.8-3.4,29.3c5.2,9.5,15.9,14.7,26.6,12.9s19.1-10.1,21-20.8l21.1-16.9
+                            c4,2.5,8.7,3.9,13.4,3.9c13.2,0,24.3-10.1,25.5-23.2c1.2-13.2-7.8-25.1-20.8-27.5l-16.3-22.6c1-1.8,1.8-3.8,2.3-5.9l15.8-6.3
+                            c7.3,8.3,19.1,11,29.3,6.6C434.2,206.9,440.4,196.4,439.3,185.4z M388.3,256.1c4.7,0,8.5,3.8,8.5,8.5s-3.8,8.5-8.5,8.5
+                            c-4.7,0-8.5-3.8-8.5-8.5C379.8,259.9,383.6,256.1,388.3,256.1z M379.9,117.9c0.8-4,4.3-6.8,8.4-6.8c4.7,0,8.5,3.8,8.5,8.5
+                            s-3.8,8.5-8.5,8.5c-1.1,0-2.1-0.2-3.1-0.6l-0.1,0c-0.1,0-0.2,0-0.2,0C381.2,125.8,379.1,121.8,379.9,117.9z M371.4,138.7
+                            l-15.8,39.4L328,156c3.7-3.2,6.5-7.4,7.9-12.1l33.8-6.8C370.3,137.7,370.9,138.2,371.4,138.7z M362.4,207.2
+                            c-1.1,4.1-5.2,6.7-9.4,6.1c-4.2-0.6-7.4-4.2-7.4-8.5c0-4.7,3.8-8.5,8.5-8.5c1.1,0,2.1,0.2,3.1,0.6l0.1,0c0.1,0,0.2,0,0.2,0
+                            C361.5,198.8,363.5,203.1,362.4,207.2z M337.1,68.4c4.7,0,8.5,3.8,8.5,8.5s-3.8,8.5-8.5,8.5c-4.7,0-8.5-3.8-8.5-8.5
+                            C328.6,72.2,332.4,68.4,337.1,68.4z M292.2,70.2l19.5,4.9c0,0.6-0.2,1.2-0.2,1.8c0,14.1,11.5,25.6,25.6,25.6
+                            c4.6,0,9.1-1.3,13-3.7l14.3,11.9c-1.1,2.8-1.6,5.8-1.7,8.9c0,0.5,0.1,1,0.2,1.5l-27.8,5.6c-3.5-8.1-10.9-13.9-19.6-15.2
+                            l-31.2-31.2C287.7,77.6,290.4,74.2,292.2,70.2z M320,136.6c0,4.7-3.8,8.5-8.5,8.5c-4.7,0-8.5-3.8-8.5-8.5c0-4.7,3.8-8.5,8.5-8.5
+                            S320,131.9,320,136.6z M268.9,51.3c4.7,0,8.5,3.8,8.5,8.5s-3.8,8.5-8.5,8.5s-8.5-3.8-8.5-8.5C260.3,55.2,264.1,51.3,268.9,51.3z
+                             M270.5,90.7l25.6,25.6c-4,3-7,7.1-8.7,11.8h-20.2c-2-5.6-6-10.4-11.1-13.4L270.5,90.7z M217.5,75.4l27.8-5.6
+                            c2.2,5,5.9,9.2,10.7,12l-15.5,25.8l-26.8-17.2c2.6-4,4-8.7,4-13.5C217.7,76.4,217.5,75.9,217.5,75.4z M251.8,136.6
+                            c0,4.7-3.8,8.5-8.5,8.5c-4.7,0-8.5-3.8-8.5-8.5c0-4.7,3.8-8.5,8.5-8.5S251.8,131.9,251.8,136.6z M192.1,68.4
+                            c4.7,0,8.5,3.8,8.5,8.5s-3.8,8.5-8.5,8.5s-8.5-3.8-8.5-8.5C183.5,72.2,187.4,68.4,192.1,68.4z M182.8,100.7
+                            c5.2,2.1,11,2.4,16.3,0.7l26.3,16.9c-2.8,2.7-4.9,6.1-6.2,9.8H182c-1.9-5.3-5.4-9.8-10.1-12.9L182.8,100.7z M158,145.2
+                            c-4.7,0-8.5-3.8-8.5-8.5c0-4.7,3.8-8.5,8.5-8.5c4.7,0,8.5,3.8,8.5,8.5S162.7,145.2,158,145.2z M183.5,222c-4.7,0-8.5-3.8-8.5-8.5
+                            c0-4.7,3.8-8.5,8.5-8.5s8.5,3.8,8.5,8.5C192.1,218.1,188.3,222,183.5,222z M188.4,188.3c-1.6-0.3-3.2-0.5-4.9-0.5
+                            c-0.8,0-1.6,0.2-2.5,0.2l-11.6-28.7c5.8-3,10.3-8,12.5-14.2h37.3c1.5,4.3,4.2,8.1,7.7,11L188.4,188.3z M253.4,204.9h-45.8
+                            c-0.9-2.6-2.2-4.9-3.9-7.1l41.9-34.9l14.3,32C256.9,197.7,254.7,201.1,253.4,204.9z M267.3,145.2h20.2c2,5.6,6,10.4,11.1,13.4
+                            l-17.7,29.6c-1.2-0.2-2.3-0.3-3.5-0.4c-0.7,0-1.3,0.1-1.9,0.2l-14.6-32.8C263.7,152.4,265.9,149,267.3,145.2z M277.4,222
+                            c-4.7,0-8.5-3.8-8.5-8.5c0-4.7,3.8-8.5,8.5-8.5c4.7,0,8.5,3.8,8.5,8.5C285.9,218.1,282.1,222,277.4,222z M313.8,166.5l23.8,19.1
+                            c-3.7,3.2-6.5,7.4-7.9,12.1l-28.8,5.8c-1.2-2.7-2.8-5.2-4.9-7.4L313.8,166.5z M328.6,307.3c-4.7,0-8.5-3.8-8.5-8.5
+                            s3.8-8.5,8.5-8.5s8.5,3.8,8.5,8.5C337.1,303.4,333.3,307.3,328.6,307.3z M362.7,264.6c0,2.9,0.5,5.7,1.5,8.4l-14.4,11.5
+                            c-5.4-8.4-15.3-12.7-25.1-10.9l-28.3-43.1c2.5-2.8,4.4-6.2,5.5-9.8l28.8-5.8c5.5,13,20.4,19.1,33.4,13.6l10.5,14.6
+                            C367.2,247.8,362.7,255.9,362.7,264.6z M388.3,187.8c0,0.3,0.1,0.7,0.1,1l-11.5,4.6c-1.5-2.9-3.5-5.5-5.9-7.7l16.3-40.7
+                            c0.3,0,0.7,0.1,1,0.1c1,0,2.1-0.1,3.1-0.3l10.3,20.6C393.5,169.9,388.3,178.5,388.3,187.8z M416.2,196c-4.1,1.1-8.4-0.9-10.1-4.8
+                            c0-0.1,0-0.2,0-0.2l-0.1-0.1c-0.4-1-0.6-2-0.6-3.1c0-4.7,3.8-8.5,8.5-8.5c4.3,0,7.9,3.1,8.5,7.4
+                            C422.9,190.9,420.3,194.9,416.2,196z"/>
+                    </svg>
+
+                 </div>
+
+                 <div>
+
+                    <div style="">
+                       <p class="keyfact-headline">Großunternehmen</p>
+                    </div>
+                    <div style="display: flex;">
+                       <div style="margin-right:30px;"><span class="keyfact-numbers">40</span><span class="keyfact-percent">%</span></div>
+                       <div><span class="keyfact-text"> der Großunternehmen haben Robotik und Sensorik bereits im Einsatz.</span></div>
+                    </div>
+                    <div style="">
+                       <p class="keyfact-headline">Verkehr- und Logistikbranche</p>
+                    </div>
+                    <div style="display: flex;">
+                       <div style="margin-right:30px;"><span class="keyfact-numbers">1</span><span class="keyfact-percent">%</span></div>
+                       <div><span class="keyfact-text"> der Verkehr- und Logistikunternehmen setzt aktuell Roboter- und Sensortechnologie ein.</span></div>
+                    </div>
+
+                 </div>
+
+              </div>
+           </div>
+
         </div>
       </div>
     </div>
-
-
-
 
     <script src="/node_modules/jquery/dist/jquery.js"></script>
     <script src="/node_modules/what-input/dist/what-input.js"></script>
