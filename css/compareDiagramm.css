@@ -11,14 +11,16 @@
   transition: max-width 400ms ease-in-out;
   -webkit-transition: max-width 400ms ease-in-out;
   -moz-transition: max-width 400ms ease-in-out;
-  border-radius:50%;
+  border-radius:50% !important;
+  border: 1px solid white !important;
+  background: none !important;
 }
 
 .icon{
   position:absolute;
   left:18px;
-  top:9px;
-  font-size:30px;
+  top:8px;
+  font-size:12px;
 }
 
 .icon.active{
