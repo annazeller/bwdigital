@@ -65,7 +65,7 @@ function removeDataset(label){
   for (var i=0; i < datasets.length; i++) {
       if (datasets[i].label === label) {
         colors.push(datasets[i].backgroundColor);
-        barChart.data.datasets.pop(i);
+        datasets.splice(i, 1);
         barChart.update();
     }
   }
@@ -80,7 +80,6 @@ function removeData(chart) {
 }
 
 function rotate() {
-  console.log(document.getElementsByClassName("add").classList);
   var element = document.getElementsByClassName("add");
   element.classList.toggle("rotate");
 }
