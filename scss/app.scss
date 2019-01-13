@@ -278,14 +278,14 @@ h3{
 canvas{ display: block; vertical-align: bottom; }
 /* ---- particles.js container ---- */
 #particles-js{
-	position:absolute;
-	width: 100%;
-	height: 100%;
-	background-color: #12111F;
-	background-image: url("");
-	background-repeat: no-repeat;
-	background-size: cover;
-	background-position: 50% 50%;
+  position:absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #12111F;
+  background-image: url("");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50% 50%;
 }
 
 .overlay {
@@ -472,7 +472,7 @@ main {
     }
     em, span {
       display: block;
-      border-bottom: 5px solid #FFFFFF;
+      border-bottom: 5px solid rgba(92,101,135,.6);
       padding-bottom: 5px;
     }
     em {
