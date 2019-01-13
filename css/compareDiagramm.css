@@ -12,14 +12,14 @@
   -webkit-transition: max-width 400ms ease-in-out;
   -moz-transition: max-width 400ms ease-in-out;
   border-radius:50% !important;
-  border: 1px solid white !important;
+  border: 3px solid white !important;
   background: none !important;
 }
 
 .icon{
   position:absolute;
-  left:18px;
-  top:8px;
+  left:11px;
+  top:7px;
   font-size:12px;
 }
 
