@@ -104,7 +104,7 @@ $(window).on('load', function() {
 	        } else {
 				direction = "down";
           	
-          		if (section < 9) {
+          		if (section < 10) {
 	            	section++;
 	            	renderSectionUI(section, direction);
 	            	renderNavigationUI(section);
@@ -159,6 +159,10 @@ function renderSectionUI(section, direction) {
 		eigthToNinth();
 	} else if (section == 8 && direction == "up") {
 		ninthToEigth();
+	} else if (section == 10 && direction == "down") {
+		ninthToTenth();
+	} else if (section == 9 && direction == "up") {
+		tenthToNinth();
 	}
 };
 
@@ -222,9 +226,9 @@ function secondToThird() {
 		cleanupCircles();
 
 		//section-industrie40 einblenden
-		$('#section-industrie40').show();
-		$('#section-industrie40').removeClass();
-		$('#section-industrie40').addClass('animated fadeInUp');
+		$('#section-circlecompare').show();
+		$('#section-circlecompare').removeClass();
+		$('#section-circlecompare').addClass('animated fadeInUp');
 
 		allowChange = true;
 		console.log(allowChange);
@@ -239,8 +243,8 @@ function thirdToSecond() {
 	setTimeout(function(){
 
 		//section-industrie40 ausblenden
-		$('#section-industrie40').removeClass();
-		$('#section-industrie40').addClass('animated fadeOutDown');
+		$('#section-circlecompare').removeClass();
+		$('#section-circlecompare').addClass('animated fadeOutDown');
 
 		//section-map einblenden
 		$('#section-map').removeClass();
@@ -262,13 +266,13 @@ function thirdToFourth() {
 	setTimeout(function(){
 
 		//section-industrie40 ausblenden
-		$('#section-industrie40').removeClass();
-		$('#section-industrie40').addClass('animated fadeOutUp');
+		$('#section-circlecompare').removeClass();
+		$('#section-circlecompare').addClass('animated fadeOutUp');
 
 		//section-compare einblenden
-		$('#section-iot').show();
-		$('#section-iot').removeClass();
-		$('#section-iot').addClass('animated fadeInUp');
+		$('#section-industrie40').show();
+		$('#section-industrie40').removeClass();
+		$('#section-industrie40').addClass('animated fadeInUp');
 
 		allowChange = true;
 		console.log(allowChange);
@@ -282,12 +286,12 @@ function fourthToThird() {
 	setTimeout(function(){
 
 		//section-compare ausblenden
-		$('#section-iot').removeClass();
-		$('#section-iot').addClass('animated fadeOutDown');
+		$('#section-industrie40').removeClass();
+		$('#section-industrie40').addClass('animated fadeOutDown');
 
 		//section-industrie40 einblenden
-		$('#section-industrie40').removeClass();
-		$('#section-industrie40').addClass('animated fadeInDown');
+		$('#section-circlecompare').removeClass();
+		$('#section-circlecompare').addClass('animated fadeInDown');
 
 		allowChange = true;
 		console.log(allowChange);
@@ -302,10 +306,50 @@ function fourthToFifth() {
 	setTimeout(function(){
 
 		//section-iot ausblenden
+		$('#section-industrie40').removeClass();
+		$('#section-industrie40').addClass('animated fadeOutUp');
+
+		//section-smartServices einblenden
+		$('#section-iot').show();
+		$('#section-iot').removeClass();
+		$('#section-iot').addClass('animated fadeInUp');
+
+		allowChange = true;
+		console.log(allowChange);
+		$('body').removeClass('disable-click');
+	}, 1500);
+}
+
+function fifthToFourth() {
+	console.log(section);
+	console.log(allowChange);
+	setTimeout(function(){
+
+		//section-smartServices ausblenden
+		$('#section-iot').removeClass();
+		$('#section-iot').addClass('animated fadeOutDown');
+
+		//section-iot einblenden
+		$('#section-industrie40').removeClass();
+		$('#section-industrie40').addClass('animated fadeInDown');
+
+		allowChange = true;
+		console.log(allowChange);
+		$('body').removeClass('disable-click');
+	}, 1500);
+
+}
+
+function fifthToSixt() {
+	console.log(section);
+	console.log(allowChange);
+	setTimeout(function(){
+
+		//smartServices ausblenden
 		$('#section-iot').removeClass();
 		$('#section-iot').addClass('animated fadeOutUp');
 
-		//section-smartServices einblenden
+		//section-bigData einblenden
 		$('#section-smartServices').show();
 		$('#section-smartServices').removeClass();
 		$('#section-smartServices').addClass('animated fadeInUp');
@@ -316,7 +360,7 @@ function fourthToFifth() {
 	}, 1500);
 }
 
-function fifthToFourth() {
+function sixtToFifth() {
 	console.log(section);
 	console.log(allowChange);
 	setTimeout(function(){
@@ -336,16 +380,16 @@ function fifthToFourth() {
 
 }
 
-function fifthToSixt() {
+function sixtToSeventh() {
 	console.log(section);
 	console.log(allowChange);
 	setTimeout(function(){
 
-		//smartServices ausblenden
+		//section-bigData ausblenden
 		$('#section-smartServices').removeClass();
 		$('#section-smartServices').addClass('animated fadeOutUp');
 
-		//section-bigData einblenden
+		//section-robotikUndSensorik einblenden
 		$('#section-bigData').show();
 		$('#section-bigData').removeClass();
 		$('#section-bigData').addClass('animated fadeInUp');
@@ -356,16 +400,16 @@ function fifthToSixt() {
 	}, 1500);
 }
 
-function sixtToFifth() {
+function seventhToSixt() {
 	console.log(section);
 	console.log(allowChange);
 	setTimeout(function(){
 
-		//section-smartServices ausblenden
+		//section-robotikUndSensorik ausblenden
 		$('#section-bigData').removeClass();
 		$('#section-bigData').addClass('animated fadeOutDown');
 
-		//section-iot einblenden
+		//section-bigData einblenden
 		$('#section-smartServices').removeClass();
 		$('#section-smartServices').addClass('animated fadeInDown');
 
@@ -376,16 +420,16 @@ function sixtToFifth() {
 
 }
 
-function sixtToSeventh() {
+function seventhToEigth() {
 	console.log(section);
 	console.log(allowChange);
 	setTimeout(function(){
 
-		//section-bigData ausblenden
+		//section-robotikUndSensorik ausblenden
 		$('#section-bigData').removeClass();
 		$('#section-bigData').addClass('animated fadeOutUp');
 
-		//section-robotikUndSensorik einblenden
+		//section-ki einblenden
 		$('#section-robotikUndSensorik').show();
 		$('#section-robotikUndSensorik').removeClass();
 		$('#section-robotikUndSensorik').addClass('animated fadeInUp');
@@ -396,7 +440,7 @@ function sixtToSeventh() {
 	}, 1500);
 }
 
-function seventhToSixt() {
+function eigthToSeventh() {
 	console.log(section);
 	console.log(allowChange);
 	setTimeout(function(){
@@ -416,59 +460,19 @@ function seventhToSixt() {
 
 }
 
-function seventhToEigth() {
-	console.log(section);
-	console.log(allowChange);
-	setTimeout(function(){
-
-		//section-robotikUndSensorik ausblenden
-		$('#section-robotikUndSensorik').removeClass();
-		$('#section-robotikUndSensorik').addClass('animated fadeOutUp');
-
-		//section-ki einblenden
-		$('#section-ki').show();
-		$('#section-ki').removeClass();
-		$('#section-ki').addClass('animated fadeInUp');
-
-		allowChange = true;
-		console.log(allowChange);
-		$('body').removeClass('disable-click');
-	}, 1500);
-}
-
-function eigthToSeventh() {
-	console.log(section);
-	console.log(allowChange);
-	setTimeout(function(){
-
-		//section-robotikUndSensorik ausblenden
-		$('#section-ki').removeClass();
-		$('#section-ki').addClass('animated fadeOutDown');
-
-		//section-bigData einblenden
-		$('#section-robotikUndSensorik').removeClass();
-		$('#section-robotikUndSensorik').addClass('animated fadeInDown');
-
-		allowChange = true;
-		console.log(allowChange);
-		$('body').removeClass('disable-click');
-	}, 1500);
-
-}
-
 function eigthToNinth() {
 	console.log(section);
 	console.log(allowChange);
 	setTimeout(function(){
 
 	//section-smartServices ausblenden
-	$('#section-ki').removeClass();
-	$('#section-ki').addClass('animated fadeOutUp');
+	$('#section-robotikUndSensorik').removeClass();
+	$('#section-robotikUndSensorik').addClass('animated fadeOutUp');
 
 	//section-compare einblenden
-		$('#section-compare').show();
-		$('#section-compare').removeClass();
-		$('#section-compare').addClass('animated fadeInUp');
+		$('#section-ki').show();
+		$('#section-ki').removeClass();
+		$('#section-ki').addClass('animated fadeInUp');
 
 		allowChange = true;
 		console.log(allowChange);
@@ -482,12 +486,12 @@ function ninthToEigth() {
 	setTimeout(function(){
 
 	//section-compare ausblenden
-		$('#section-compare').removeClass();
-		$('#section-compare').addClass('animated fadeOutDown');
+		$('#section-ki').removeClass();
+		$('#section-ki').addClass('animated fadeOutDown');
 
 	//section-iot einblenden
-		$('#section-ki').removeClass();
-		$('#section-ki').addClass('animated fadeInDown');
+		$('#section-robotikUndSensorik').removeClass();
+		$('#section-robotikUndSensorik').addClass('animated fadeInDown');
 
 		allowChange = true;
 		console.log(allowChange);
@@ -495,6 +499,47 @@ function ninthToEigth() {
 	}, 1500);
 
 }
+
+function ninthToTenth() {
+	console.log(section);
+	console.log(allowChange);
+	setTimeout(function(){
+
+		//section-smartServices ausblenden
+		$('#section-ki').removeClass();
+		$('#section-ki').addClass('animated fadeOutUp');
+
+		//section-compare einblenden
+		$('#section-compare').show();
+		$('#section-compare').removeClass();
+		$('#section-compare').addClass('animated fadeInUp');
+
+		allowChange = true;
+		console.log(allowChange);
+		$('body').removeClass('disable-click');
+	}, 1500);
+}
+
+function tenthToNinth() {
+	console.log(section);
+	console.log(allowChange);
+	setTimeout(function(){
+
+		//section-compare ausblenden
+		$('#section-compare').removeClass();
+		$('#section-compare').addClass('animated fadeOutDown');
+
+		//section-iot einblenden
+		$('#section-ki').removeClass();
+		$('#section-ki').addClass('animated fadeInDown');
+
+		allowChange = true;
+		console.log(allowChange);
+		$('body').removeClass('disable-click');
+	}, 1500);
+
+}
+
 
 
 function showSection2() {
