@@ -8,6 +8,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <link rel="stylesheet" type="text/css" href="css/map.css">
     <link rel="stylesheet" type="text/css" href="css/compareDiagramm.css">
+    <link rel="stylesheet" type="text/css" href="css/donutDiagramm.css">
     <link rel="stylesheet" href="css/app.css">
     <link rel="stylesheet" href="css/animate.css">
     <link href="//netdna.bootstrapcdn.com/font-awesome/3.1.1/css/font-awesome.min.css" rel="stylesheet">
@@ -25,6 +26,7 @@
         <li li-data="7" data-menuanchor="seventhPage"><span><a href="#seventhPage">07</a></span><div class="pagination"></div></li>
         <li li-data="8" data-menuanchor="eigthPage"><span><a href="#eigthPage">08</a></span><div class="pagination"></div></li>
         <li li-data="9" data-menuanchor="ninthPage"><span><a href="#ninthPage">09</a></span><div class="pagination"></div></li>
+        <li li-data="10" data-menuanchor="tenthPage"><span><a href="#tenthPage">10</a></span><div class="pagination"></div></li>
       </ul>
     </div>
 
@@ -2527,9 +2529,10 @@
             <div class="branchenDropdown">
               <button id="addTrigger" class="button medium addButton"><i class="add icon-plus icon active"></i></button>
               <div id="branchenOverlay">
-                    <h2>Title</h2>
+                    <h3>Bitte wähle bis zu 3 Branchen zum Vergleich aus</h3>
                     <div class="branchenOverlayContent">
                       <div id="Dienstleistungen">
+                        <h4>Dienstleistungsbranchen</h4>
                         <div class="checkElement">
                         <input type="checkbox" class="branchenCheck" id="Finanz- und Versicherungsdienstleister"/>
                         <label for="Finanz- und Versicherungsdienstleister">Finanz- und Versicherungsdienstleister</label>
@@ -2560,6 +2563,7 @@
                         </div>
                       </div>
                       <div id="VerarbeitendesGewerbe">
+                      <h4>Verarbeitendes Gewerbe</h4>
                       <div class="checkElement">
                       <input type="checkbox" class="branchenCheck" id="Maschinenbau und Fahrzeugbau"/>
                       <label for="Maschinenbau und Fahrzeugbau">Maschinenbau und Fahrzeugbau</label>
@@ -2586,10 +2590,11 @@
             <div class="selectedBranchen">
 
             </div>
-
             </div>
 
-            <canvas id="compareDiagramm" width="600" height="200"></canvas>
+            <<div id="chart-wrapper">
+              <canvas id="compareDiagramm" width="1000" height="500"></canvas>
+            </div>
           </div>
 
           <div id="section-industrie40" style="display:none;">
@@ -3009,6 +3014,12 @@
               </div>
            </div>
 
+           <div id="section-circlecompare" style="display:none;">
+              <div class="cell">
+
+              </div>
+
+
         </div>
       </div>
     </div>
@@ -3018,12 +3029,12 @@
     <script src="/node_modules/foundation-sites/dist/js/foundation.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
     <script src="/js/compareDiagramm.js"></script>
+    <script src="/js/donutDiagramm.js"></script>
     <script src="/js/wrap.js"></script>
     <!--<script src="/js/jquery.pagepiling.min.js"></script>-->
     <!--<script src="http://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script src="js/particles.js">-->
     <script src="/js/app.js"></script>
     <script type="text/javascript" src="/js/map.js"></script>
-    <script src="/js/compareDiagramm.js"></script>
   </body>
 </html>

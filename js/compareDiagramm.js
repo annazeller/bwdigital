@@ -18,7 +18,10 @@ var barChart = new Chart(compareDiagramm, {
     responsive:true,
     maintainAspectRatio: false,
     legend: {
-    	display: true
+    	display: true,
+      labels:{
+        fontSize: 15
+      }
       },
       responsive: false,
       scales: {
@@ -62,7 +65,7 @@ function removeDataset(label){
   for (var i=0; i < datasets.length; i++) {
       if (datasets[i].label === label) {
         colors.push(datasets[i].backgroundColor);
-        barChart.data.datasets.pop(i);
+        datasets.splice(i, 1);
         barChart.update();
     }
   }
@@ -77,7 +80,6 @@ function removeData(chart) {
 }
 
 function rotate() {
-  console.log(document.getElementsByClassName("add").classList);
   var element = document.getElementsByClassName("add");
   element.classList.toggle("rotate");
 }
@@ -90,6 +92,19 @@ document.getElementById('addTrigger').onclick = function(){
 $( document ).ready(function() {
   $('.branchenOverlayContent :checkbox').on('click', function (evt) {
     evt.stopImmediatePropagation();
+
+    var countchecked = $("input[type=checkbox]:checked").length;
+
+    if(countchecked >= 3)
+    {
+        $('input[type=checkbox]').not(':checked').attr("disabled",true);
+    }
+    else
+    {
+        $('input[type=checkbox]').not(':checked').attr("disabled",false);
+    }
+
+
     if (this.checked) {
       var randInt = Math.floor(Math.random()*colors.length);
       var randColour = colors[randInt];

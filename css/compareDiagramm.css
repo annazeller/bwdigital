@@ -11,14 +11,16 @@
   transition: max-width 400ms ease-in-out;
   -webkit-transition: max-width 400ms ease-in-out;
   -moz-transition: max-width 400ms ease-in-out;
-  border-radius:50%;
+  border-radius:50% !important;
+  border: 3px solid white !important;
+  background: none !important;
 }
 
 .icon{
   position:absolute;
-  left:18px;
-  top:9px;
-  font-size:30px;
+  left:11px;
+  top:7px;
+  font-size:12px;
 }
 
 .icon.active{
@@ -40,6 +42,16 @@
   opacity: 0.9;
   position:absolute;
   z-index: 30;
-  background: white;
+  background: black;
   display: block;
+  padding: 20px;
+  width: 112%;
+}
+
+.branchenOverlayContent{
+  display: flex;
+}
+
+label{
+  color: white !important;
 }
