@@ -367,44 +367,33 @@ transition: 0.8s;
 #section-smartServices,
 #section-bigData,
 #section-robotikUndSensorik,
-#section-ki {
+#section-ki,
+#section-circlecompare {
   position: absolute;
-  top: -20px;
+  top: -40px;
   bottom: 0;
   left: 0;
   //right: 0;
-  width: 660px;
   display: block;
   padding: 0px 30px;
 }
 
 
-#section-industrie40{
-  width: 1000px !important;
+#section-industrie40,
+#section-iot,
+#section-smartServices,
+#section-bigData,
+#section-robotikUndSensorik,
+#section-ki,
+#section-circlecompare
+{
+  width: 1000px;
 }
 
-#section-iot{
-  width: 1000px !important;
-}
 
-#section-smartServices{
-  width: 1000px !important;
-}
-
-#section-bigData{
-  width: 1000px !important;
-}
-
-#section-robotikUndSensorik{
-  width: 1000px !important;
-}
-
-#section-ki{
-  width: 1000px !important;
-}
-
-#section-map {
-  top: -40px !important;
+#section-map,
+#section-compare {
+  width: 660px;
 
 }
 
