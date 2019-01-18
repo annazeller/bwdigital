@@ -1,7 +1,7 @@
 var compareDiagramm = document.getElementById("compareDiagramm");
 
 Chart.defaults.global.defaultFontFamily = "Fira Sans";
-Chart.defaults.global.defaultFontSize = 24;
+Chart.defaults.global.defaultFontSize = 22;
 Chart.defaults.global.defaultFontColor = 'white';
 
 var colors = ["#e9242f", "#fe7f2d", "#ffdb5b", "#00c7ff", "#a42cd6"];
@@ -27,7 +27,7 @@ var barChart = new Chart(compareDiagramm, {
       scales: {
       xAxes: [{
         ticks: {
-          fontSize:20,
+          fontSize:16,
           fontColor: "white",
           padding: 200,
           maxRotation: 0,
@@ -37,7 +37,7 @@ var barChart = new Chart(compareDiagramm, {
       yAxes: [{
            ticks: {
                   min: 0,
-                  fontSize:20,
+                  fontSize:16,
                   fontColor: "white",
                   max: 100,
                   callback: function(value){return value+ "%"}
@@ -80,12 +80,13 @@ function removeData(chart) {
 }
 
 function rotate() {
-  var element = document.getElementsByClassName("add");
-  element.classList.toggle("rotate");
+  var element = document.getElementById("plus-button");
+  element.classList.toggle("open");
 }
 
-document.getElementById('addTrigger').onclick = function(){
-  document.getElementsByClassName('add')[0].classList.toggle("rotate");
+document.getElementById('plus-button').onclick = function(){
+  console.log("huhu");
+  this.classList.toggle("open");
   document.getElementById("branchenOverlay").classList.toggle("active");
 }
 
