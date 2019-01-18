@@ -3018,13 +3018,32 @@
               <div class="cell">
                 <h1 class=""><span class="sectionNumber">03 </span>Anwendungsbereiche - Vergleich</h1>
                 <div id="donuts">
-                <canvas id="bigData" height="100"></canvas>
-                <select size="2">
-                  <option>Kunst</option>
-                  <option>Natur</option>
-                </select>
-                <canvas id="ki" height="100" style="display:none"></canvas>
+                  <div id="donut1">
+                    <select id="circleChoose1" class="circleChoose">
+                      <option selected disabled hidden>Choose Circle 1</option>
+                      <option value="industrie40">Industrie 4.0</option>
+                      <option value="iot">Internet der Dinge</option>
+                      <option value="smartServices">Smart Services</option>
+                      <option value="robotikUndSensorik">Robotik und Sensorik</option>
+                      <option value="künstlicheIntelligenz">Künstliche Intelligenz</option>
+                    </select>
+                    <canvas id="ki" height="200"></canvas>
+                  </div>
+                  <div id="donut2">
+                    <select id="circleChoose2"  class="circleChoose">
+                      <option selected disabled hidden>Choose Circle 2</option>
+                      <option value="industrie40">Industrie 4.0</option>
+                      <option value="iot">Internet der Dinge</option>
+                      <option value="smartServices">Smart Services</option>
+                      <option value="robotikUndSensorik">Robotik und Sensorik</option>
+                      <option value="künstlicheIntelligenz">Künstliche Intelligenz</option>
+                    </select>
+                      <canvas id="bigData" height="200"></canvas>
+                  </div>
                 </div>
+                <canvas id="bigData" height="100" style="display:none"></canvas>
+                <canvas id="ki" height="175" style="display:none"></canvas>
+
               </div>
            </div>
       </div>

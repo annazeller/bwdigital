@@ -1,3 +1,7 @@
+
+var 	currentlySelected1 = null;
+var	currentlySelected2 = null;
+
 Chart.pluginService.register({
 		beforeDraw: function (chart) {
 			if (chart.config.options.elements.center) {
@@ -38,6 +42,40 @@ Chart.pluginService.register({
         ctx.fillText(txt, centerX, centerY);
 			}
 		}
+	});
+
+	$('.circleChoose').change(function() {
+	    $this = $(this);
+	    myId = $this.attr('id');
+	    myVal = $this.val();
+
+	     if (myId == 'circleChoose1') {
+
+				 console.log(currentlySelected1);
+				 if (currentlySelected1 != null)
+				 {
+					 $("#circleChoose1 option[value=" + currentlySelected1 + "]").attr("disabled", false);
+					 $("#circleChoose2 option[value=" + currentlySelected1 + "]").attr("disabled", false);
+				 }
+
+			$("#circleChoose1 option:selected").attr('disabled','disabled');
+			$("#circleChoose2 option[value=" + myVal + "]").attr('disabled','disabled');
+
+			currentlySelected1 = myVal;
+	     }
+			 else if (myId =='circleChoose2'){
+				 if (currentlySelected2 != null)
+				 {
+					 $("#circleChoose2 option[value=" + currentlySelected2 + "]").attr("disabled", false);
+					 $("#circleChoose1 option[value=" + currentlySelected2 + "]").attr("disabled", false);
+				 }
+
+				 $("#circleChoose2 option:selected").attr('disabled','disabled');
+				 $("#circleChoose1 option[value=" + myVal + "]").attr('disabled','disabled');
+
+				 currentlySelected2 = myVal;
+
+			 }
 	});
 
 

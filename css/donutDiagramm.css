@@ -1,0 +1,16 @@
+.circleChoose{
+ width: 45%;
+ display: inline-block;
+}
+
+#donuts{
+  display:flex;
+}
+
+#donut1{
+  width: 50%;
+}
+
+#donut2{
+  width: 50%;
+}
