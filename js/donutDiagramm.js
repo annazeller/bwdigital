@@ -123,7 +123,7 @@ var bigData = new Chart(bigData, {
 					    text: 'Big Data',
               color: '#FFF', // Default is #000000
               fontStyle: 'Arial', // Default is Arial
-              sidePadding: 20 // Defualt is 20 (as a percentage)
+              sidePadding: 50 // Defualt is 20 (as a percentage)
 				}
 			}
 		}
@@ -165,7 +165,7 @@ function generatekünstlicheIntelligenzCircle(){
 						    text: 'KI',
 	              color: '#FFF', // Default is #000000
 	              fontStyle: 'Arial', // Default is Arial
-	              sidePadding: 75 // Defualt is 20 (as a percentage)
+	              sidePadding: 85 // Defualt is 20 (as a percentage)
 					}
 				}
 			}
@@ -204,10 +204,10 @@ var robotikUndSensorik = new Chart(robotikUndSensorik, {
        },
 			   elements: {
 				     center: {
-					    text: 'Robotik und Sensorik',
+					    text: 'Robotik',
               color: '#FFF', // Default is #000000
               fontStyle: 'Arial', // Default is Arial
-              sidePadding: 75 // Defualt is 20 (as a percentage)
+              sidePadding: 50 // Defualt is 20 (as a percentage)
 				}
 			}
 		}
@@ -249,7 +249,7 @@ var smartServices = new Chart(smartServices, {
 					    text: 'Smart Services',
               color: '#FFF', // Default is #000000
               fontStyle: 'Arial', // Default is Arial
-              sidePadding: 75 // Defualt is 20 (as a percentage)
+              sidePadding: 20 // Defualt is 20 (as a percentage)
 				}
 			}
 		}
@@ -333,7 +333,7 @@ var industrie40 = new Chart(industrie40, {
 					    text: 'Industrie 4.0',
               color: '#FFF', // Default is #000000
               fontStyle: 'Arial', // Default is Arial
-              sidePadding: 75 // Defualt is 20 (as a percentage)
+              sidePadding: 20 // Defualt is 20 (as a percentage)
 				}
 			}
 		}
