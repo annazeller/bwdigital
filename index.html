@@ -3020,30 +3020,35 @@
                 <div id="donuts">
                   <div id="donut1">
                     <select id="circleChoose1" class="circleChoose">
-                      <option selected disabled hidden>Choose Circle 1</option>
+                      <option selected disabled hidden>Wähle Bereich 1</option>
                       <option value="industrie40">Industrie 4.0</option>
                       <option value="iot">Internet der Dinge</option>
+                      <option value="bigData">Big Data</option>
                       <option value="smartServices">Smart Services</option>
                       <option value="robotikUndSensorik">Robotik und Sensorik</option>
                       <option value="künstlicheIntelligenz">Künstliche Intelligenz</option>
                     </select>
-                    <canvas id="ki" height="200"></canvas>
                   </div>
                   <div id="donut2">
                     <select id="circleChoose2"  class="circleChoose">
-                      <option selected disabled hidden>Choose Circle 2</option>
+                      <option selected disabled hidden>Wähle Bereich 2</option>
                       <option value="industrie40">Industrie 4.0</option>
                       <option value="iot">Internet der Dinge</option>
+                      <option value="bigData">Big Data</option>
                       <option value="smartServices">Smart Services</option>
                       <option value="robotikUndSensorik">Robotik und Sensorik</option>
                       <option value="künstlicheIntelligenz">Künstliche Intelligenz</option>
                     </select>
-                      <canvas id="bigData" height="200"></canvas>
                   </div>
                 </div>
-                <canvas id="bigData" height="100" style="display:none"></canvas>
-                <canvas id="ki" height="175" style="display:none"></canvas>
-
+                <div id="hiddenDonuts" style="display:none">
+                <canvas id="bigDataCircle" height="175"></canvas>
+                <canvas id="künstlicheIntelligenzCircle" height="175"></canvas>
+                <canvas id="industrie40Circle" height="175"></canvas>
+                <canvas id="smartServicesCircle" height="175"></canvas>
+                <canvas id="iotCircle" height="175"></canvas>
+                <canvas id="robotikUndSensorikCircle" height="175"></canvas>
+                </div>
               </div>
            </div>
       </div>

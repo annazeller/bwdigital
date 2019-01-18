@@ -79,13 +79,7 @@ function removeData(chart) {
     barChart.update();
 }
 
-function rotate() {
-  var element = document.getElementById("plus-button");
-  element.classList.toggle("open");
-}
-
 document.getElementById('plus-button').onclick = function(){
-  console.log("huhu");
   this.classList.toggle("open");
   document.getElementById("branchenOverlay").classList.toggle("active");
 }

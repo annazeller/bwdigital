@@ -50,36 +50,46 @@ Chart.pluginService.register({
 	    myVal = $this.val();
 
 	     if (myId == 'circleChoose1') {
-
-				 console.log(currentlySelected1);
 				 if (currentlySelected1 != null)
 				 {
 					 $("#circleChoose1 option[value=" + currentlySelected1 + "]").attr("disabled", false);
 					 $("#circleChoose2 option[value=" + currentlySelected1 + "]").attr("disabled", false);
+
+					 $("#" + currentlySelected1 + "Circle").appendTo("#hiddenDonuts");
 				 }
 
 			$("#circleChoose1 option:selected").attr('disabled','disabled');
 			$("#circleChoose2 option[value=" + myVal + "]").attr('disabled','disabled');
 
 			currentlySelected1 = myVal;
+			 $("#" + myVal + "Circle").appendTo("#donut1");
+
+			 functioncall = "generate" + myVal+ "Circle();";
+			 eval(functioncall);
 	     }
 			 else if (myId =='circleChoose2'){
 				 if (currentlySelected2 != null)
-				 {
-					 $("#circleChoose2 option[value=" + currentlySelected2 + "]").attr("disabled", false);
-					 $("#circleChoose1 option[value=" + currentlySelected2 + "]").attr("disabled", false);
-				 }
+				{
+					$("#circleChoose1 option[value=" + currentlySelected2 + "]").attr("disabled", false);
+					$("#circleChoose2 option[value=" + currentlySelected2 + "]").attr("disabled", false);
 
-				 $("#circleChoose2 option:selected").attr('disabled','disabled');
-				 $("#circleChoose1 option[value=" + myVal + "]").attr('disabled','disabled');
+					$("#" + currentlySelected2 + "Circle").appendTo("#hiddenDonuts");
+				}
 
-				 currentlySelected2 = myVal;
+		 $("#circleChoose2 option:selected").attr('disabled','disabled');
+		 $("#circleChoose1 option[value=" + myVal + "]").attr('disabled','disabled');
 
-			 }
+		 currentlySelected2 = myVal;
+			$("#" + myVal + "Circle").appendTo("#donut2");
+
+			functioncall = "generate" + myVal+ "Circle();";
+			eval(functioncall);
+		 }
 	});
 
 
-var bigData = document.getElementById("bigData");
+function generatebigDataCircle(){
+var bigData = document.getElementById("bigDataCircle");
 var bigData = new Chart(bigData, {
   type: 'doughnut',
   data: {
@@ -118,17 +128,59 @@ var bigData = new Chart(bigData, {
 			}
 		}
 });
+}
 
+function generatekünstlicheIntelligenzCircle(){
+	var ki = document.getElementById("künstlicheIntelligenzCircle");
+	var ki = new Chart(ki, {
+	  type: 'doughnut',
+	  data: {
+	    labels: ["Nutzen wir", "Planen wir", "Nicht relevant", "Nicht befasst", "Keine Angabe"],
+	    datasets: [{
+	      label: '# of Votes',
+	      data: [4, 4, 76, 15, 1],
+	      backgroundColor: [
+	        '#a42cd6',
+	        '#00c7ff',
+	        '#ffdb5b',
+	        '#e9242f',
+	        '#FFF'
+	      ],
+	      borderColor: [
+	        '#a42cd6',
+	        '#00c7ff',
+	        '#ffdb5b',
+	        '#e9242f',
+	        '#FFF'
+	      ],
+	      borderWidth: 1
+	    }]
+	  },
+	  options: {
+	        legend: {
+	          display: false
+	       },
+				   elements: {
+					     center: {
+						    text: 'KI',
+	              color: '#FFF', // Default is #000000
+	              fontStyle: 'Arial', // Default is Arial
+	              sidePadding: 75 // Defualt is 20 (as a percentage)
+					}
+				}
+			}
+	});
+}
 
-
-var ki = document.getElementById("ki");
-var ki = new Chart(ki, {
+function generaterobotikUndSensorikCircle(){
+var robotikUndSensorik = document.getElementById("robotikUndSensorikCircle");
+var robotikUndSensorik = new Chart(robotikUndSensorik, {
   type: 'doughnut',
   data: {
     labels: ["Nutzen wir", "Planen wir", "Nicht relevant", "Nicht befasst", "Keine Angabe"],
     datasets: [{
       label: '# of Votes',
-      data: [4, 4, 76, 15, 1],
+      data: [6, 5, 80, 8, 1],
       backgroundColor: [
         '#a42cd6',
         '#00c7ff',
@@ -152,7 +204,7 @@ var ki = new Chart(ki, {
        },
 			   elements: {
 				     center: {
-					    text: 'KI',
+					    text: 'Robotik und Sensorik',
               color: '#FFF', // Default is #000000
               fontStyle: 'Arial', // Default is Arial
               sidePadding: 75 // Defualt is 20 (as a percentage)
@@ -160,3 +212,130 @@ var ki = new Chart(ki, {
 			}
 		}
 });
+}
+
+function generatesmartServicesCircle(){
+var smartServices = document.getElementById("smartServicesCircle");
+var smartServices = new Chart(smartServices, {
+  type: 'doughnut',
+  data: {
+    labels: ["Nutzen wir", "Planen wir", "Nicht relevant", "Nicht befasst", "Keine Angabe"],
+    datasets: [{
+      label: '# of Votes',
+      data: [31, 15, 34, 19, 1],
+      backgroundColor: [
+        '#a42cd6',
+        '#00c7ff',
+        '#ffdb5b',
+        '#e9242f',
+        '#FFF'
+      ],
+      borderColor: [
+        '#a42cd6',
+        '#00c7ff',
+        '#ffdb5b',
+        '#e9242f',
+        '#FFF'
+      ],
+      borderWidth: 1
+    }]
+  },
+  options: {
+        legend: {
+          display: false
+       },
+			   elements: {
+				     center: {
+					    text: 'Smart Services',
+              color: '#FFF', // Default is #000000
+              fontStyle: 'Arial', // Default is Arial
+              sidePadding: 75 // Defualt is 20 (as a percentage)
+				}
+			}
+		}
+});
+}
+
+function generateiotCircle(){
+var iot = document.getElementById("iotCircle");
+var iot = new Chart(iot, {
+  type: 'doughnut',
+  data: {
+    labels: ["Nutzen wir", "Planen wir", "Nicht relevant", "Nicht befasst", "Keine Angabe"],
+    datasets: [{
+      label: '# of Votes',
+      data: [48, 11, 28, 13, 0],
+      backgroundColor: [
+        '#a42cd6',
+        '#00c7ff',
+        '#ffdb5b',
+        '#e9242f',
+        '#FFF'
+      ],
+      borderColor: [
+        '#a42cd6',
+        '#00c7ff',
+        '#ffdb5b',
+        '#e9242f',
+        '#FFF'
+      ],
+      borderWidth: 1
+    }]
+  },
+  options: {
+        legend: {
+          display: false
+       },
+			   elements: {
+				     center: {
+					    text: 'IOT',
+              color: '#FFF', // Default is #000000
+              fontStyle: 'Arial', // Default is Arial
+              sidePadding: 75 // Defualt is 20 (as a percentage)
+				}
+			}
+		}
+});
+}
+
+function generateindustrie40Circle(){
+var industrie40 = document.getElementById("industrie40Circle");
+var industrie40 = new Chart(industrie40, {
+  type: 'doughnut',
+  data: {
+    labels: ["Nutzen wir", "Planen wir", "Nicht relevant", "Nicht befasst", "Keine Angabe"],
+    datasets: [{
+      label: '# of Votes',
+      data: [9, 12, 57, 22, 0],
+      backgroundColor: [
+        '#a42cd6',
+        '#00c7ff',
+        '#ffdb5b',
+        '#e9242f',
+        '#FFF'
+      ],
+      borderColor: [
+        '#a42cd6',
+        '#00c7ff',
+        '#ffdb5b',
+        '#e9242f',
+        '#FFF'
+      ],
+      borderWidth: 1
+    }]
+  },
+  options: {
+        legend: {
+          display: false
+       },
+			   elements: {
+				     center: {
+					    text: 'Industrie 4.0',
+              color: '#FFF', // Default is #000000
+              fontStyle: 'Arial', // Default is Arial
+              sidePadding: 75 // Defualt is 20 (as a percentage)
+				}
+			}
+		}
+});
+}
