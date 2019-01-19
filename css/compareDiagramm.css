@@ -42,10 +42,9 @@
 }
 
 #branchenOverlay.active{
-  opacity: 0.9;
   position:absolute;
   z-index: 30;
-  background: black;
+  background: rgba(19,23,41,0.93);
   display: block;
   padding: 20px;
   width: 112%;
