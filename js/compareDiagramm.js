@@ -84,6 +84,7 @@ document.getElementById('plus-button').onclick = function(){
   document.getElementById("branchenOverlay").classList.toggle("active");
 }
 
+
 $( document ).ready(function() {
   $('.branchenOverlayContent :checkbox').on('click', function (evt) {
     evt.stopImmediatePropagation();
