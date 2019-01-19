@@ -39,7 +39,7 @@ function loadNumbers() {
 
 			{
 				easing: 'linear',
-				duration: 1500,
+				duration: 0,
 				step: function () {
 					$this.text(Math.floor(this.countNum));
 				},
@@ -53,9 +53,6 @@ function loadNumbers() {
 
 	});
 }
-
-
-
 
 var allowChange = false;
 var section = 1;
@@ -76,10 +73,17 @@ var animationEnd = (function(el) {
         }
 })(document.createElement("fakeelement"));
 
+var scrollingDisabled=false;
 $(window).on('load', function() {
 	allowChange = true;
+
 	console.log(section + " " + JSON.stringify($left));
+
 	window.addEventListener('wheel', function(event){
+		if (scrollingDisabled){
+			return;
+		}
+
 		if(event.deltaY < 0){
 			if (!allowChange) {
 		        return;
@@ -103,7 +107,7 @@ $(window).on('load', function() {
 	        	return;
 	        } else {
 				direction = "down";
-          	
+
           		if (section < 10) {
 	            	section++;
 	            	renderSectionUI(section, direction);
@@ -116,6 +120,8 @@ $(window).on('load', function() {
 	            }
           	}
 		}
+		scrollingDisabled = true;
+    setTimeout(function(){scrollingDisabled = false;}, 1500);
 	});
 });
 
@@ -186,7 +192,7 @@ function firstToSecond() {
 	  allowChange = true;
 	  console.log(allowChange);
 	  $('body').removeClass('disable-click');
-  }, 1500);
+  }, 0);
 };
 
 function secondToFirst() {
@@ -204,11 +210,11 @@ function secondToFirst() {
 	  //section-1 einblenden
 	  $('#section-1').removeClass();
 	  $('#section-1').addClass('animated fadeInDown');
-	  
+
 	  allowChange = true;
 	  console.log(allowChange);
 	  $('body').removeClass('disable-click');
-  }, 1500);
+  }, 0);
 };
 
 function secondToThird() {
@@ -233,7 +239,7 @@ function secondToThird() {
 		allowChange = true;
 		console.log(allowChange);
 	  	$('body').removeClass('disable-click');
-	}, 1500);
+	}, 0);
 }
 
 
@@ -257,7 +263,7 @@ function thirdToSecond() {
 		allowChange = true;
 		console.log(allowChange);
 	  	$('body').removeClass('disable-click');
-	}, 1500);
+	}, 0);
 }
 
 function thirdToFourth() {
@@ -277,7 +283,7 @@ function thirdToFourth() {
 		allowChange = true;
 		console.log(allowChange);
 		$('body').removeClass('disable-click');
-	}, 1500);
+	}, 0);
 }
 
 function fourthToThird() {
@@ -296,7 +302,7 @@ function fourthToThird() {
 		allowChange = true;
 		console.log(allowChange);
 		$('body').removeClass('disable-click');
-	}, 1500);
+	}, 0);
 
 }
 
@@ -317,7 +323,7 @@ function fourthToFifth() {
 		allowChange = true;
 		console.log(allowChange);
 		$('body').removeClass('disable-click');
-	}, 1500);
+	}, 0);
 }
 
 function fifthToFourth() {
@@ -336,7 +342,7 @@ function fifthToFourth() {
 		allowChange = true;
 		console.log(allowChange);
 		$('body').removeClass('disable-click');
-	}, 1500);
+	}, 0);
 
 }
 
@@ -357,7 +363,7 @@ function fifthToSixt() {
 		allowChange = true;
 		console.log(allowChange);
 		$('body').removeClass('disable-click');
-	}, 1500);
+	}, 0);
 }
 
 function sixtToFifth() {
@@ -376,7 +382,7 @@ function sixtToFifth() {
 		allowChange = true;
 		console.log(allowChange);
 		$('body').removeClass('disable-click');
-	}, 1500);
+	}, 0);
 
 }
 
@@ -397,7 +403,7 @@ function sixtToSeventh() {
 		allowChange = true;
 		console.log(allowChange);
 		$('body').removeClass('disable-click');
-	}, 1500);
+	}, 0);
 }
 
 function seventhToSixt() {
@@ -416,7 +422,7 @@ function seventhToSixt() {
 		allowChange = true;
 		console.log(allowChange);
 		$('body').removeClass('disable-click');
-	}, 1500);
+	}, 0);
 
 }
 
@@ -437,7 +443,7 @@ function seventhToEigth() {
 		allowChange = true;
 		console.log(allowChange);
 		$('body').removeClass('disable-click');
-	}, 1500);
+	}, 0);
 }
 
 function eigthToSeventh() {
@@ -456,7 +462,7 @@ function eigthToSeventh() {
 		allowChange = true;
 		console.log(allowChange);
 		$('body').removeClass('disable-click');
-	}, 1500);
+	}, 0);
 
 }
 
@@ -477,7 +483,7 @@ function eigthToNinth() {
 		allowChange = true;
 		console.log(allowChange);
 	  	$('body').removeClass('disable-click');
-	}, 1500);
+	}, 0);
 }
 
 function ninthToEigth() {
@@ -496,7 +502,7 @@ function ninthToEigth() {
 		allowChange = true;
 		console.log(allowChange);
 	  	$('body').removeClass('disable-click');
-	}, 1500);
+	}, 0);
 
 }
 
@@ -517,7 +523,7 @@ function ninthToTenth() {
 		allowChange = true;
 		console.log(allowChange);
 		$('body').removeClass('disable-click');
-	}, 1500);
+	}, 0);
 }
 
 function tenthToNinth() {
@@ -536,7 +542,7 @@ function tenthToNinth() {
 		allowChange = true;
 		console.log(allowChange);
 		$('body').removeClass('disable-click');
-	}, 1500);
+	}, 0);
 
 }
 
@@ -546,7 +552,7 @@ function showSection2() {
 	if (section == 2) {
 		return;
 	} else {
-		
+
 		if (section < 2) {
 			firstToSecond();
 		} else {
