@@ -1,6 +1,12 @@
 .circleChoose{
+ color: white;
+ background-color: transparent;
  width: 45%;
  display: inline-block;
+}
+
+.circleChoose:focus{
+background-color: rgba(19,23,41,0.93);
 }
 
 #donuts{
