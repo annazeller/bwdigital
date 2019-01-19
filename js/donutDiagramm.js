@@ -98,17 +98,17 @@ var bigData = new Chart(bigData, {
       label: '# of Votes',
       data: [18, 6, 53, 19, 4],
       backgroundColor: [
-        '#a42cd6',
-        '#00c7ff',
-        '#ffdb5b',
-        '#e9242f',
+        'rgba(236, 199, 72, 1)',
+        'rgba(236, 199, 72, 0.8)',
+        'rgba(236, 199, 72, 0.6)',
+        'rgba(236, 199, 72, 0.4)',
         '#FFF'
       ],
       borderColor: [
-        '#a42cd6',
-        '#00c7ff',
-        '#ffdb5b',
-        '#e9242f',
+				'rgba(236, 199, 72, 1)',
+        'rgba(236, 199, 72, 0.8)',
+        'rgba(236, 199, 72, 0.6)',
+        'rgba(236, 199, 72, 0.4)',
         '#FFF'
       ],
       borderWidth: 1
@@ -140,17 +140,17 @@ function generatekünstlicheIntelligenzCircle(){
 	      label: '# of Votes',
 	      data: [4, 4, 76, 15, 1],
 	      backgroundColor: [
-	        '#a42cd6',
-	        '#00c7ff',
-	        '#ffdb5b',
-	        '#e9242f',
+	        'rgba(164, 44, 214, 1)',
+	        'rgba(164, 44, 214, 0.8)',
+	        'rgba(164, 44, 214, 0.6)',
+	        'rgba(164, 44, 214, 0.4)',
 	        '#FFF'
 	      ],
 	      borderColor: [
-	        '#a42cd6',
-	        '#00c7ff',
-	        '#ffdb5b',
-	        '#e9242f',
+					'rgba(164, 44, 214, 1)',
+	        'rgba(164, 44, 214, 0.8)',
+	        'rgba(164, 44, 214, 0.6)',
+	        'rgba(164, 44, 214, 0.4)',
 	        '#FFF'
 	      ],
 	      borderWidth: 1
@@ -182,17 +182,17 @@ var robotikUndSensorik = new Chart(robotikUndSensorik, {
       label: '# of Votes',
       data: [6, 5, 80, 8, 1],
       backgroundColor: [
-        '#a42cd6',
-        '#00c7ff',
-        '#ffdb5b',
-        '#e9242f',
+        'rgba(234, 107, 50, 1)',
+        'rgba(234, 107, 50, 0.8)',
+        'rgba(234, 107, 50, 0.6)',
+        'rgba(234, 107, 50, 0.4)',
         '#FFF'
       ],
       borderColor: [
-        '#a42cd6',
-        '#00c7ff',
-        '#ffdb5b',
-        '#e9242f',
+				'rgba(234, 107, 50, 1)',
+        'rgba(234, 107, 50, 0.8)',
+        'rgba(234, 107, 50, 0.6)',
+        'rgba(234, 107, 50, 0.4)',
         '#FFF'
       ],
       borderWidth: 1
@@ -224,17 +224,17 @@ var smartServices = new Chart(smartServices, {
       label: '# of Votes',
       data: [31, 15, 34, 19, 1],
       backgroundColor: [
-        '#a42cd6',
-        '#00c7ff',
-        '#ffdb5b',
-        '#e9242f',
+        'rgba(36, 233, 188, 1)',
+        'rgba(36, 233, 188, 0.8)',
+        'rgba(36, 233, 188, 0.6)',
+        'rgba(36, 233, 188, 0.4)',
         '#FFF'
       ],
       borderColor: [
-        '#a42cd6',
-        '#00c7ff',
-        '#ffdb5b',
-        '#e9242f',
+				'rgba(36, 233, 188, 1)',
+        'rgba(36, 233, 188, 0.8)',
+        'rgba(36, 233, 188, 0.6)',
+        'rgba(36, 233, 188, 0.4)',
         '#FFF'
       ],
       borderWidth: 1
@@ -261,22 +261,22 @@ var iot = document.getElementById("iotCircle");
 var iot = new Chart(iot, {
   type: 'doughnut',
   data: {
-    labels: ["Nutzen wir", "Planen wir", "Nicht relevant", "Nicht befasst", "Keine Angabe"],
+    labels: ["Nutzen wir", "Planen wir", "Nicht relevant", "Nicht befasst"],
     datasets: [{
       label: '# of Votes',
-      data: [48, 11, 28, 13, 0],
+      data: [48, 11, 28, 13],
       backgroundColor: [
-        '#a42cd6',
-        '#00c7ff',
-        '#ffdb5b',
-        '#e9242f',
+        'rgba(36, 157, 233, 1)',
+        'rgba(36, 157, 233, 0.8)',
+        'rgba(36, 157, 233, 0.6)',
+        'rgba(36, 157, 233, 0.4)',
         '#FFF'
       ],
       borderColor: [
-        '#a42cd6',
-        '#00c7ff',
-        '#ffdb5b',
-        '#e9242f',
+				'rgba(36, 157, 233, 1)',
+        'rgba(36, 157, 233, 0.8)',
+        'rgba(36, 157, 233, 0.6)',
+        'rgba(36, 157, 233, 0.4)',
         '#FFF'
       ],
       borderWidth: 1
@@ -303,22 +303,22 @@ var industrie40 = document.getElementById("industrie40Circle");
 var industrie40 = new Chart(industrie40, {
   type: 'doughnut',
   data: {
-    labels: ["Nutzen wir", "Planen wir", "Nicht relevant", "Nicht befasst", "Keine Angabe"],
+    labels: ["Nutzen wir", "Planen wir", "Nicht relevant", "Nicht befasst"],
     datasets: [{
       label: '# of Votes',
-      data: [9, 12, 57, 22, 0],
+      data: [9, 12, 57, 22],
       backgroundColor: [
-        '#a42cd6',
-        '#00c7ff',
-        '#ffdb5b',
-        '#e9242f',
+        'rgba(233, 36, 47, 1)',
+        'rgba(233, 36, 47, 0.8)',
+        'rgba(233, 36, 47, 0.6)',
+        'rgba(233, 36, 47, 0.4)',
         '#FFF'
       ],
       borderColor: [
-        '#a42cd6',
-        '#00c7ff',
-        '#ffdb5b',
-        '#e9242f',
+				'rgba(233, 36, 47, 1)',
+        'rgba(233, 36, 47, 0.8)',
+        'rgba(233, 36, 47, 0.6)',
+        'rgba(233, 36, 47, 0.4)',
         '#FFF'
       ],
       borderWidth: 1
