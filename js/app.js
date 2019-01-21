@@ -39,7 +39,7 @@ function loadNumbers() {
 
 			{
 				easing: 'linear',
-				duration: 0,
+				duration: 1500,
 				step: function () {
 					$this.text(Math.floor(this.countNum));
 				},
