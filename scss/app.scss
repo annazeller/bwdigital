@@ -242,7 +242,7 @@ h3{
   display: none;
 }
 
-#navigation li.active span {
+#navigation li.active span.sectionNumber {
   display: inline-block;
   margin-bottom: 25px;
 }
@@ -258,6 +258,35 @@ h3{
   -webkit-transition-timing-function: ease-in-out;
   -ms-transition-timing-function: ease-in-out;
   transition-timing-function: ease-in-out;
+}
+
+/*#navigation li.active .sectionTitle,
+#navigation li .sectionTitle { 
+display: none; }*/
+
+#navigation li.active .sectionTitle {
+  opacity: 0 !important;
+}
+
+#navigation li .sectionTitle {
+  display: inline-block;
+  float: right;
+  opacity: 0;
+  position: relative;
+  white-space: nowrap;
+  overflow: hidden;
+  transition: transform .2s,opacity .2s;
+  margin-right: 10px;
+  margin-top: -13px;
+  padding-right: .7em;
+  transform: scale(0.6);
+}
+
+#navigation li:hover > .sectionTitle {
+  opacity: 1;
+  transform: scale(1);
+  transform-origin: 100% 50%;
+
 }
 
 
