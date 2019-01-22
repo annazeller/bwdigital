@@ -561,15 +561,9 @@ function resetUI(){
 	$('.wrapper .animated.fadeInDown').removeClass('fadeInDown').addClass('fadeOut').hide();
 	$('.wrapper .animated.fadeInUp').removeClass('fadeInUp').addClass('fadeOut').hide();
 
-	if (section != 1) {
-		if (section == 2) {
-			$svgMap.addClass('map-svg-second-slide').addClass('animated fadeIn');
-		} else {
-			$svgMap.addClass('animated fadeOut');
-			$svgMap.hide();
-		}
-	}
-
+	$svgMap.addClass('animated fadeOut');
+	$svgMap.removeClass();
+	$svgMap.hide();
 }
 
 function showSection1() {
@@ -609,7 +603,7 @@ function showSection2() {
 			$('#section-map').addClass('animated fadeInDown');
 			$('#section-map').show();
 
-			$svgMap.removeClass('animated zoomOut');
+			$svgMap.removeClass();
 			$svgMap.addClass('map-svg-second-slide animated zoomIn');
 			$svgMap.show();
 		}
