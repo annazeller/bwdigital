@@ -204,7 +204,7 @@ function firstToSecond() {
 	  $('#section-1').addClass('animated fadeOutUp');
 
 	  //section-map einblenden
-	  $svgMap.addClass('map-svg-second-slide');
+	  $svgMap.removeClass("animated fadeInMap").addClass('map-svg-second-slide');
 	  //$svgMap.setAttribute("viewBox", "400 50 400 550");
 	  $('#section-map').removeClass();
 	  $('#section-map').show();
@@ -251,7 +251,7 @@ function secondToThird() {
 		$('#section-map').addClass('animated fadeOutUp');
 
 		$svgMap.removeClass();
-		$svgMap.addClass('animated zoomOut');
+		$svgMap.addClass('animated fadeOutMap');
 		cleanupCircles();
 
 		//section-industrie40 einblenden
@@ -280,8 +280,8 @@ function thirdToSecond() {
 		$('#section-map').addClass('animated fadeInDown');
 		$('#section-map').show();
 		$svgMap.show().addClass('map-svg-second-slide');
-		$svgMap.removeClass('animated zoomOut');
-		$svgMap.addClass('animated zoomIn');
+		$svgMap.removeClass('animated fadeOutMap');
+		$svgMap.addClass('animated fadeInMap');
 
 		allowChange = true;
 		console.log(allowChange);
@@ -565,6 +565,7 @@ function tenthToNinth() {
 		$('#section-compare').addClass('animated fadeOutDown');
 
 		//section-iot einblenden
+		$('#section-ki').show();
 		$('#section-ki').removeClass();
 		$('#section-ki').addClass('animated fadeInDown');
 
@@ -581,7 +582,7 @@ function resetUI(){
 	$('.wrapper .animated.fadeInDown').removeClass('fadeInDown').addClass('fadeOut').hide();
 	$('.wrapper .animated.fadeInUp').removeClass('fadeInUp').addClass('fadeOut').hide();
 
-	$svgMap.addClass('animated fadeOut');
+	$svgMap.addClass('animated fadeOutMap');
 	$svgMap.removeClass();
 	$svgMap.hide();
 }
@@ -600,7 +601,7 @@ function showSection1() {
 			$('#section-1').show();
 			$('#section-1').removeClass();
 			$('#section-1').addClass('animated fadeInDown');
-			$svgMap.removeClass().show().addClass('animated fadeIn');
+			$svgMap.removeClass().show().addClass('animated fadeInMap');
 		}
 
 		section = 1;
@@ -624,7 +625,7 @@ function showSection2() {
 			$('#section-map').show();
 
 			$svgMap.removeClass();
-			$svgMap.addClass('map-svg-second-slide animated zoomIn');
+			$svgMap.addClass('map-svg-second-slide animated fadeInMap');
 			$svgMap.show();
 		}
 		section = 2;
