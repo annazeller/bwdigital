@@ -463,9 +463,10 @@ transition: 0.8s;
 #section-circlecompare {
   position: absolute;
   margin: 0 auto;
-  top: -10vh;
-  left: -5vw;
-  //right: 0;
+  top: 50%;
+  left: 50%;
+  margin-top: -35vh;
+  margin-left: -35vw;
   display: block;
   padding: 0px 3vw;
 }
