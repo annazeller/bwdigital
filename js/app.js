@@ -11,18 +11,38 @@ $(document).foundation();
 
 function openInfo() {
 	document.getElementById("studyinfo").style.width = "100%";
+	$('#studyinfo .grid-container').removeClass("animated fadeOut").hide();
+	setTimeout(function(){
+		$('#studyinfo .grid-container').show().addClass("animated fadeIn");
+	}, 350);
 }
 
 function closeInfo() {
-	document.getElementById("studyinfo").style.width = "0%";
+	$('#studyinfo .grid-container').removeClass("animated fadeIn").addClass("animated fadeOut");
+	setTimeout(function(){
+		$('#studyinfo .grid-container').hide();
+		document.getElementById("studyinfo").style.width = "0%";
+	}, 300);
+	
+
 }
 
 function openImpressum() {
 	document.getElementById("impressum").style.width = "100%";
+
+	$('#impressum .grid-container').removeClass("animated fadeOut").hide();
+	setTimeout(function(){
+		$('#impressum .grid-container').show().addClass("animated fadeIn");
+	}, 350);
+
 }
 
 function closeImpressum() {
-	document.getElementById("impressum").style.width = "0%";
+	$('#impressum .grid-container').removeClass("animated fadeIn").addClass("animated fadeOut");
+	setTimeout(function(){
+		$('#impressum .grid-container').hide();
+		document.getElementById("impressum").style.width = "0%";
+	}, 300);
 }
 
 function loadNumbers() {
