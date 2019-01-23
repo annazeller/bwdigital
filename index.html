@@ -2557,37 +2557,37 @@
             </p>
              <div class="cell">
                 <ul id="mapAction" class="style-1">
-                   <li onClick='color(0.09,0.12,0.57,0.22, "industrie40");' style="cursor: pointer;" class="li-industrie40">
+                   <li onClick='color(0.09,0.21,"industrie40");' style="cursor: pointer;" class="li-industrie40">
                       <div>
                         <em class="industrie40-color">Industrie 4.0</em>
                         <span id="indSpan">9%</span>
                       </div>
                     </li>
-                   <li onClick='color(0.48,0.11,0.28,0.13,"iot");' style="cursor: pointer;" class="li-iot">
+                   <li onClick='color(0.48,0.59,"iot");' style="cursor: pointer;" class="li-iot">
                       <div>
                         <em class="iot-color">Internet of things</em>
                         <span id="iotSpan">48%</span>
                       </div>
                    </li>
-                   <li onClick='color(0.31,0.15,0.34, 0.19,"smartServices");' style="cursor: pointer;" class="li-smartServices">
+                   <li onClick='color(0.31, 0.46,"smartServices");' style="cursor: pointer;" class="li-smartServices">
                       <div>
                         <em class="smartServices-color">Smart Services</em>
                         <span id="SSSpan">31%</span>
                       </div>
                    </li>
-                   <li onClick='color(0.18, 0.06, 0.53, 0.19,"bigData");' style="cursor: pointer;" class="li-bigData">
+                   <li onClick='color(0.18, 0.24, "bigData");' style="cursor: pointer;" class="li-bigData">
                       <div>
                         <em class="bigData-color">Big Data</em>
                         <span id="BDSpan">18%</span>
                       </div>
                    </li>
-                   <li onClick='color(0.06, 0.05, 0.80, 0.08,"robotikUndSensorik");' style="cursor: pointer;" class="li-robotikUndSensorik">
+                   <li onClick='color(0.06, 0.11, "robotikUndSensorik");' style="cursor: pointer;" class="li-robotikUndSensorik">
                       <div>
                         <em class="robotikUndSensorik-color">Robotik&Sensorik</em>
                         <span id="RUSSpan">6%</span>
                       </div>
                    </li>
-                   <li onClick='color(0.04, 0.04, 0.76, 0.15,"ki");' style="cursor: pointer;" class="li-ki">
+                   <li onClick='color(0.04, 0.08, "ki");' style="cursor: pointer;" class="li-ki">
                       <div>
                         <em class="ki-color">Künstliche Intelligenz</em>
                         <span id="kiSpan">4%</span>
@@ -2596,8 +2596,14 @@
                 </ul>
              </div>
 
-             <button class="button medium" id="now">Now</button>
-            <button  class="button medium" id="future">Future</button>
+            <div class="container">
+	             <div class="input-switch">
+		               <label class="switchlabel active" for="switchy" id="now">Now</label>
+		                 <input type="checkbox" id="switchy" class="input" />
+		                   <label for="switchy" class="switch"></label>
+		                   <label class="switchlabel" for="switchy" id="future">Future</label>
+	              </div>
+           </div>
 
           </div>
 

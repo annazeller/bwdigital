@@ -10,89 +10,47 @@ var currentFutureCircle;
   var ki = ["#a42cd6", "rgba(164, 44, 214, 0.4)", "#FFFFFF", "#FFFFFF"];
   var robotikUndSensorik = ["#fe7f2d", "rgba(234, 107, 50, 0.4)", "#FFFFFF", "#FFFFFF"];
 
-async function color(nutzen, planen, nRelevant, nBefasst, kategorie)
+async function color(now, future, kategorie)
 {
   var circles = $('.map-circle');
   var circleCount = circles.length;
-  var nutzenWir = Math.round(circleCount * nutzen);
-  var planenWir = Math.round(circleCount * planen);
-  var nichtRelevant = Math.round(circleCount * nRelevant);
-  var nichtBefasst = Math.round(circleCount * nBefasst);
-  var keineAngabe = circleCount -nutzenWir -planenWir -nichtRelevant -nichtBefasst;
+  var nutzenWir = Math.round(circleCount * now);
+  var planenWir = Math.round(circleCount * future);
 
 //Cleanup
   cleanupCircles();
 
 //Nutzen wir
-for (var i = circleCount - 1; i >= circleCount - nutzenWir; --i) {
-  circles[i].style.fill=eval(kategorie)[0];
-  circles[i].setAttribute("aria-label", Math.floor(nutzen*100) + "% der Unternehmen nutzen es bereits");
-  circles[i].classList.add('enabled');
-  await Sleep(5);
+if($('#now').hasClass('active')){
+  for (var i = circleCount - 1; i >= circleCount - nutzenWir; --i) {
+    circles[i].style.fill=eval(kategorie)[0];
+    circles[i].setAttribute("aria-label", Math.floor(now*100) + "% der Unternehmen nutzen es bereits");
+    circles[i].classList.add('enabled');
+    await Sleep(5);
+  }
+
+  currentCircle = circleCount - nutzenWir +1;
+}
+
+//Future if no item was selected first
+if($('#future').hasClass('active')){
+  for (var i = circleCount - 1; i >= circleCount - planenWir; --i) {
+    circles[i].style.fill=eval(kategorie)[0];
+    circles[i].setAttribute("aria-label", Math.floor(future*100) + "% der Unternehmen nutzen es bereits");
+    circles[i].classList.add('enabled');
+    await Sleep(5);
+  }
+
+  currentCircle = circleCount - planenWir +1;
 }
 
 currentKategorie = kategorie;
-currentCircle = circleCount - nutzenWir +1;
-
-/*
-//Planen wir
-for (var i = circleCount - nutzenWir -1; i >= circleCount - nutzenWir -planenWir; --i) {
-  circles[i].style.fill=eval(kategorie)[1];
-  circles[i].setAttribute("aria-label", Math.floor(planen*100) +"% der Unternehmen planen den Einsatz" );
-  circles[i].classList.add('enabled');
-}
-
-//Nicht Relevant
-for (var i = circleCount - nutzenWir - planenWir -1; i >= circleCount - nutzenWir -planenWir -nichtRelevant; --i) {
-  circles[i].style.fill=eval(kategorie)[2];
-  circles[i].setAttribute("aria-label", Math.floor(nRelevant*100) + "% der Unternehmen finden es nicht Relevant" );
-  circles[i].classList.add('enabled');
-}
-
-//Nicht Befasst
-for (var i = circleCount - nutzenWir - planenWir - nichtRelevant -1; i >= circleCount - nutzenWir -planenWir -nichtRelevant -nichtBefasst; --i) {
-  circles[i].style.fill=eval(kategorie)[3];
-  circles[i].setAttribute("aria-label",  Math.floor(nBefasst*100) + "% der Unternehmen haben sich noch nicht damit befasst" );
-  circles[i].classList.add('enabled');
-}
-
-//Haben keine Angabe gemacht
-var keineAngabePercentage = Math.floor((keineAngabe / circleCount) * 100);
-for (var i = circleCount - nutzenWir - planenWir - nichtRelevant -nichtBefasst -1; i >= circleCount - nutzenWir -planenWir -nichtRelevant -nichtBefasst -keineAngabe; --i) {
-  circles[i].setAttribute("aria-label", keineAngabePercentage + "% der Unternehmen haben keine Angabe gemacht" );
-  circles[i].classList.add('enabled');
-}
-*/
-}
-
-
-document.getElementById('now').onclick = function(){
-  romveColorFuture();
-  document.getElementById("kiSpan").innerHTML="4%";
-  document.getElementById("RUSSpan").innerHTML="6%";
-  document.getElementById("BDSpan").innerHTML="18%";
-  document.getElementById("SSSpan").innerHTML="31%";
-  document.getElementById("iotSpan").innerHTML="48%";
-  document.getElementById("indSpan").innerHTML="9%";
-
-  setBarWidth(".style-1 span", ".style-1 em", "width", 100);
-}
-
-document.getElementById('future').onclick = function(){
-  colorFuture();
-  document.getElementById("kiSpan").innerHTML="8%";
-  document.getElementById("RUSSpan").innerHTML="11%";
-  document.getElementById("BDSpan").innerHTML="24%";
-  document.getElementById("SSSpan").innerHTML="46%";
-  document.getElementById("iotSpan").innerHTML="59%";
-  document.getElementById("indSpan").innerHTML="21%";
-
-  setBarWidth(".style-1 span", ".style-1 em", "width", 100);
 }
 
 async function colorFuture(){
   var circles = $('.map-circle');
   var circleCount = circles.length;
+  console.log("colorfuture");
 
   if(currentKategorie != null)
   {
@@ -125,7 +83,7 @@ async function colorFuture(){
       circles[i].classList.add('enabled');
       await Sleep(5);
     }
-
+    console.log(circleCount -future);
     currentFutureCircle = circleCount - future;
   }
 }
@@ -133,15 +91,50 @@ async function colorFuture(){
 async function romveColorFuture(){
   var circles = $('.map-circle');
   var circleCount = circles.length;
-
-  if(currentFutureCircle !=null)
+  console.log("removeFuture" + currentFutureCircle);
+  if(currentFutureCircle !== null && currentFutureCircle !== undefined)
   {
+    console.log("currentFutureCircle");
+
     for (var i = currentFutureCircle; i <= currentCircle -2; i++) {
       circles[i].classList.remove('enabled');
       circles[i].style.fill="#ffffff";
       circles[i].removeAttribute("aria-label");
       await Sleep(5);
     }
+  }
+  else
+  {
+    console.log("inside");
+    switch(currentKategorie) {
+      case "industrie40":
+        future = Math.round(circleCount * 0.09);
+      break;
+      case "iot":
+        future=Math.round(circleCount * 0.48);
+      break;
+      case "smartServices":
+        future=Math.round(circleCount * 0.31);
+      break;
+      case "bigData":
+        future= Math.round(circleCount * 0.18);
+      break;
+      case "robotikUndSensorik":
+        future= Math.round(circleCount * 0.06);
+      break;
+      case "ki":
+        future= Math.round(circleCount * 0.04);
+      break;
+    }
+    console.log(future);
+
+    for (var i = currentCircle -2; i >= circleCount - future; --i) {
+      circles[i].classList.remove('enabled');
+      circles[i].style.fill="green";
+      circles[i].removeAttribute("aria-label");
+      await Sleep(5);
+    }
+
   }
 
 }
@@ -177,4 +170,40 @@ $('.description').css({
     left:  e.pageX,
     top:   e.pageY - 70
   });
+});
+
+document.getElementById('switchy').addEventListener('click', function() {
+	if ( document.getElementById('switchy').checked ) {
+		console.log("Future selected");
+
+    if ($('#now').hasClass('active')){
+      $('#now').removeClass('active');
+    }
+    $('#future').addClass('active');
+    colorFuture();
+    document.getElementById("kiSpan").innerHTML="8%";
+    document.getElementById("RUSSpan").innerHTML="11%";
+    document.getElementById("BDSpan").innerHTML="24%";
+    document.getElementById("SSSpan").innerHTML="46%";
+    document.getElementById("iotSpan").innerHTML="59%";
+    document.getElementById("indSpan").innerHTML="21%";
+
+    setBarWidth(".style-1 span", ".style-1 em", "width", 100);
+	} else {
+    console.log("Now selected");
+
+    if ($('#future').hasClass('active')){
+      $('#future').removeClass('active');
+    }
+    $('#now').addClass('active');
+    romveColorFuture();
+    document.getElementById("kiSpan").innerHTML="4%";
+    document.getElementById("RUSSpan").innerHTML="6%";
+    document.getElementById("BDSpan").innerHTML="18%";
+    document.getElementById("SSSpan").innerHTML="31%";
+    document.getElementById("iotSpan").innerHTML="48%";
+    document.getElementById("indSpan").innerHTML="9%";
+
+    setBarWidth(".style-1 span", ".style-1 em", "width", 100);
+	}
 });
