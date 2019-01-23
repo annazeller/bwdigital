@@ -18,7 +18,7 @@ var barChart = new Chart(compareDiagramm, {
     responsive:true,
     maintainAspectRatio: false,
     legend: {
-    	display: true,
+    	display: false,
       labels:{
         fontSize: 15
       }
@@ -84,6 +84,87 @@ document.getElementById('plus-button').onclick = function(){
   document.getElementById("branchenOverlay").classList.toggle("active");
 }
 
+$( "#activeBranchen" ).on( "click", ".activeBran", function( event ) {
+
+   $(this).remove();
+   switch($(this).attr("id")) {
+      case "fin":
+       removeDataset("Finanz und Versicherungsdienstleister");
+       $("#fin").remove();
+       document.getElementById("Finanz und Versicherungsdienstleister").checked = false;
+       break;
+       case "han":
+         removeDataset('Handel');
+         $("#han").remove();
+         document.getElementById("Handel").checked = false;
+         break;
+       case "vul":
+         removeDataset('Verkehr und Logistik');
+         $("#vul").remove();
+         $("#Verkehr und Logistik").prop( "checked", false );
+         document.getElementById("Verkehr und Logistik").checked = false;
+         break;
+       case "wis":
+         removeDataset('Wissensintensive Dienstleister');
+         $("#wis").remove();
+         document.getElementById("Wissensintensive Dienstleister").checked = false;
+         break;
+       case "krea":
+         removeDataset('Kreativwirtschaft');
+         $("#krea").remove();
+         document.getElementById("Kreativwirtschaft").checked = false;
+         break;
+       case "ikt":
+         removeDataset('IKT');
+         $("#ikt").remove();
+         document.getElementById("IKT").checked = false;
+         break;
+       case "gast":
+         removeDataset('Gastgewerbe');
+         $("#gast").remove();
+         document.getElementById("Gastgewerbe").checked = false;
+         break;
+       case "masch":
+         removeDataset('Maschinenbau und Fahrzeugbau');
+         $("#masch").remove();
+         document.getElementById("Maschinenbau und Fahrzeugbau").checked = false;
+         break;
+       case "bau":
+         removeDataset('Bauwirtschaft');
+         $("#bau").remove();
+         document.getElementById("Bauwirtschaft").checked = false;
+         break;
+       case "handw":
+         removeDataset('Handwerk');
+         $("#handw").remove();
+         document.getElementById("Handwerk").checked = false;
+         break;
+       case "chem":
+         removeDataset('Chemie und Gesundheitsindustrie');
+         $("#chem").remove();
+         document.getElementById("Chemie und Gesundheitsindustrie").checked = false;
+         break;
+       case "sonst":
+         removeDataset('Sonstiges verarbeitendes Gewerbe');
+         $("#sonst").remove();
+         document.getElementById("Sonstiges verarbeitendes Gewerbe").checked = false;
+         break;
+ }
+
+ var countchecked = $("input[type=checkbox]:checked").length;
+
+ if(countchecked >= 4)
+ {
+   console.log("more than 4");
+     $('input[type=checkbox]').not(':checked').attr("disabled",true);
+ }
+ else
+ {
+   console.log("less than 4");
+     $('input[type=checkbox]').not(':checked').attr("disabled",false);
+ }
+});
+
 
 $( document ).ready(function() {
   $('.branchenOverlayContent :checkbox').on('click', function (evt) {
@@ -91,7 +172,7 @@ $( document ).ready(function() {
 
     var countchecked = $("input[type=checkbox]:checked").length;
 
-    if(countchecked >= 3)
+    if(countchecked >= 4)
     {
         $('input[type=checkbox]').not(':checked').attr("disabled",true);
     }
@@ -107,81 +188,105 @@ $( document ).ready(function() {
       colors.splice(randInt, 1);
 
       switch(this.id) {
-        case "Finanz- und Versicherungsdienstleister":
-          addData('Finanz- und Versicherungsdienstleister', randColour, [0, 73, 63, 32, 9, 2]);
+        case "Finanz und Versicherungsdienstleister":
+          addData('Finanz und Versicherungsdienstleister', randColour, [0, 73, 63, 32, 9, 2]);
+          $( "#activeBranchen" ).append( "<button class='button medium activeBran' id='fin' style='background-color:"+randColour+"'>Finanz und Versicherungsdienstleister</button>" );
           break;
         case "Handel":
           addData('Handel', randColour, [0, 4, 60, 40, 25, 2]);
+          $( "#activeBranchen" ).append( "<button class='button medium activeBran' id='han' style='background-color:"+randColour+"'> Handel</button>" );
           break;
         case "Verkehr und Logistik":
           addData('Verkehr und Logistik', randColour, [0, 1, 57, 35, 15, 1]);
+          $( "#activeBranchen" ).append( "<button class='button medium activeBran' id='vul' style='background-color:"+randColour+"'>Verkehr und Logistik</button>" );
           break;
         case "Wissensintensive Dienstleister":
           addData('Wissensintensive Dienstleister', randColour, [0, 5, 54, 28, 13, 3]);
+          $( "#activeBranchen" ).append( "<button class='button medium activeBran' id='wis' style='background-color:"+randColour+"'>Wissensintensive Dienstleister</button>" );
           break;
         case "Kreativwirtschaft":
           addData('Kreativwirtschaft', randColour, [0, 3, 51, 36, 16, 9]);
+          $( "#activeBranchen" ).append( "<button class='button medium activeBran' id='krea' style='background-color:"+randColour+"'>Kreativwirtschaft</button>" );
           break;
         case "IKT":
           addData('IKT', randColour, [0, 16, 51, 59, 41, 8]);
+          $( "#activeBranchen" ).append( "<button class='button medium activeBran' id='ikt' style='background-color:"+randColour+"'>IKT</button>" );
           break;
         case "Gastgewerbe":
           addData('Gastgewerbe', randColour, [0, 0, 44, 33, 19, 4]);
+          $( "#activeBranchen" ).append( "<button class='button medium activeBran' id='gast' style='background-color:"+randColour+"'>Gastgewerbe</button>" );
           break;
         case "Maschinenbau und Fahrzeugbau":
           addData('Maschinenbau und Fahrzeugbau', randColour, [19, 5, 43, 28, 11, 26]);
+          $( "#activeBranchen" ).append( "<button class='button medium activeBran' id='masch' style='background-color:"+randColour+"'>Maschinenbau und Fahrzeugbau</button>" );
           break;
         case "Bauwirtschaft":
           addData('Bauwirtschaft', randColour, [11, 0, 40, 21, 13, 4]);
+          $( "#activeBranchen" ).append( "<button class='button medium activeBran' id='bau' style='background-color:"+randColour+"'>Bauwirtschaft</button>" );
           break;
         case "Handwerk":
           addData('Handwerk', randColour, [5, 0, 37, 12, 8, 7]);
+          $( "#activeBranchen" ).append( "<button class='button medium activeBran' id='handw' style='background-color:"+randColour+"'>Handwerk</button>" );
           break;
         case "Chemie und Gesundheitsindustrie":
           addData('Chemie und Gesundheitsindustrie', randColour, [32, 4, 58, 34, 16, 24]);
+          $( "#activeBranchen" ).append( "<button class='button medium activeBran' id='chem' style='background-color:"+randColour+"'>Chemie und Gesundheitsindustrie</button>" );
           break;
         case "Sonstiges verarbeitendes Gewerbe":
           addData('Sonstiges verarbeitendes Gewerbe', randColour, [10, 7, 35, 22, 18, 15]);
+          $( "#activeBranchen" ).append( "<button class='button medium activeBran' id='sonst' style='background-color:"+randColour+"'>Sonstiges verarbeitendes Gewerbe</button>" );
           break;
       }
     }
     else {
       switch(this.id) {
-        case "Finanz- und Versicherungsdienstleister":
-          removeDataset("Finanz- und Versicherungsdienstleister");
+        case "Finanz und Versicherungsdienstleister":
+          removeDataset("Finanz und Versicherungsdienstleister");
+          $( "#fin" ).remove();
           break;
           case "Handel":
             removeDataset('Handel');
+            $( "#han" ).remove();
             break;
           case "Verkehr und Logistik":
             removeDataset('Verkehr und Logistik');
+            $( "#vul" ).remove();
             break;
           case "Wissensintensive Dienstleister":
             removeDataset('Wissensintensive Dienstleister');
+            $( "#wis" ).remove();
             break;
           case "Kreativwirtschaft":
             removeDataset('Kreativwirtschaft');
+            $( "#krea" ).remove();
             break;
           case "IKT":
             removeDataset('IKT');
+            $( "#ikt" ).remove();
             break;
           case "Gastgewerbe":
             removeDataset('Gastgewerbe');
+            $( "#gast" ).remove();
             break;
           case "Maschinenbau und Fahrzeugbau":
             removeDataset('Maschinenbau und Fahrzeugbau');
+            $( "#masch" ).remove();
             break;
           case "Bauwirtschaft":
             removeDataset('Bauwirtschaft');
+            $( "#bau" ).remove();
             break;
           case "Handwerk":
             removeDataset('Handwerk');
+            $( "#handw" ).remove();
             break;
           case "Chemie und Gesundheitsindustrie":
             removeDataset('Chemie und Gesundheitsindustrie');
+            $( "#chem" ).remove();
             break;
           case "Sonstiges verarbeitendes Gewerbe":
             removeDataset('Sonstiges verarbeitendes Gewerbe');
+            $( "#sonst" ).remove();
             break;
     }}
   });

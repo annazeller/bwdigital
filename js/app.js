@@ -23,7 +23,7 @@ function closeInfo() {
 		$('#studyinfo .grid-container').hide();
 		document.getElementById("studyinfo").style.width = "0%";
 	}, 300);
-	
+
 
 }
 
@@ -189,7 +189,7 @@ function renderSectionUI(section, direction) {
 		tenthToNinth();
 	} else if (section == 10 && direction == "down") {
 		ninthToTenth();
-	} 
+	}
 };
 
 function firstToSecond() {
@@ -649,11 +649,11 @@ function showSection3() {
 			if (section < 2) {
 				console.log("ja");
 				console.log(section + " ist kleiner als nachfolgende zahl, also fadeinup");
-				
+
 				$('#section-circlecompare').show();
 				$('#section-circlecompare').removeClass();
 				$('#section-circlecompare').addClass('animated fadeInUp');
-			} 
+			}
 			if (section > 4) {
 				console.log("nein");
 				console.log(section + " ist größer als nachfolgende zahl, also fadeindown");
@@ -684,7 +684,7 @@ function showSection4() {
 				$('#section-industrie40').removeClass();
 				$('#section-industrie40').addClass('animated fadeInUp');
 
-			} 
+			}
 			 if (section > 5) {
 				console.log(section + " ist größer als nachfolgende zahl, also fadeindown");
 				$('#section-industrie40').show();
@@ -714,7 +714,7 @@ function showSection5() {
 				$('#section-iot').removeClass();
 				$('#section-iot').addClass('animated fadeInUp');
 
-			} 
+			}
 			 if (section > 6) {
 				console.log(section + " ist größer als nachfolgende zahl, also fadeindown");
 				$('#section-iot').show();
@@ -743,7 +743,7 @@ function showSection6() {
 				$('#section-smartServices').show();
 				$('#section-smartServices').removeClass();
 				$('#section-smartServices').addClass('animated fadeInUp');
-			} 
+			}
 			 if (section > 7) {
 				console.log(section + " ist größer als nachfolgende zahl, also fadeindown");
 				$('#section-smartServices').show();
@@ -772,7 +772,7 @@ function showSection7() {
 				$('#section-bigData').show();
 				$('#section-bigData').removeClass();
 				$('#section-bigData').addClass('animated fadeInUp');
-			} 
+			}
 			 if (section > 8) {
 				console.log(section + " ist größer als nachfolgende zahl, also fadeindown");
 				$('#section-bigData').show();
@@ -801,7 +801,7 @@ function showSection8() {
 				$('#section-robotikUndSensorik').show();
 				$('#section-robotikUndSensorik').removeClass();
 				$('#section-robotikUndSensorik').addClass('animated fadeInUp');
-			} 
+			}
 			 if (section > 9) {
 				console.log(section + " ist größer als nachfolgende zahl, also fadeindown");
 				$('#section-robotikUndSensorik').show();
@@ -830,7 +830,7 @@ function showSection9() {
 				$('#section-ki').show();
 				$('#section-ki').removeClass();
 				$('#section-ki').addClass('animated fadeInUp');
-			} 
+			}
 		}
 		section = 9;
 		renderNavigationUI(section);
@@ -894,14 +894,11 @@ $('#mapAction li').click(function(e) {
 
 
 
-
-
-
 $(document).on('mouseenter', '.keyfact-box', function() {
   console.log("mouse enter");
   var index = $(this).attr('data-mid');
   console.log(index);
-  
+
   $('.industrie40-image #map-path1-' + index + '').siblings('path').not('#map-path1').addClass('stroke-white');
   $('.industrie40-image #map-path1-' + index + '').addClass('stroke-red');
   $(this).find('p').addClass('color-red');

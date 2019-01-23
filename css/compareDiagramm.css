@@ -2,6 +2,15 @@
   border-radius: 25px !important;
 }
 
+#activeBranchen{
+  display:inline;
+  margin: 100px;
+}
+
+#closeX{
+  font-size:38px;
+}
+
 #plus-button {
 	border: 1px solid white;
 	font-size: 12px;
@@ -47,7 +56,6 @@
   background: rgba(19,23,41,0.93);
   display: block;
   padding: 20px;
-  width: 112%;
 }
 
 .branchenOverlayContent{

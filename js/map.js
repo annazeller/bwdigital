@@ -40,7 +40,7 @@ if($('#future').hasClass('active')){
     circles[i].classList.add('enabled');
     await Sleep(5);
   }
-
+  currentFutureCircle = circleCount - planenWir;
   currentCircle = circleCount - planenWir +1;
 }
 
@@ -91,14 +91,16 @@ async function colorFuture(){
 async function romveColorFuture(){
   var circles = $('.map-circle');
   var circleCount = circles.length;
-  console.log("removeFuture" + currentFutureCircle);
   if(currentFutureCircle !== null && currentFutureCircle !== undefined)
   {
+    console.log("removeFuture" + currentFutureCircle);
+    console.log(currentCircle);
     console.log("currentFutureCircle");
 
     for (var i = currentFutureCircle; i <= currentCircle -2; i++) {
+      console.log("iterate");
       circles[i].classList.remove('enabled');
-      circles[i].style.fill="#ffffff";
+      circles[i].style.fill="red";
       circles[i].removeAttribute("aria-label");
       await Sleep(5);
     }
@@ -156,6 +158,8 @@ $('ul li a').click(function() {
      $('ul li a.highlight').removeClass('highlight');
      $(this).addClass("highlight");
 });
+
+
 
 $( "#mapSVG" ).on( "mouseenter", ".enabled", function( event ) {
   $('.description').addClass('active');
