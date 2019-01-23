@@ -1,91 +1,91 @@
 
-var 	currentlySelected1 = null;
+var currentlySelected1 = null;
 var	currentlySelected2 = null;
 
-Chart.pluginService.register({
-		beforeDraw: function (chart) {
-			if (chart.config.options.elements.center) {
-        //Get ctx from string
-        var ctx = chart.chart.ctx;
+/*Chart.pluginService.register({
+	beforeDraw: function (chart) {
+		if (chart.config.options.elements.center) {
+      //Get ctx from string
+      var ctx = chart.chart.ctx;
 
-				//Get options from the center object in options
-        var centerConfig = chart.config.options.elements.center;
-      	var fontStyle = centerConfig.fontStyle || 'Arial';
-				var txt = centerConfig.text;
-        var color = centerConfig.color || '#000';
-        var sidePadding = centerConfig.sidePadding || 20;
-        var sidePaddingCalculated = (sidePadding/100) * (chart.innerRadius * 2)
-        //Start with a base font of 30px
-        ctx.font = "30px " + fontStyle;
+			//Get options from the center object in options
+      var centerConfig = chart.config.options.elements.center;
+    	var fontStyle = centerConfig.fontStyle || 'Arial';
+			var txt = centerConfig.text;
+      var color = centerConfig.color || '#000';
+      var sidePadding = centerConfig.sidePadding || 20;
+      var sidePaddingCalculated = (sidePadding/100) * (chart.innerRadius * 2)
+      //Start with a base font of 30px
+      ctx.font = "30px " + fontStyle;
 
-				//Get the width of the string and also the width of the element minus 10 to give it 5px side padding
-        var stringWidth = ctx.measureText(txt).width;
-        var elementWidth = (chart.innerRadius * 2) - sidePaddingCalculated;
+			//Get the width of the string and also the width of the element minus 10 to give it 5px side padding
+      var stringWidth = ctx.measureText(txt).width;
+      var elementWidth = (chart.innerRadius * 2) - sidePaddingCalculated;
 
-        // Find out how much the font can grow in width.
-        var widthRatio = elementWidth / stringWidth;
-        var newFontSize = Math.floor(30 * widthRatio);
-        var elementHeight = (chart.innerRadius * 2);
+      // Find out how much the font can grow in width.
+      var widthRatio = elementWidth / stringWidth;
+      var newFontSize = Math.floor(30 * widthRatio);
+      var elementHeight = (chart.innerRadius * 2);
 
-        // Pick a new font size so it will not be larger than the height of label.
-        var fontSizeToUse = Math.min(newFontSize, elementHeight);
+      // Pick a new font size so it will not be larger than the height of label.
+      var fontSizeToUse = Math.min(newFontSize, elementHeight);
 
-				//Set font settings to draw it correctly.
-        ctx.textAlign = 'center';
-        ctx.textBaseline = 'middle';
-        var centerX = ((chart.chartArea.left + chart.chartArea.right) / 2);
-        var centerY = ((chart.chartArea.top + chart.chartArea.bottom) / 2);
-        ctx.font = fontSizeToUse+"px " + fontStyle;
-        ctx.fillStyle = color;
+			//Set font settings to draw it correctly.
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      var centerX = ((chart.chartArea.left + chart.chartArea.right) / 2);
+      var centerY = ((chart.chartArea.top + chart.chartArea.bottom) / 2);
+      ctx.font = fontSizeToUse+"px " + fontStyle;
+      ctx.fillStyle = color;
 
-        //Draw text in center
-        ctx.fillText(txt, centerX, centerY);
-			}
+      //Draw text in center
+      ctx.fillText(txt, centerX, centerY);
 		}
-	});
+	}
+});*/
 
-	$('.circleChoose').change(function() {
-	    $this = $(this);
-	    myId = $this.attr('id');
-	    myVal = $this.val();
+/*$('.circleChoose').change(function() {
+    $this = $(this);
+    myId = $this.attr('id');
+    myVal = $this.val();
 
-	     if (myId == 'circleChoose1') {
-				 if (currentlySelected1 != null)
-				 {
-					 $("#circleChoose1 option[value=" + currentlySelected1 + "]").attr("disabled", false);
-					 $("#circleChoose2 option[value=" + currentlySelected1 + "]").attr("disabled", false);
+     if (myId == 'circleChoose1') {
+			 if (currentlySelected1 != null)
+			 {
+				 $("#circleChoose1 option[value=" + currentlySelected1 + "]").attr("disabled", false);
+				 $("#circleChoose2 option[value=" + currentlySelected1 + "]").attr("disabled", false);
 
-					 $("#" + currentlySelected1 + "Circle").appendTo("#hiddenDonuts");
-				 }
+				 $("#" + currentlySelected1 + "Circle").appendTo("#hiddenDonuts");
+			 }
 
-			$("#circleChoose1 option:selected").attr('disabled','disabled');
-			$("#circleChoose2 option[value=" + myVal + "]").attr('disabled','disabled');
+		$("#circleChoose1 option:selected").attr('disabled','disabled');
+		$("#circleChoose2 option[value=" + myVal + "]").attr('disabled','disabled');
 
-			currentlySelected1 = myVal;
-			 $("#" + myVal + "Circle").appendTo("#donut1");
+		currentlySelected1 = myVal;
+		 $("#" + myVal + "Circle").appendTo("#donut1");
 
-			 functioncall = "generate" + myVal+ "Circle();";
-			 eval(functioncall);
-	     }
-			 else if (myId =='circleChoose2'){
-				 if (currentlySelected2 != null)
-				{
-					$("#circleChoose1 option[value=" + currentlySelected2 + "]").attr("disabled", false);
-					$("#circleChoose2 option[value=" + currentlySelected2 + "]").attr("disabled", false);
+		 functioncall = "generate" + myVal+ "Circle();";
+		 eval(functioncall);
+     }
+		 else if (myId =='circleChoose2'){
+			 if (currentlySelected2 != null)
+			{
+				$("#circleChoose1 option[value=" + currentlySelected2 + "]").attr("disabled", false);
+				$("#circleChoose2 option[value=" + currentlySelected2 + "]").attr("disabled", false);
 
-					$("#" + currentlySelected2 + "Circle").appendTo("#hiddenDonuts");
-				}
+				$("#" + currentlySelected2 + "Circle").appendTo("#hiddenDonuts");
+			}
 
-		 $("#circleChoose2 option:selected").attr('disabled','disabled');
-		 $("#circleChoose1 option[value=" + myVal + "]").attr('disabled','disabled');
+	 $("#circleChoose2 option:selected").attr('disabled','disabled');
+	 $("#circleChoose1 option[value=" + myVal + "]").attr('disabled','disabled');
 
-		 currentlySelected2 = myVal;
-			$("#" + myVal + "Circle").appendTo("#donut2");
+	 currentlySelected2 = myVal;
+		$("#" + myVal + "Circle").appendTo("#donut2");
 
-			functioncall = "generate" + myVal+ "Circle();";
-			eval(functioncall);
-		 }
-	});
+		functioncall = "generate" + myVal+ "Circle();";
+		eval(functioncall);
+	 }
+});
 
 
 function generatebigDataCircle(){
@@ -93,31 +93,41 @@ var bigData = document.getElementById("bigDataCircle");
 var bigData = new Chart(bigData, {
   type: 'doughnut',
   data: {
-    labels: ["Nutzen wir", "Planen wir", "Nicht relevant", "Nicht befasst", "Keine Angabe"],
-    datasets: [{
-      label: '# of Votes',
-      data: [18, 6, 53, 19, 4],
-      backgroundColor: [
-        'rgba(236, 199, 72, 1)',
-        'rgba(236, 199, 72, 0.8)',
-        'rgba(236, 199, 72, 0.6)',
-        'rgba(236, 199, 72, 0.4)',
-        '#FFF'
-      ],
-      borderColor: [
-				'rgba(236, 199, 72, 1)',
-        'rgba(236, 199, 72, 0.8)',
-        'rgba(236, 199, 72, 0.6)',
-        'rgba(236, 199, 72, 0.4)',
-        '#FFF'
-      ],
-      borderWidth: 1
-    }]
-  },
+    
+      
+      datasets: [{
+          data: [18, 6, 53, 19, 4],
+          backgroundColor: [
+            'rgba(236, 199, 72, 1)',
+            'rgba(236, 199, 72, 0.8)',
+            'rgba(236, 199, 72, 0.6)',
+            'rgba(236, 199, 72, 0.4)',
+            '#12111F'
+          ],
+        borderColor: '#10112a',
+      borderWidth: 1},
+          
+          {
+          data: [9, 12, 57, 22],
+          backgroundColor: [
+            'rgba(164, 44, 214, 1)',
+            'rgba(164, 44, 214, 0.8)',
+            'rgba(164, 44, 214, 0.6)',
+            'rgba(164, 44, 214, 0.4)',
+            '#12111F'
+          ],
+          borderColor: '#10112a',
+          borderWidth: 1
+      }],
+      labels: ["Nutzen wir", "Planen wir", "Nicht relevant", "Nicht befasst", "Keine Angabe"],
+      
+    },
   options: {
         legend: {
           display: false
        },
+       circumference: Math.PI,
+        rotation: -Math.PI,
 			   elements: {
 				     center: {
 					    text: 'Big Data',
@@ -144,14 +154,14 @@ function generatekünstlicheIntelligenzCircle(){
 	        'rgba(164, 44, 214, 0.8)',
 	        'rgba(164, 44, 214, 0.6)',
 	        'rgba(164, 44, 214, 0.4)',
-	        '#FFF'
+	        '#12111F'
 	      ],
 	      borderColor: [
 					'rgba(164, 44, 214, 1)',
 	        'rgba(164, 44, 214, 0.8)',
 	        'rgba(164, 44, 214, 0.6)',
 	        'rgba(164, 44, 214, 0.4)',
-	        '#FFF'
+	        '#12111F'
 	      ],
 	      borderWidth: 1
 	    }]
@@ -160,6 +170,8 @@ function generatekünstlicheIntelligenzCircle(){
 	        legend: {
 	          display: false
 	       },
+          circumference: Math.PI,
+          rotation: -Math.PI,
 				   elements: {
 					     center: {
 						    text: 'KI',
@@ -186,14 +198,14 @@ var robotikUndSensorik = new Chart(robotikUndSensorik, {
         'rgba(234, 107, 50, 0.8)',
         'rgba(234, 107, 50, 0.6)',
         'rgba(234, 107, 50, 0.4)',
-        '#FFF'
+        '#12111F'
       ],
       borderColor: [
 				'rgba(234, 107, 50, 1)',
         'rgba(234, 107, 50, 0.8)',
         'rgba(234, 107, 50, 0.6)',
         'rgba(234, 107, 50, 0.4)',
-        '#FFF'
+        '#12111F'
       ],
       borderWidth: 1
     }]
@@ -202,6 +214,8 @@ var robotikUndSensorik = new Chart(robotikUndSensorik, {
         legend: {
           display: false
        },
+        circumference: Math.PI,
+        rotation: -Math.PI,
 			   elements: {
 				     center: {
 					    text: 'Robotik',
@@ -228,14 +242,14 @@ var smartServices = new Chart(smartServices, {
         'rgba(36, 233, 188, 0.8)',
         'rgba(36, 233, 188, 0.6)',
         'rgba(36, 233, 188, 0.4)',
-        '#FFF'
+        '#12111F'
       ],
       borderColor: [
 				'rgba(36, 233, 188, 1)',
         'rgba(36, 233, 188, 0.8)',
         'rgba(36, 233, 188, 0.6)',
         'rgba(36, 233, 188, 0.4)',
-        '#FFF'
+        '#12111F'
       ],
       borderWidth: 1
     }]
@@ -244,6 +258,8 @@ var smartServices = new Chart(smartServices, {
         legend: {
           display: false
        },
+        circumference: Math.PI,
+        rotation: -Math.PI,
 			   elements: {
 				     center: {
 					    text: 'Smart Services',
@@ -270,14 +286,14 @@ var iot = new Chart(iot, {
         'rgba(36, 157, 233, 0.8)',
         'rgba(36, 157, 233, 0.6)',
         'rgba(36, 157, 233, 0.4)',
-        '#FFF'
+        '#12111F'
       ],
       borderColor: [
 				'rgba(36, 157, 233, 1)',
         'rgba(36, 157, 233, 0.8)',
         'rgba(36, 157, 233, 0.6)',
         'rgba(36, 157, 233, 0.4)',
-        '#FFF'
+        '#12111F'
       ],
       borderWidth: 1
     }]
@@ -286,6 +302,8 @@ var iot = new Chart(iot, {
         legend: {
           display: false
        },
+        circumference: Math.PI,
+        rotation: -Math.PI,
 			   elements: {
 				     center: {
 					    text: 'IOT',
@@ -312,14 +330,14 @@ var industrie40 = new Chart(industrie40, {
         'rgba(233, 36, 47, 0.8)',
         'rgba(233, 36, 47, 0.6)',
         'rgba(233, 36, 47, 0.4)',
-        '#FFF'
+        '#12111F'
       ],
       borderColor: [
 				'rgba(233, 36, 47, 1)',
         'rgba(233, 36, 47, 0.8)',
         'rgba(233, 36, 47, 0.6)',
         'rgba(233, 36, 47, 0.4)',
-        '#FFF'
+        '#12111F'
       ],
       borderWidth: 1
     }]
@@ -328,6 +346,8 @@ var industrie40 = new Chart(industrie40, {
         legend: {
           display: false
        },
+        circumference: Math.PI,
+        rotation: -Math.PI,
 			   elements: {
 				     center: {
 					    text: 'Industrie 4.0',
@@ -339,3 +359,201 @@ var industrie40 = new Chart(industrie40, {
 		}
 });
 }
+*/
+
+var config = {
+  type: 'doughnut',
+  data: {
+    datasets: [],
+    labels: ["Nutzen wir", "Planen wir", "Nicht relevant", "Nicht befasst", "Keine Angabe"],
+  },
+  options: {
+    responsive: true,
+    animation: {
+      animateScale: true,
+      animateRotate: true
+    },
+    legend: {
+      display: false
+    },
+    circumference: Math.PI,
+    rotation: -Math.PI,
+    elements: {
+      center: {
+        text: 'Big Data',
+        color: '#FFF', // Default is #000000
+        fontStyle: 'Arial', // Default is Arial
+        sidePadding: 50 // Defualt is 20 (as a percentage)
+      }
+    }
+  }
+};
+
+window.onload = function() {
+  var ctx = document.getElementById('chart-area').getContext('2d');
+  window.myDoughnut = new Chart(ctx, config);
+};
+
+document.getElementById('donut_industrie40').addEventListener('click', function() {
+  var dataset_industrie40 = {
+    label: "Industrie 4.0",
+    data: [9, 12, 57, 22],
+    backgroundColor: [
+      'rgba(233, 36, 47, 1)',
+      'rgba(233, 36, 47, 0.8)',
+      'rgba(233, 36, 47, 0.6)',
+      'rgba(233, 36, 47, 0.4)',
+      '#12111F'
+    ],
+    borderColor: [
+      'rgba(233, 36, 47, 1)',
+      'rgba(233, 36, 47, 0.8)',
+      'rgba(233, 36, 47, 0.6)',
+      'rgba(233, 36, 47, 0.4)',
+      '#12111F'
+    ],
+    borderWidth: 1    
+  }
+
+  toggleDataset($(this),dataset_industrie40);
+});
+
+document.getElementById('donut_robotik').addEventListener('click', function() {
+  var dataset_robotik = {
+    label: "Robotik und Sensorik",
+    data: [6, 5, 80, 8, 1],
+    backgroundColor: [
+      'rgba(234, 107, 50, 1)',
+      'rgba(234, 107, 50, 0.8)',
+      'rgba(234, 107, 50, 0.6)',
+      'rgba(234, 107, 50, 0.4)',
+      '#12111F'
+    ],
+    borderColor: [
+      'rgba(234, 107, 50, 1)',
+      'rgba(234, 107, 50, 0.8)',
+      'rgba(234, 107, 50, 0.6)',
+      'rgba(234, 107, 50, 0.4)',
+      '#12111F'
+    ],
+    borderWidth: 1
+  }
+
+  toggleDataset($(this),dataset_robotik);
+});
+
+document.getElementById('donut_bigData').addEventListener('click', function() {
+  var dataset_bigData = {
+    label: "Big Data",
+    data: [18, 6, 53, 19, 4],
+    backgroundColor: [
+      'rgba(236, 199, 72, 1)',
+      'rgba(236, 199, 72, 0.8)',
+      'rgba(236, 199, 72, 0.6)',
+      'rgba(236, 199, 72, 0.4)',
+      '#12111F'
+    ],
+    borderColor: [
+      'rgba(236, 199, 72, 1)',
+      'rgba(236, 199, 72, 0.8)',
+      'rgba(236, 199, 72, 0.6)',
+      'rgba(236, 199, 72, 0.4)',
+      '#12111F'
+    ],
+    borderWidth: 1
+  }
+
+  toggleDataset($(this),dataset_bigData);
+});
+
+document.getElementById('donut_smartServices').addEventListener('click', function() {
+  var dataset_smartServices = {
+    label: "Smart Services",
+    data: [31, 15, 34, 19, 1],
+    backgroundColor: [
+      'rgba(36, 233, 188, 1)',
+      'rgba(36, 233, 188, 0.8)',
+      'rgba(36, 233, 188, 0.6)',
+      'rgba(36, 233, 188, 0.4)',
+      '#12111F'
+    ],
+    borderColor: [
+      'rgba(36, 233, 188, 1)',
+      'rgba(36, 233, 188, 0.8)',
+      'rgba(36, 233, 188, 0.6)',
+      'rgba(36, 233, 188, 0.4)',
+      '#12111F'
+    ],
+    borderWidth: 1
+  }
+
+   toggleDataset($(this),dataset_smartServices);
+});
+
+document.getElementById('donut_iot').addEventListener('click', function() {
+  var dataset_iot = {
+    label: "Internet of Things",
+    data: [48, 11, 28, 13],
+    backgroundColor: [
+      'rgba(36, 157, 233, 1)',
+      'rgba(36, 157, 233, 0.8)',
+      'rgba(36, 157, 233, 0.6)',
+      'rgba(36, 157, 233, 0.4)',
+      '#12111F'
+    ],
+    borderColor: [
+      'rgba(36, 157, 233, 1)',
+      'rgba(36, 157, 233, 0.8)',
+      'rgba(36, 157, 233, 0.6)',
+      'rgba(36, 157, 233, 0.4)',
+      '#12111F'
+    ],
+    borderWidth: 1
+  }
+  
+  toggleDataset($(this),dataset_iot);
+});
+
+document.getElementById('donut_ki').addEventListener('click', function() {
+  var dataset_ki = {
+    label: "Künstliche Intelligenz",
+    data: [4, 4, 76, 15, 1],
+    backgroundColor: [
+      'rgba(164, 44, 214, 1)',
+      'rgba(164, 44, 214, 0.8)',
+      'rgba(164, 44, 214, 0.6)',
+      'rgba(164, 44, 214, 0.4)',
+      '#12111F'
+    ],
+    borderColor: [
+      'rgba(164, 44, 214, 1)',
+      'rgba(164, 44, 214, 0.8)',
+      'rgba(164, 44, 214, 0.6)',
+      'rgba(164, 44, 214, 0.4)',
+      '#12111F'
+    ],
+    borderWidth: 1
+  }
+
+  toggleDataset($(this),dataset_ki);
+
+});
+
+function toggleDataset(myObject,myDataset) {
+  if (myObject.hasClass('hollow')) {
+
+    config.data.datasets.push(myDataset);
+    myObject.removeClass('hollow');
+    
+  } else {
+
+    pos = config.data.datasets.map(function(e) { return e.label; }).indexOf(myDataset.label);
+    if(pos >= 0) { //make sure this element exists in the array
+        config.data.datasets.splice(pos, 1);
+    }
+
+    myObject.addClass('hollow');
+  }
+  window.myDoughnut.update();
+}
+

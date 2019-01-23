@@ -574,6 +574,28 @@ main {
   box-shadow: 0 3px 5px rgba(0,0,0,0.2);
 }
 
+.industrie40-image .st0.stroke-red,
+.industrie40-image .st1.stroke-red,
+.industrie40-image .st2.stroke-red,
+.industrie40-image .st3.stroke-red,
+.industrie40-image .st4.stroke-red {
+  stroke: #fff !important;
+  opacity: 1 !important;
+}
+
+.color-red {
+  color: #F26551 !important;
+}
+
+.stroke-white {
+  stroke: #FFFFFF !important;
+  opacity: 0.2 !important;
+}
+
+.stroke-width-3 {
+  stroke-width: 3;
+}
+
 .style-1 {
   list-style-type: none;
   padding: 0;
@@ -655,5 +677,7 @@ main {
     .ki-color{
       border-bottom-color: $purple;
     }
+
+
   }
 }

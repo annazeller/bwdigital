@@ -74,6 +74,13 @@ $foundation-palette: (
   success: #3adb76,
   warning: #ffae00,
   alert: #cc4b37,
+  red: #e9242f,
+  orange: #fe7f2d,
+  yellow: #ffdb5b,
+  ltgreen: #ddfc74,
+  mdgreen: #56e39f,
+  blue: #00c7ff,
+  purple: #a42cd6,
 );
 $light-gray: #e6e6e6;
 $medium-gray: #cacaca;
@@ -96,7 +103,7 @@ $global-padding: 1rem;
 $global-position: 1rem;
 $global-weight-normal: normal;
 $global-weight-bold: bold;
-$global-radius: 0;
+$global-radius: 1000px;
 $global-menu-padding: 0.7rem 1rem;
 $global-menu-nested-margin: 1rem;
 $global-text-direction: ltr;
