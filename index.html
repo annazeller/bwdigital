@@ -20,21 +20,21 @@
       <ul id="navigation" style="">
         <li onclick="showSection1()" li-data="1" data-menuanchor="firstPage" class="active">
           <span class="sectionNumber">
-            
+
             <a href="#firstPage">01</a>
           </span>
           <div class="pagination"></div>
           <span class="sectionTitle">Start</span>
-          
+
         </li>
         <li onclick="showSection2()" li-data="2" data-menuanchor="secondPage">
           <span class="sectionNumber">
-            
+
             <a href="#secondPage">02</a>
           </span>
           <div class="pagination"></div>
-          <span class="sectionTitle">Die digitalen Innovationen</span> 
-                    
+          <span class="sectionTitle">Die digitalen Innovationen</span>
+
         </li>
         <li onclick="showSection3()" li-data="3" data-menuanchor="thirdPage">
           <span class="sectionNumber">
@@ -42,7 +42,7 @@
           </span>
           <div class="pagination"></div>
           <span class="sectionTitle">Innovationen im Vergleich</span>
-                    
+
         </li>
         <li onclick="showSection4()" li-data="4" data-menuanchor="fourthPage">
           <span class="sectionNumber">
@@ -50,7 +50,7 @@
           </span>
           <div class="pagination"></div>
           <span class="sectionTitle">Industrie 4.0</span>
-                    
+
         </li>
         <li onclick="showSection5()" li-data="5" data-menuanchor="fifthPage">
           <span class="sectionNumber">
@@ -58,7 +58,7 @@
           </span>
           <div class="pagination"></div>
           <span class="sectionTitle">Internet of Things</span>
-                    
+
         </li>
         <li onclick="showSection6()" li-data="6" data-menuanchor="sixtPage">
           <span class="sectionNumber">
@@ -66,7 +66,7 @@
           </span>
           <div class="pagination"></div>
           <span class="sectionTitle">Smart Services</span>
-                    
+
         </li>
         <li onclick="showSection7()" li-data="7" data-menuanchor="seventhPage">
           <span class="sectionNumber">
@@ -74,7 +74,7 @@
           </span>
           <div class="pagination"></div>
           <span class="sectionTitle">Big Data</span>
-                    
+
         </li>
         <li onclick="showSection8()" li-data="8" data-menuanchor="eigthPage">
           <span class="sectionNumber">
@@ -82,7 +82,7 @@
           </span>
           <div class="pagination"></div>
           <span class="sectionTitle">Robotik und Sensorik</span>
-                    
+
         </li>
         <li onclick="showSection9()" li-data="9" data-menuanchor="ninthPage">
           <span class="sectionNumber">
@@ -90,7 +90,7 @@
           </span>
           <div class="pagination"></div>
           <span class="sectionTitle">Künstliche Intelligenz</span>
-                    
+
         </li>
         <li onclick="showSection10()" li-data="10" data-menuanchor="tenthPage">
           <span class="sectionNumber">
@@ -98,15 +98,15 @@
           </span>
           <div class="pagination"></div>
           <span class="sectionTitle">Branchenvergleich</span>
-                    
+
         </li>
       </ul>
     </div>
 
     <div id="topbar">
-      <button class="clear button medium" type="button" ><a href="#firstPage"><img src="img/logo-bawue.svg" width="80px"></a></button>
+      <button class="clear button medium" type="button" onclick="showSection1()"><img src="img/logo-bawue.svg" width="80px"></button>
       <div class="info">
-        <button class="clear button large" type="button" onClick="openInfo(); loadNumbers();">
+        <button class="clear button large" id="info-button" type="button" onClick="openInfo(); loadNumbers();">
           <span aria-hidden="true">&#8505;</span>
         </button>
       </div>
@@ -123,7 +123,7 @@
           <span aria-hidden="true">&times;</span>
        </button>
        <!-- Overlay content -->
-      <div class="grid-container">
+      <div class="grid-container">s
         <div class="grid-x grid-margin-x" style="margin-top: 10%;">
            <div class="cell medium-10">
               <div class="grid-y grid-margin-y">
@@ -173,7 +173,7 @@
           <div class="cell medium-12" align="right" style="margin-top: 2%;">
             <div class="grid-y grid-margin-y" style="margin-top:1%">
               <div class="cell " style="margin-top:8%;">
-                <img src="img/DHBW-Logo.svg" width="180" />
+                <img src="img/DHBW-Logo.svg" width="180"/>
               </div>
             </div>
           </div>
@@ -2676,7 +2676,7 @@
 
           <div id="section-industrie40" style="display:none;">
             <div class="cell">
-              <h1><span class="sectionNumber">04 </span>Industrie 4.0 noch ausbaufähig</h1>
+              <h1><span class="sectionNumber">04 </span>Industrie 4.0</h1>
               <p style=" margin-top: -10px;">Unter Industrie 4.0 wird die unternehmens- und standortübergreifende digitale Vernetzung verstanden.</p>
             </div>
             <div style="display:flex;">
@@ -2761,7 +2761,7 @@
 
            <div id="section-iot" style="display:none;">
               <div class="cell">
-                 <h1><span class="sectionNumber">05 </span>Das Internet der Dinge schon weit verbreitet</h1>
+                 <h1><span class="sectionNumber">05 </span>Das Internet der Dinge</h1>
                  <p style=" margin-top: -10px;">Unter dem Intenet der Dinge wird die Digitalisierung von Dienstleistungen aller Art verstanden. </p>
               </div>
               <div style="display:flex;">
@@ -2816,7 +2816,7 @@
 
            <div id="section-smartServices" style="display:none;">
               <div class="cell">
-                 <h1><span class="sectionNumber">06 </span>Ein Drittel der Unternehmen nutzen Smart Services</h1>
+                 <h1><span class="sectionNumber">06 </span>Smart Services</h1>
                  <p style=" margin-top: -10px;">Unter Smart Services wird die digitale Vernetzung von Geräten und Gegenständen verstanden.</p>
               </div>
               <div style="display:flex;">
@@ -2874,7 +2874,7 @@
 
            <div id="section-bigData" style="display:none;">
               <div class="cell">
-                 <h1><span class="sectionNumber">07 </span>Jedes fünfte Unternehmen setzt auf Big Data</h1>
+                 <h1><span class="sectionNumber">07 </span>Big Data</h1>
                  <p style=" margin-top: -10px;">Unter Big Data wird die systematische Auswertung von großen Datensätzen zur strategischen Unterstützung des Geschäftsbetriebs verstanden.</p>
               </div>
               <div style="display:flex;">
@@ -2936,7 +2936,7 @@
 
            <div id="section-robotikUndSensorik" style="display:none;">
               <div class="cell">
-                 <h1><span class="sectionNumber">08 </span>Robotik aktuell nur wenig im Einsatz</h1>
+                 <h1><span class="sectionNumber">08 </span>Robotik & Sensorik</h1>
                  <p style=" margin-top: -10px;">Roboter- & Sensortechnik wird auch als die automatische Prozesssteuerung verstanden.</p>
               </div>
               <div style="display:flex;">
@@ -3002,7 +3002,7 @@
 
            <div id="section-ki" style="display:none;">
               <div class="cell">
-                 <h1><span class="sectionNumber">09 </span>Künstliche Intelligenz bei Großunternehmen gefragt</h1>
+                 <h1><span class="sectionNumber">09</span> Künstliche Intelligenz</h1>
                  <p style=" margin-top: -10px;">Unter Künstlicher Intelligenz werden selbstlernende Computersysteme, die menschliche Intelligenz und Verhaltensweisen nachbilden verstanden.</p>
               </div>
               <div style="display:flex;">
