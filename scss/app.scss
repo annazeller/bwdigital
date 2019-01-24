@@ -63,7 +63,7 @@
 @include motion-ui-transitions;
 @include motion-ui-animations;
 
-@import url('https://fonts.googleapis.com/css?family=Fira+Sans:400,800');
+@import url('https://fonts.googleapis.com/css?family=Fira+Sans:200,400,600,800');
 
 
 
@@ -395,7 +395,6 @@ transition: 0.8s;
 }
 
 #map-svg, #mapSVG {
-  opacity: 0.55 !important;
   position: absolute;
   right: 0;
   bottom: 0;
@@ -408,16 +407,15 @@ transition: 0.8s;
   -ms-transition-timing-function: ease-in-out;
   transition-timing-function: ease-in-out;
   -webkit-transition-timing-function: ease-in-out;
-}
 
-.map-svg-second-slide {
+ &.map-svg-second-slide {
   opacity: 1 !important;
   right: 20px !important;
   bottom: -50px !important;
   height: 600px !important;
   width: 500px !important;
+  }
 }
-
 
 .section {
   display: flex;
@@ -487,6 +485,14 @@ transition: 0.8s;
   width: 75vw;
 }
 
+#section-industrie40,
+#section-iot,
+#section-smartServices,
+#section-bigData,
+#section-robotikUndSensorik,
+#section-ki {
+  height: 70vh;
+}
 
 #section-map,
 #section-compare {
@@ -544,9 +550,38 @@ transition: 0.8s;
   color: white;
   font-family: 'Fira Sans', sans-serif;
   font-weight: 200;
-  font-size: 2vmin;
-  border-bottom: 1px solid #ffffff;
-  margin-top:10px;
+  font-size: 2.2vmin;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  line-height: 2.4vmin;
+  //border-bottom: 1px solid #ffffff;
+  //margin-top:10px;
+  margin-bottom: 3px !important;
+
+  &.right {
+    text-align: left;
+  }
+  &.left {
+    text-align: right;
+  }
+
+}
+.keyfact-subheadline{
+  color: white;
+  opacity: .5;
+  font-family: 'Fira Sans', sans-serif;
+  font-weight: 200;
+  font-size: 1.5vmin;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  line-height: 1.7vmin;
+
+  &.right {
+    text-align: left;
+  }
+  &.left {
+    text-align: right;
+  }
 
 }
 .keyfact-numbers{
@@ -578,22 +613,108 @@ main {
   box-shadow: 0 3px 5px rgba(0,0,0,0.2);
 }
 
-.industrie40-image .st0.stroke-red,
-.industrie40-image .st1.stroke-red,
-.industrie40-image .st2.stroke-red,
-.industrie40-image .st3.stroke-red,
-.industrie40-image .st4.stroke-red {
-  stroke: #fff !important;
-  opacity: 1 !important;
+#map-path, 
+.keyfact-box * {
+  transition: all 0.5s;
 }
 
-.color-red {
-  color: #F26551 !important;
+.industrie40-image,
+.iot-image,
+.smartServices-image,
+.bigData-image,
+.robotikUndSensorik-image,
+.ki-image {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: 0 auto;
+    height: 40vh;
+    margin-left: -250px;
+    margin-top: -150px;
+  .st0.stroke-white,
+  .st1.stroke-white,
+  .st2.stroke-white,
+  .st3.stroke-white,
+  .st4.stroke-white,
+  .st5.stroke-white,
+  .st6.stroke-white,
+  .st7.stroke-white,
+  .st8.stroke-white,
+  .st9.stroke-white,
+  .st10.stroke-white,
+  .st11.stroke-white,
+  .st12.stroke-white,
+  .st13.stroke-white,
+  .st14.stroke-white,
+  .st15.stroke-white,
+  .st16.stroke-white,
+  .st17.stroke-white,
+  .st18.stroke-white,
+  .st19.stroke-white,
+  .st20.stroke-white {
+    //stroke: #fff !important;
+    opacity: .3 !important;
+  }
 }
 
-.stroke-white {
-  stroke: #FFFFFF !important;
-  opacity: 0.2 !important;
+#section-industrie40 {
+  .text-colored {
+    color: $red !important;
+  }
+}
+
+.industrie40-image .stroke-colored {
+  stroke: $red !important;
+}
+
+#section-iot {
+  .text-colored {
+    color: $blue !important;
+  }
+}
+
+.iot-image .stroke-colored {
+  stroke: $blue !important;
+}
+
+#section-smartServices {
+  .text-colored {
+    color: $mdgreen !important;
+  }
+}
+
+.smartServices-image .stroke-colored {
+  stroke: $mdgreen !important;
+}
+
+#section-bigData {
+  .text-colored {
+    color: $yellow !important;
+  }
+}
+
+.bigData-image .stroke-colored {
+  stroke: $yellow !important;
+}
+
+#section-robotikUndSensorik {
+  .text-colored {
+    color: $orange !important;
+  }
+}
+
+.robotikUndSensorik-image .stroke-colored {
+  stroke: $orange !important;
+}
+
+#section-ki {
+  .text-colored {
+    color: $purple !important;
+  }
+}
+
+.ki-image .stroke-colored {
+  stroke: $purple !important;
 }
 
 .stroke-width-3 {
@@ -623,8 +744,8 @@ main {
       width: 40px;
       height: 40px;
       position: relative;
-      left: -55px;
-      top:30px;
+      left: -65px;
+      top:25px;
     }
     &.li-industrie40:before{
       content: url('/img/icon_kreis_industrie40.svg');

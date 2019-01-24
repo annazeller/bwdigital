@@ -394,8 +394,7 @@ window.onload = function() {
   window.myDoughnut = new Chart(ctx, config);
 };
 
-document.getElementById('donut_industrie40').addEventListener('click', function() {
-  var dataset_industrie40 = {
+var dataset_industrie40 = {
     label: "Industrie 4.0",
     data: [9, 12, 57, 22],
     backgroundColor: [
@@ -413,12 +412,8 @@ document.getElementById('donut_industrie40').addEventListener('click', function(
       '#12111F'
     ],
     borderWidth: 1    
-  }
+  };
 
-  toggleDataset($(this),dataset_industrie40);
-});
-
-document.getElementById('donut_robotik').addEventListener('click', function() {
   var dataset_robotik = {
     label: "Robotik und Sensorik",
     data: [6, 5, 80, 8, 1],
@@ -437,12 +432,8 @@ document.getElementById('donut_robotik').addEventListener('click', function() {
       '#12111F'
     ],
     borderWidth: 1
-  }
+  };
 
-  toggleDataset($(this),dataset_robotik);
-});
-
-document.getElementById('donut_bigData').addEventListener('click', function() {
   var dataset_bigData = {
     label: "Big Data",
     data: [18, 6, 53, 19, 4],
@@ -461,12 +452,8 @@ document.getElementById('donut_bigData').addEventListener('click', function() {
       '#12111F'
     ],
     borderWidth: 1
-  }
+  };
 
-  toggleDataset($(this),dataset_bigData);
-});
-
-document.getElementById('donut_smartServices').addEventListener('click', function() {
   var dataset_smartServices = {
     label: "Smart Services",
     data: [31, 15, 34, 19, 1],
@@ -485,12 +472,8 @@ document.getElementById('donut_smartServices').addEventListener('click', functio
       '#12111F'
     ],
     borderWidth: 1
-  }
+  };
 
-   toggleDataset($(this),dataset_smartServices);
-});
-
-document.getElementById('donut_iot').addEventListener('click', function() {
   var dataset_iot = {
     label: "Internet of Things",
     data: [48, 11, 28, 13],
@@ -509,12 +492,8 @@ document.getElementById('donut_iot').addEventListener('click', function() {
       '#12111F'
     ],
     borderWidth: 1
-  }
-  
-  toggleDataset($(this),dataset_iot);
-});
+  };
 
-document.getElementById('donut_ki').addEventListener('click', function() {
   var dataset_ki = {
     label: "Künstliche Intelligenz",
     data: [4, 4, 76, 15, 1],
@@ -533,7 +512,38 @@ document.getElementById('donut_ki').addEventListener('click', function() {
       '#12111F'
     ],
     borderWidth: 1
-  }
+  };
+
+document.getElementById('donut_industrie40').addEventListener('click', function() {
+  toggleDataset($(this),dataset_industrie40);
+});
+
+document.getElementById('donut_robotik').addEventListener('click', function() {
+  
+
+  toggleDataset($(this),dataset_robotik);
+});
+
+document.getElementById('donut_bigData').addEventListener('click', function() {
+  
+
+  toggleDataset($(this),dataset_bigData);
+});
+
+document.getElementById('donut_smartServices').addEventListener('click', function() {
+  
+
+  toggleDataset($(this),dataset_smartServices);
+});
+
+document.getElementById('donut_iot').addEventListener('click', function() {
+  
+  
+  toggleDataset($(this),dataset_iot);
+});
+
+document.getElementById('donut_ki').addEventListener('click', function() {
+  
 
   toggleDataset($(this),dataset_ki);
 
@@ -544,7 +554,7 @@ function toggleDataset(myObject,myDataset) {
 
     config.data.datasets.push(myDataset);
     myObject.removeClass('hollow');
-    
+
   } else {
 
     pos = config.data.datasets.map(function(e) { return e.label; }).indexOf(myDataset.label);

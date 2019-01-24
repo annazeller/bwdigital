@@ -3,12 +3,12 @@ var currentKategorie;
 var currentFutureCircle;
 
 //colors
-  var bigData = ["#ffdb5b", "rgba(236, 199, 72, 0.4)","#FFFFFF","#FFFFFF"];
-  var smartServices = ["#56e39f", "rgba(36, 233, 188, 0.4)", "#FFFFFF", "#FFFFFF"];
-  var industrie40 = ["#e9242f", "rgba(233, 36, 47, 0.4)", "#FFFFFF", "#FFFFFF"];
-  var iot = ["#00c7ff", "rgba(36, 157, 233, 0.4)", "#FFFFFF", "#FFFFFF"];
-  var ki = ["#a42cd6", "rgba(164, 44, 214, 0.4)", "#FFFFFF", "#FFFFFF"];
-  var robotikUndSensorik = ["#fe7f2d", "rgba(234, 107, 50, 0.4)", "#FFFFFF", "#FFFFFF"];
+  var bigData = ["#ffdb5b", "#ffdb5b","rgba(255, 255, 255, 0.55)","rgba(255, 255, 255, 0.55)"];
+  var smartServices = ["#56e39f", "#56e39f", "rgba(255, 255, 255, 0.55)", "rgba(255, 255, 255, 0.55)"];
+  var industrie40 = ["#e9242f", "#e9242f", "rgba(255, 255, 255, 0.55)", "rgba(255, 255, 255, 0.55)"];
+  var iot = ["#00c7ff", "#00c7ff", "rgba(255, 255, 255, 0.55)", "rgba(255, 255, 255, 0.55)"];
+  var ki = ["#a42cd6", "#a42cd6", "rgba(255, 255, 255, 0.55)", "rgba(255, 255, 255, 0.55)"];
+  var robotikUndSensorik = ["#fe7f2d", "#fe7f2d", "rgba(255, 255, 255, 0.55)", "rgba(255, 255, 255, 0.55)"];
 
 async function color(now, future, kategorie)
 {
@@ -100,7 +100,7 @@ async function romveColorFuture(){
     for (var i = currentFutureCircle; i <= currentCircle -2; i++) {
       console.log("iterate");
       circles[i].classList.remove('enabled');
-      circles[i].style.fill="#ffffff";
+      circles[i].style.fill="rgba(255, 255, 255, 0.55)";
       circles[i].removeAttribute("aria-label");
       await Sleep(5);
     }
@@ -145,7 +145,7 @@ function cleanupCircles(){
   var disableCircleHover = $('.enabled');
   for (var i = 0; i < disableCircleHover.length; i++) {
     disableCircleHover[i].classList.remove('enabled');
-    disableCircleHover[i].style.fill="#ffffff";
+    disableCircleHover[i].style.fill="rgba(255, 255, 255, 0.55)";
     disableCircleHover[i].removeAttribute("aria-label");
   }
 }
