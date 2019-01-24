@@ -598,6 +598,7 @@ function tenthToNinth() {
 }
 
 function resetUI(){
+	console.log("reset");
 
 	$('.wrapper .animated.fadeIn').removeClass('fadeIn').addClass('fadeOut').hide();
 	$('.wrapper .animated.fadeInDown').removeClass('fadeInDown').addClass('fadeOut').hide();
@@ -609,6 +610,7 @@ function resetUI(){
 
 	$('#mapAction li').removeClass('active');
 }
+
 
 function showSection1() {
 	if (section == 1) {

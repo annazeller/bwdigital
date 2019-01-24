@@ -73,7 +73,7 @@
   }
 
   100% {
-    opacity: 0.55;
+    opacity: 1;
   }
 }
 
@@ -83,7 +83,7 @@
   }
 
   100% {
-    opacity: 0.55;
+    opacity: 1;
   }
 }
 
@@ -135,9 +135,9 @@ body {
   margin: 0;
   padding: 0;
   font-weight: 400;
-  font-size: 1.5vmin;
+  font-size: 1.7vmin;
   text-align: block;
-  letter-spacing: 1.2px;
+  letter-spacing: 1px;
   line-height: 2.0vmin;
   color: white;
 
@@ -193,7 +193,7 @@ h3{
 }
 
 #info-button{
-  font-size: 3.8vmin;
+  font-size: 3vmin;
 }
 
 .wrap {
@@ -224,7 +224,7 @@ h3{
         rgba(18,17,31,.90),
         rgba(18,17,31,.90)
     ),
-      url('../img/digitalisierung-der-industrie.jpg')
+      url('../img/bg.jpg')
       no-repeat center center;
     background-size: cover;
 
@@ -248,7 +248,7 @@ h3{
   position: fixed;
   left: 1rem;
   top: 0.5rem;
-  height: 40px;
+  height: 80px;
   z-index: 70;
   width: 100%;
   margin: 0px;
@@ -279,7 +279,7 @@ h3{
   width: 15px;
   display: flex;
   align-items: center;
-  z-index: 99;
+  z-index: 69;
 }
 
 #navigation {
@@ -290,7 +290,9 @@ h3{
   letter-spacing: 1px;
   text-align: center;
   width: 15px;
+  margin-left: 0 !important;
 }
+
 
 #navigation li {
   margin: 20px 0;
@@ -410,7 +412,7 @@ transition: 0.8s;
 
  &.map-svg-second-slide {
   opacity: 1 !important;
-  right: 20px !important;
+  right: -20px !important;
   bottom: -50px !important;
   height: 600px !important;
   width: 500px !important;
@@ -494,8 +496,7 @@ transition: 0.8s;
   height: 70vh;
 }
 
-#section-map,
-#section-compare {
+#section-map{
   p {
     width: 660px;
     padding-left: .5em;
