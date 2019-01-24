@@ -59,15 +59,21 @@ circle {
 .container {
   margin: 5%;
   max-width: 300px;
-  box-shadow: 10px 10px 0 rgba(57, 74, 90, 0.2);
   text-align: center;
 }
 
 .switchlabel {
-  font-weight: 300;
-  letter-spacing: 0.025em;
-  color: #394a5a;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: rgba(255, 255, 255, .7) !important;
+  text-transform: uppercase;
   display: inline-block;
+}
+
+.switchlabel:hover {
+  cursor:pointer;
+  color: rgba(255, 255, 255, 1) !important;
+  transition: 0.3s 0.05s;
 }
 
 .input-switch {

@@ -171,8 +171,8 @@ $( "#mapSVG" ).on( "mouseleave", ".enabled", function( event ) {
 
 $(document).on('mousemove', function(e){
 $('.description').css({
-    left:  e.pageX,
-    top:   e.pageY - 70
+    left:  e.pageX -328,
+    top:   e.pageY - 361
   });
 });
 

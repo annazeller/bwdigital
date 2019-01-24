@@ -224,7 +224,7 @@ h3{
         rgba(18,17,31,.90),
         rgba(18,17,31,.90)
     ),
-      url('../img/bg.jpg')
+      url('../img/bg2.jpg')
       no-repeat center center;
     background-size: cover;
 
@@ -371,7 +371,7 @@ canvas{ display: block; vertical-align: bottom; }
   position:absolute;
   width: 100%;
   height: 100%;
-  background-color: #12111F;
+  background-color: rgb(18, 17, 31);
   background-image: url("");
   background-repeat: no-repeat;
   background-size: cover;
@@ -385,7 +385,7 @@ position: fixed;
 z-index: 100;
 top: 0;
 right: 0;
-background-color: rgba(19,23,41, 0.97);
+background-color: rgba(18,17,31, 0.97);
 overflow-x: hidden;
 transition: 0.8s;
   -webkit-transition: 0.8s;
@@ -733,11 +733,32 @@ main {
     height:50px;
     opacity: .55;
     //margin-bottom:12px;
+    transition: all 0.5s;
     &:hover {
       opacity: .8 !important;
     }
     &.active {
       opacity: 1 !important;
+      transition: all 0.5s;
+    }
+    &.li-industrie40.active:before{
+      content: url('/img/icon_kreis_industrie40_active.svg');
+      transition: all 0.5s;
+    }
+    &.li-iot.active:before{
+      content: url('/img/icon_kreis_internetderdinge_active.svg');
+    }
+    &.li-smartServices.active:before{
+      content: url('/img/icon_kreis_smartservices_active.svg');
+    }
+    &.li-bigData.active:before{
+      content: url('/img/icon_kreis_bigdata_active.svg');
+    }
+    &.li-robotikUndSensorik.active:before{
+      content: url('/img/icon_kreis_robotiksensorik_active.svg');
+    }
+    &.li-ki.active:before{
+      content: url('/img/icon_kreis_kuenstlicheintelligenz_active.svg');
     }
 
     &:before {
