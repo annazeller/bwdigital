@@ -41,7 +41,8 @@ if($('#future').hasClass('active')){
     await Sleep(5);
   }
   currentFutureCircle = circleCount - planenWir;
-  currentCircle = circleCount - planenWir +1;
+  currentCircle = circleCount - nutzenWir +1;
+
 }
 
 currentKategorie = kategorie;
@@ -83,7 +84,6 @@ async function colorFuture(){
       circles[i].classList.add('enabled');
       await Sleep(5);
     }
-    console.log(circleCount -future);
     currentFutureCircle = circleCount - future;
   }
 }
@@ -100,7 +100,7 @@ async function romveColorFuture(){
     for (var i = currentFutureCircle; i <= currentCircle -2; i++) {
       console.log("iterate");
       circles[i].classList.remove('enabled');
-      circles[i].style.fill="red";
+      circles[i].style.fill="#ffffff";
       circles[i].removeAttribute("aria-label");
       await Sleep(5);
     }
