@@ -927,10 +927,25 @@ setBarWidth(".style-1 span", ".style-1 em", "width", 100);
 $('#mapAction li').click(function(e) {
     $(this).addClass('active').siblings().removeClass('active');
     var donut = $(this).attr('data-donut');
+    var dataset = eval("dataset_"+donut);
 
-    $('#'+donut)[0].click();
+    toggleDataset($('#donut_'+donut),dataset);
+
+    if ($('#donut_'+donut).siblings('.button').not('.hollow').attr('id')) {
+    	var clicked_id = $('#donut_'+donut).siblings('.button').not('.hollow').attr('id');
+    	var clicked = clicked_id.substr(6);
+    	var clicked_dataset = eval("dataset_"+clicked);
+
+    	console.log(clicked_id, clicked, clicked_dataset);
+
+    	toggleDataset($('#'+clicked),clicked_dataset);
+    	$('#donut_'+donut).siblings('.button').not('.hollow').addClass('hollow');
+    }
+
+    //$('#'+donut)[0].click();
     //document.getElementById(donut).click();
-    $('#'+donut).siblings('.button').not('.hollow')[0].click();
+
+    //$('#'+donut).siblings('.button').not('.hollow')[0].click();
     
 });
 
