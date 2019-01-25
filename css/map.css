@@ -129,5 +129,5 @@ circle {
 }
 .input-switch .input:checked + .switch::after {
   left: calc(100% - (20px + 5px));
-  background-color: #1779BA;
+  background-color: #FFFFFF;
 }
