@@ -929,7 +929,7 @@ $('#mapAction li').click(function(e) {
     var donut = $(this).attr('data-donut');
     var dataset = eval("dataset_"+donut);
 
-    toggleDataset($('#donut_'+donut),dataset);
+    /*toggleDataset($('#donut_'+donut),dataset);
 
     if ($('#donut_'+donut).siblings('.button').not('.hollow').attr('id')) {
     	var clicked_id = $('#donut_'+donut).siblings('.button').not('.hollow').attr('id');
@@ -940,9 +940,9 @@ $('#mapAction li').click(function(e) {
 
     	toggleDataset($('#'+clicked),clicked_dataset);
     	$('#donut_'+donut).siblings('.button').not('.hollow').addClass('hollow');
-    }
+    }*/
 
-    //$('#'+donut)[0].click();
+    $('#donut_'+donut)[0].click();
     //document.getElementById(donut).click();
 
     //$('#'+donut).siblings('.button').not('.hollow')[0].click();

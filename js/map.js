@@ -1,6 +1,7 @@
 var currentCircle;
 var currentKategorie;
 var currentFutureCircle;
+var currentTooltip;
 
 //colors
   var bigData = ["#ffdb5b", "#ffdb5b","rgba(255, 255, 255, 0.55)","rgba(255, 255, 255, 0.55)"];
@@ -10,42 +11,43 @@ var currentFutureCircle;
   var ki = ["#a42cd6", "#a42cd6", "rgba(255, 255, 255, 0.55)", "rgba(255, 255, 255, 0.55)"];
   var robotikUndSensorik = ["#fe7f2d", "#fe7f2d", "rgba(255, 255, 255, 0.55)", "rgba(255, 255, 255, 0.55)"];
 
-async function color(now, future, kategorie)
+async function color(now, future, kategorie, tooltip)
 {
   var circles = $('.map-circle');
   var circleCount = circles.length;
   var nutzenWir = Math.round(circleCount * now);
   var planenWir = Math.round(circleCount * future);
 
-//Cleanup
+  //Cleanup
   cleanupCircles();
 
-//Nutzen wir
-if($('#now').hasClass('active')){
-  for (var i = circleCount - 1; i >= circleCount - nutzenWir; --i) {
-    circles[i].style.fill=eval(kategorie)[0];
-    circles[i].setAttribute("aria-label", Math.floor(now*100) + "% der Unternehmen nutzen es bereits");
-    circles[i].classList.add('enabled');
-    await Sleep(5);
+  //Nutzen wir
+  if($('#now').hasClass('active')){
+    for (var i = circleCount - 1; i >= circleCount - nutzenWir; --i) {
+      circles[i].style.fill=eval(kategorie)[0];
+      circles[i].setAttribute("aria-label", Math.floor(now*100) + "% der Unternehmen nutzen " + tooltip + " bereits");
+      circles[i].classList.add('enabled');
+      await Sleep(5);
+    }
+
+    currentCircle = circleCount - nutzenWir +1;
   }
 
-  currentCircle = circleCount - nutzenWir +1;
-}
+  //Future if no item was selected first
+  if($('#future').hasClass('active')){
+    for (var i = circleCount - 1; i >= circleCount - planenWir; --i) {
+      circles[i].style.fill=eval(kategorie)[0];
+      circles[i].setAttribute("aria-label", Math.floor(future*100) + "% der Unternehmen nutzen " + tooltip + " bereits");
+      circles[i].classList.add('enabled');
+      await Sleep(5);
+    }
+    currentFutureCircle = circleCount - planenWir;
+    currentCircle = circleCount - nutzenWir +1;
 
-//Future if no item was selected first
-if($('#future').hasClass('active')){
-  for (var i = circleCount - 1; i >= circleCount - planenWir; --i) {
-    circles[i].style.fill=eval(kategorie)[0];
-    circles[i].setAttribute("aria-label", Math.floor(future*100) + "% der Unternehmen nutzen es bereits");
-    circles[i].classList.add('enabled');
-    await Sleep(5);
   }
-  currentFutureCircle = circleCount - planenWir;
-  currentCircle = circleCount - nutzenWir +1;
 
-}
-
-currentKategorie = kategorie;
+  currentKategorie = kategorie;
+  currentTooltip = tooltip;
 }
 
 async function colorFuture(){
@@ -80,7 +82,7 @@ async function colorFuture(){
 
     for (var i = currentCircle -2; i >= circleCount - future; --i) {
       circles[i].style.fill=eval(currentKategorie)[0];
-      circles[i].setAttribute("aria-label", Math.floor(future*100) + "% der Unternehmen werden es zukünftig einsetzen");
+      circles[i].setAttribute("aria-label", Math.floor(future*100) + "% der Unternehmen werden " + currentTooltip + " zukünftig einsetzen");
       circles[i].classList.add('enabled');
       await Sleep(5);
     }
