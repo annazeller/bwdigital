@@ -295,8 +295,8 @@ h3{
 
 
 #navigation li {
-  margin: 20px 0;
-  padding: 5px 0;
+  margin: 5px 0;
+  padding: 15px 0;
 }
 
 #navigation li span {
@@ -341,6 +341,9 @@ display: none; }*/
   margin-top: -13px;
   padding-right: .7em;
   transform: scale(0.6);
+  height: 40px;
+  width: 200px;
+  text-align: right;
 }
 
 #navigation li:hover > .sectionTitle {
@@ -725,15 +728,15 @@ main {
 .style-1 {
   list-style-type: none;
   padding: 0;
-  width: 350px;
-  margin-top: -20px;
+  width: 370px;
+  //margin-top: -20px;
 
   li {
     position: relative;
     height:50px;
     opacity: .55;
     //margin-bottom:12px;
-    transition: all 0.5s;
+    transition: all 0.3s;
     &:hover {
       opacity: .8 !important;
     }
@@ -743,7 +746,6 @@ main {
     }
     &.li-industrie40.active:before{
       content: url('/img/icon_kreis_industrie40_active.svg');
-      transition: all 0.5s;
     }
     &.li-iot.active:before{
       content: url('/img/icon_kreis_internetderdinge_active.svg');
@@ -767,7 +769,7 @@ main {
       height: 40px;
       position: relative;
       left: -65px;
-      top:25px;
+      top:7px;
     }
     &.li-industrie40:before{
       content: url('/img/icon_kreis_industrie40.svg');
@@ -787,23 +789,29 @@ main {
     &.li-ki:before{
       content: url('/img/icon_kreis_kuenstlicheintelligenz.svg');
     }
-    em, span {
-      display: block;
-      border-bottom: 5px solid rgba(92,101,135,.6);
-      padding-bottom: 5px;
-    }
-    em {
-      font-style: normal;
-      border-bottom-color: #DB6B6B;
-      position: absolute;
-      overflow: visible !important;
-      animation: grow-width 2s;
-      display: inline-block;
-      white-space: nowrap;
-    }
-    span {
-      text-align: right;
-      margin-top:-6%;
+    div {
+      position:relative;
+      top:-40px;
+
+      em, span {
+        display: block;
+        border-bottom: 5px solid rgba(92,101,135,.6);
+        padding-bottom: 5px;
+        transition: all 0.5s;
+      }
+      em {
+        font-style: normal;
+        border-bottom-color: #DB6B6B;
+        position: absolute;
+        overflow: visible !important;
+        animation: grow-width 2s;
+        display: inline-block;
+        white-space: nowrap;
+      }
+      span {
+        text-align: right;
+        //margin-top:-6%;
+      }
     }
 
     .industrie40-color{
@@ -824,7 +832,98 @@ main {
     .ki-color{
       border-bottom-color: $purple;
     }
+    
 
+  }
+}
 
+.container {
+  margin-left: 75px;
+  //max-width: 300px;
+  //text-align: center;
+}
+
+.switchlabel {
+  font-size: 2vmin;
+  font-weight: 200;
+  letter-spacing: 1px;
+  color: rgba(255, 255, 255, .7) !important;
+  //text-transform: uppercase;
+  display: inline-block;
+
+  &.active {
+    font-weight: 400;
+    color: rgba(255, 255, 255, .8) !important;
+  }
+  &:hover {
+    cursor:pointer;
+    color: rgba(255, 255, 255, 1) !important;
+    transition: 0.3s 0.05s;
+  }
+}
+
+.input-switch {
+  display: inline-block;
+
+  .input {
+    position: absolute;
+    visibility: hidden;
+
+    + .switch {
+      position: relative;
+      height: 10px;
+      width: 50px;
+      margin-right: 25px;
+      margin-left: 25px;
+      border-radius: 10px;
+      background-color: #1779BA;
+      vertical-align: middle;
+      display: inline-block;
+      cursor: pointer;
+      transition: 0.3s 0.05s;
+
+      &::before, 
+      &::after {
+        content: "";
+        position: absolute;
+        transition: 0.35s;
+      }
+      &::before {
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 20%;
+        border-radius: 10px;
+        background-color: #1779BA;
+      }
+      &::after {
+        left: 5px;
+        top: 50%;
+        height: 20px;
+        width: 20px;
+        border-radius: 50%;
+        border: none;
+        background-color: #FFFFFF;
+        transform: translateY(-50%);
+        opacity: 1;
+      }
+
+      &:hover::after {
+        transform: translateY(-50%) scale(1.1);
+      }
+    }
+
+    &:checked + .switch {
+      background-color: #1779BA;
+
+      &::before {
+        width: calc(100% - 5px);
+        background-color: #1779BA;
+      }
+      &::after {
+        left: calc(100% - (20px + 5px));
+        background-color: #FFFFFF;
+      }
+    }
   }
 }
