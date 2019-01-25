@@ -1,6 +1,13 @@
 .branchenBtn{
   border-radius: 25px !important;
 }
+.close-thik:after {
+  content: '✖'; /* UTF-8 symbol */
+  color: #0a0a0a;
+  margin-right: 8px;
+}
+
+
 
 #branchenHint{
   position: absolute;

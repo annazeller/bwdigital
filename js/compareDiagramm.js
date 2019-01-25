@@ -166,28 +166,12 @@ $( "#activeBranchen" ).on( "click", ".activeBran", function( event ) {
  }
 });
 
-function checkDiagrammText()
-{
-  console.log("called");
-  if(barChart.data.datasets.length == 0){
-    console.log("heeee");
-    $( "#branchenHint" ).css( "display", "block" );
-  }
-  else{
-    console.log("hu");
-    $( "#branchenHint" ).hide();
-  }
-}
 
 $( document ).ready(function() {
   $('.branchenOverlayContent :checkbox').on('click', function (evt) {
     evt.stopImmediatePropagation();
 
     var countchecked = $("input[type=checkbox]:checked").length;
-
-    // if ($( "#branchenHint" ).length) {
-    //   console.log("branchenHint");
-    // }
 
     if(countchecked >= 4)
     {
@@ -207,65 +191,64 @@ $( document ).ready(function() {
       switch(this.id) {
         case "Finanz und Versicherungsdienstleister":
           addData('Finanz und Versicherungsdienstleister', randColour, [0, 73, 63, 32, 9, 2]);
-          $( "#activeBranchen" ).append( "<button class='button medium activeBran' id='fin' style='background-color:"+randColour+";color:#0a0a0a'>Finanz und Versicherungsdienstleister</button> " );
+          $( "#activeBranchen" ).append( "<button class='button medium activeBran' id='fin' style='background-color:"+randColour+";color:#0a0a0a'><a class='close-thik'></a>Finanz und Versicherungsdienstleister</button> " );
           checkDiagrammText();
           break;
         case "Handel":
           addData('Handel', randColour, [0, 4, 60, 40, 25, 2]);
-          $( "#activeBranchen" ).append( "<button class='button medium activeBran' id='han' style='background-color:"+randColour+";color:#0a0a0a'> Handel</button> " );
+          $( "#activeBranchen" ).append( "<button class='button medium activeBran' id='han' style='background-color:"+randColour+";color:#0a0a0a'><a class='close-thik'></a> Handel</button> " );
           checkDiagrammText();
           break;
         case "Verkehr und Logistik":
           addData('Verkehr und Logistik', randColour, [0, 1, 57, 35, 15, 1]);
-          $( "#activeBranchen" ).append( "<button class='button medium activeBran' id='vul' style='background-color:"+randColour+";color:#0a0a0a'>Verkehr und Logistik</button> " );
+          $( "#activeBranchen" ).append( "<button class='button medium activeBran' id='vul' style='background-color:"+randColour+";color:#0a0a0a'><a class='close-thik'></a>Verkehr und Logistik</button> " );
           checkDiagrammText();
           break;
         case "Wissensintensive Dienstleister":
           addData('Wissensintensive Dienstleister', randColour, [0, 5, 54, 28, 13, 3]);
-          $( "#activeBranchen" ).append( "<button class='button medium activeBran' id='wis' style='background-color:"+randColour+";color:#0a0a0a'>Wissensintensive Dienstleister</button> " );
+          $( "#activeBranchen" ).append( "<button class='button medium activeBran' id='wis' style='background-color:"+randColour+";color:#0a0a0a'><a class='close-thik'></a>Wissensintensive Dienstleister</button> " );
           checkDiagrammText();
           break;
         case "Kreativwirtschaft":
           addData('Kreativwirtschaft', randColour, [0, 3, 51, 36, 16, 9]);
-          $( "#activeBranchen" ).append( "<button class='button medium activeBran' id='krea' style='background-color:"+randColour+";color:#0a0a0a'>Kreativwirtschaft</button> " );
+          $( "#activeBranchen" ).append( "<button class='button medium activeBran' id='krea' style='background-color:"+randColour+";color:#0a0a0a'><a class='close-thik'></a>Kreativwirtschaft</button> " );
           checkDiagrammText();
           break;
         case "IKT":
           addData('IKT', randColour, [0, 16, 51, 59, 41, 8]);
-          $( "#activeBranchen" ).append( "<button class='button medium activeBran' id='ikt' style='background-color:"+randColour+";color:#0a0a0a'>IKT</button> " );
+          $( "#activeBranchen" ).append( "<button class='button medium activeBran' id='ikt' style='background-color:"+randColour+";color:#0a0a0a'><a class='close-thik'></a>IKT</button> " );
           checkDiagrammText();
           break;
         case "Gastgewerbe":
           addData('Gastgewerbe', randColour, [0, 0, 44, 33, 19, 4]);
-          $( "#activeBranchen" ).append( "<button class='button medium activeBran' id='gast' style='background-color:"+randColour+";color:#0a0a0a'>Gastgewerbe</button> " );
+          $( "#activeBranchen" ).append( "<button class='button medium activeBran' id='gast' style='background-color:"+randColour+";color:#0a0a0a'><a class='close-thik'></a>Gastgewerbe</button> " );
           checkDiagrammText();
           break;
         case "Maschinenbau und Fahrzeugbau":
           addData('Maschinenbau und Fahrzeugbau', randColour, [19, 5, 43, 28, 11, 26]);
-          $( "#activeBranchen" ).append( "<button class='button medium activeBran' id='masch' style='background-color:"+randColour+";color:#0a0a0a'>Maschinenbau und Fahrzeugbau</button> " );
+          $( "#activeBranchen" ).append( "<button class='button medium activeBran' id='masch' style='background-color:"+randColour+";color:#0a0a0a'><a class='close-thik'></a>Maschinenbau und Fahrzeugbau</button> " );
           checkDiagrammText();
           break;
         case "Bauwirtschaft":
           addData('Bauwirtschaft', randColour, [11, 0, 40, 21, 13, 4]);
-          $( "#activeBranchen" ).append( "<button class='button medium activeBran' id='bau' style='background-color:"+randColour+";color:#0a0a0a'>Bauwirtschaft</button> " );
+          $( "#activeBranchen" ).append( "<button class='button medium activeBran' id='bau' style='background-color:"+randColour+";color:#0a0a0a'><a class='close-thik'></a>Bauwirtschaft</button> " );
           checkDiagrammText();
           break;
         case "Handwerk":
           addData('Handwerk', randColour, [5, 0, 37, 12, 8, 7]);
-          $( "#activeBranchen" ).append( "<button class='button medium activeBran' id='handw' style='background-color:"+randColour+";color:#0a0a0a'>Handwerk</button> " );
+          $( "#activeBranchen" ).append( "<button class='button medium activeBran' id='handw' style='background-color:"+randColour+";color:#0a0a0a'><a class='close-thik'></a>Handwerk</button> " );
           checkDiagrammText();
           break;
         case "Chemie und Gesundheitsindustrie":
           addData('Chemie und Gesundheitsindustrie', randColour, [32, 4, 58, 34, 16, 24]);
-          $( "#activeBranchen" ).append( "<button class='button medium activeBran' id='chem' style='background-color:"+randColour+";color:#0a0a0a'>Chemie und Gesundheitsindustrie</button> " );
+          $( "#activeBranchen" ).append( "<button class='button medium activeBran' id='chem' style='background-color:"+randColour+";color:#0a0a0a'><a class='close-thik'></a>Chemie und Gesundheitsindustrie</button> " );
           checkDiagrammText();
           break;
         case "Sonstiges verarbeitendes Gewerbe":
           addData('Sonstiges verarbeitendes Gewerbe', randColour, [10, 7, 35, 22, 18, 15]);
-          $( "#activeBranchen" ).append( "<button class='button medium activeBran' id='sonst' style='background-color:"+randColour+";color:#0a0a0a'>Sonstiges verarbeitendes Gewerbe</button> " );
+          $( "#activeBranchen" ).append( "<button class='button medium activeBran' id='sonst' style='background-color:"+randColour+";color:#0a0a0a'><a class='close-thik'></a>Sonstiges verarbeitendes Gewerbe</button> " );
           checkDiagrammText();
           break;
-
       }
     }
     else {
@@ -330,7 +313,20 @@ $( document ).ready(function() {
             $( "#sonst" ).remove();
             checkDiagrammText();
             break;
-
     }}
   });
 });
+
+
+function checkDiagrammText()
+{
+  console.log("called");
+  if(barChart.data.datasets.length == 0){
+    console.log("heeee");
+    $( "#branchenHint" ).css( "display", "block" );
+  }
+  else{
+    console.log("hu");
+    $( "#branchenHint" ).hide();
+  }
+}
