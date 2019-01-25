@@ -44,7 +44,8 @@ var barChart = new Chart(compareDiagramm, {
                },
                scaleLabel: {
                   display: true,
-                  labelString: "Percentage"
+                  fontSize:16,
+                  labelString: "Anteil der einsetzenden Unternehmen"
                }
            }]
      }
