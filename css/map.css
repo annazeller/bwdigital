@@ -87,7 +87,7 @@ circle {
   margin-right: 15px;
   margin-left: 15px;
   border-radius: 10px;
-  background-color: #e4ecfa;
+  background-color: #1779BA;
   vertical-align: middle;
   display: inline-block;
   cursor: pointer;
@@ -104,7 +104,7 @@ circle {
   height: 100%;
   width: 20%;
   border-radius: 10px;
-  background-color: #FFFFFF;
+  background-color: #1779BA;
 }
 .input-switch .input + .switch::after {
   left: 5px;
@@ -121,13 +121,13 @@ circle {
   transform: translateY(-50%) scale(1.1);
 }
 .input-switch .input:checked + .switch {
-  background-color: #FFFFFF;
+  background-color: #1779BA;
 }
 .input-switch .input:checked + .switch::before {
   width: calc(100% - 5px);
-  background-color: #FFFFFF;
+  background-color: #1779BA;
 }
 .input-switch .input:checked + .switch::after {
   left: calc(100% - (20px + 5px));
-  background-color: #FFFFFF;
+  background-color: #1779BA;
 }
