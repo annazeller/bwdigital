@@ -263,7 +263,7 @@ function secondToThird() {
 		cleanupCircles();
 		$('#mapAction li').removeClass('active');
 
-		
+
 		$('#section-circlecompare').show();
 		$('#section-circlecompare').removeClass();
 		$('#section-circlecompare').addClass('animated fadeInUp');
@@ -294,7 +294,7 @@ function thirdToSecond() {
 	console.log(allowChange);
 	setTimeout(function(){
 
-		
+
 		$('#section-circlecompare').removeClass();
 		$('#section-circlecompare').addClass('animated fadeOutDown');
 
@@ -317,11 +317,11 @@ function thirdToFourth() {
 	console.log(allowChange);
 	setTimeout(function(){
 
-		
+
 		$('#section-circlecompare').removeClass();
 		$('#section-circlecompare').addClass('animated fadeOutUp');
 
-		
+
 		$('#section-industrie40').show();
 		$('#section-industrie40').removeClass();
 		$('#section-industrie40').addClass('animated fadeInUp');
@@ -338,11 +338,11 @@ function fourthToThird() {
 	console.log(allowChange);
 	setTimeout(function(){
 
-		
+
 		$('#section-industrie40').removeClass();
 		$('#section-industrie40').addClass('animated fadeOutDown');
 
-		
+
 		$('#section-circlecompare').show();
 		$('#section-circlecompare').removeClass();
 		$('#section-circlecompare').addClass('animated fadeInDown');
@@ -359,11 +359,11 @@ function fourthToFifth() {
 	console.log(allowChange);
 	setTimeout(function(){
 
-		
+
 		$('#section-industrie40').removeClass();
 		$('#section-industrie40').addClass('animated fadeOutUp');
 
-		
+
 		$('#section-iot').show();
 		$('#section-iot').removeClass();
 		$('#section-iot').addClass('animated fadeInUp');
@@ -380,11 +380,11 @@ function fifthToFourth() {
 	console.log(allowChange);
 	setTimeout(function(){
 
-		
+
 		$('#section-iot').removeClass();
 		$('#section-iot').addClass('animated fadeOutDown');
 
-		
+
 		$('#section-industrie40').show();
 		$('#section-industrie40').removeClass();
 		$('#section-industrie40').addClass('animated fadeInDown');
@@ -402,11 +402,11 @@ function fifthToSixt() {
 	console.log(allowChange);
 	setTimeout(function(){
 
-		
+
 		$('#section-iot').removeClass();
 		$('#section-iot').addClass('animated fadeOutUp');
 
-		
+
 		$('#section-smartServices').show();
 		$('#section-smartServices').removeClass();
 		$('#section-smartServices').addClass('animated fadeInUp');
@@ -423,11 +423,11 @@ function sixtToFifth() {
 	console.log(allowChange);
 	setTimeout(function(){
 
-		
+
 		$('#section-smartServices').removeClass();
 		$('#section-smartServices').addClass('animated fadeOutDown');
 
-		
+
 		$('#section-iot').show();
 		$('#section-iot').removeClass();
 		$('#section-iot').addClass('animated fadeInDown');
@@ -445,11 +445,11 @@ function sixtToSeventh() {
 	console.log(allowChange);
 	setTimeout(function(){
 
-		
+
 		$('#section-smartServices').removeClass();
 		$('#section-smartServices').addClass('animated fadeOutUp');
 
-		
+
 		$('#section-bigData').show();
 		$('#section-bigData').removeClass();
 		$('#section-bigData').addClass('animated fadeInUp');
@@ -466,11 +466,11 @@ function seventhToSixt() {
 	console.log(allowChange);
 	setTimeout(function(){
 
-		
+
 		$('#section-bigData').removeClass();
 		$('#section-bigData').addClass('animated fadeOutDown');
 
-		
+
 		$('#section-smartServices').show();
 		$('#section-smartServices').removeClass();
 		$('#section-smartServices').addClass('animated fadeInDown');
@@ -488,11 +488,11 @@ function seventhToEigth() {
 	console.log(allowChange);
 	setTimeout(function(){
 
-		
+
 		$('#section-bigData').removeClass();
 		$('#section-bigData').addClass('animated fadeOutUp');
 
-		
+
 		$('#section-robotikUndSensorik').show();
 		$('#section-robotikUndSensorik').removeClass();
 		$('#section-robotikUndSensorik').addClass('animated fadeInUp');
@@ -509,11 +509,11 @@ function eigthToSeventh() {
 	console.log(allowChange);
 	setTimeout(function(){
 
-		
+
 		$('#section-robotikUndSensorik').removeClass();
 		$('#section-robotikUndSensorik').addClass('animated fadeOutDown');
 
-		
+
 		$('#section-bigData').show();
 		$('#section-bigData').removeClass();
 		$('#section-bigData').addClass('animated fadeInDown');
@@ -531,11 +531,11 @@ function eigthToNinth() {
 	console.log(allowChange);
 	setTimeout(function(){
 
-	
+
 	$('#section-robotikUndSensorik').removeClass();
 	$('#section-robotikUndSensorik').addClass('animated fadeOutUp');
 
-	
+
 		$('#section-ki').show();
 		$('#section-ki').removeClass();
 		$('#section-ki').addClass('animated fadeInUp');
@@ -552,11 +552,11 @@ function ninthToEigth() {
 	console.log(allowChange);
 	setTimeout(function(){
 
-	
+
 		$('#section-ki').removeClass();
 		$('#section-ki').addClass('animated fadeOutDown');
 
-	
+
 		$('#section-robotikUndSensorik').show();
 		$('#section-robotikUndSensorik').removeClass();
 		$('#section-robotikUndSensorik').addClass('animated fadeInDown');
@@ -574,11 +574,11 @@ function ninthToTenth() {
 	console.log(allowChange);
 	setTimeout(function(){
 
-		
+
 		$('#section-ki').removeClass();
 		$('#section-ki').addClass('animated fadeOutUp');
 
-		
+
 		$('#section-compare').show();
 		$('#section-compare').removeClass();
 		$('#section-compare').addClass('animated fadeInUp');
@@ -594,11 +594,11 @@ function tenthToNinth() {
 	console.log(allowChange);
 	setTimeout(function(){
 
-		
+
 		$('#section-compare').removeClass();
 		$('#section-compare').addClass('animated fadeOutDown');
 
-		
+
 		$('#section-ki').show();
 		$('#section-ki').removeClass();
 		$('#section-ki').addClass('animated fadeInDown');
@@ -939,7 +939,9 @@ function setBarWidth(dataElement, barElement, cssProperty, barPercent) {
 setBarWidth(".style-1 span", ".style-1 em", "width", 100);
 
 $('#mapAction li').click(function(e) {
-    $(this).addClass('active').siblings().removeClass('active');
+		//handleMapAction($(this));
+
+		//$(this).addClass('active').siblings().removeClass('active');
     //var donut = $(this).attr('data-donut');
     //var dataset = eval("dataset_"+donut);
     //window.myDoughnut.reset();
@@ -961,8 +963,19 @@ $('#mapAction li').click(function(e) {
     //document.getElementById(donut).click();
 
     //$('#'+donut).siblings('.button').not('.hollow')[0].click();
-    
+
 });
+
+function handleMapAction(mapElement){
+	if (activeColoring) {
+				console.log("activeColoring");
+				return;
+		} else {
+			console.log("mapAction handling in prograss");
+			var selc = '.'+ mapElement.classList[0];
+			$(selc).addClass('active').siblings().removeClass('active');
+		}
+}
 
 
 
@@ -1019,5 +1032,3 @@ $(document).on('click', '.keyfact-box', function() {
   $('.keyfact-box[data-mid="'+index+'"]').children(".keyfact-subheadline").toggleClass("animated fadeOut");
   //$('.keyfact-box[data-mid="'+index+'"]').children(".keyfact-fact");
 });
-
-
