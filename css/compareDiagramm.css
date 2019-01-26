@@ -73,7 +73,8 @@
 	border-radius: 999px;
 	position: relative;
   margin-left: 2.5vw;
-  margin-bottom: 1.7vh;
+  margin-bottom: 2.5vh;
+  cursor: pointer;
 }
 
 #plus-button:after,

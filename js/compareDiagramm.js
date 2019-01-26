@@ -93,62 +93,74 @@ $( "#activeBranchen" ).on( "click", ".activeBran", function( event ) {
        removeDataset("Finanz und Versicherungsdienstleister");
        $("#fin").remove();
        document.getElementById("Finanz und Versicherungsdienstleister").checked = false;
+       checkDiagrammText();
        break;
        case "han":
          removeDataset('Handel');
          $("#han").remove();
          document.getElementById("Handel").checked = false;
+         checkDiagrammText();
          break;
        case "vul":
          removeDataset('Verkehr und Logistik');
          $("#vul").remove();
          $("#Verkehr und Logistik").prop( "checked", false );
          document.getElementById("Verkehr und Logistik").checked = false;
+         checkDiagrammText();
          break;
        case "wis":
          removeDataset('Wissensintensive Dienstleister');
          $("#wis").remove();
          document.getElementById("Wissensintensive Dienstleister").checked = false;
+         checkDiagrammText();
          break;
        case "krea":
          removeDataset('Kreativwirtschaft');
          $("#krea").remove();
          document.getElementById("Kreativwirtschaft").checked = false;
+         checkDiagrammText();
          break;
        case "ikt":
          removeDataset('IKT');
          $("#ikt").remove();
          document.getElementById("IKT").checked = false;
+         checkDiagrammText();
          break;
        case "gast":
          removeDataset('Gastgewerbe');
          $("#gast").remove();
          document.getElementById("Gastgewerbe").checked = false;
+         checkDiagrammText();
          break;
        case "masch":
          removeDataset('Maschinenbau und Fahrzeugbau');
          $("#masch").remove();
          document.getElementById("Maschinenbau und Fahrzeugbau").checked = false;
+         checkDiagrammText();
          break;
        case "bau":
          removeDataset('Bauwirtschaft');
          $("#bau").remove();
          document.getElementById("Bauwirtschaft").checked = false;
+         checkDiagrammText();
          break;
        case "handw":
          removeDataset('Handwerk');
          $("#handw").remove();
          document.getElementById("Handwerk").checked = false;
+         checkDiagrammText();
          break;
        case "chem":
          removeDataset('Chemie und Gesundheitsindustrie');
          $("#chem").remove();
          document.getElementById("Chemie und Gesundheitsindustrie").checked = false;
+         checkDiagrammText();
          break;
        case "sonst":
          removeDataset('Sonstiges verarbeitendes Gewerbe');
          $("#sonst").remove();
          document.getElementById("Sonstiges verarbeitendes Gewerbe").checked = false;
+         checkDiagrammText();
          break;
  }
 
@@ -157,7 +169,7 @@ $( "#activeBranchen" ).on( "click", ".activeBran", function( event ) {
  if(countchecked >= 4)
  {
    console.log("more than 4");
-     $('input[type=checkbox]').not(':checked').attr("disabled",true);
+    $('input[type=checkbox]').not(':checked').attr("disabled",true);
  }
  else
  {
@@ -176,6 +188,7 @@ $( document ).ready(function() {
     if(countchecked >= 4)
     {
         $('input[type=checkbox]').not(':checked').attr("disabled",true);
+        $("#branchenOverlay").removeClass("active");
     }
     else
     {
@@ -320,13 +333,10 @@ $( document ).ready(function() {
 
 function checkDiagrammText()
 {
-  console.log("called");
-  if(barChart.data.datasets.length == 0){
-    console.log("heeee");
+  if($("#activeBranchen > button").length == 0){
     $( "#branchenHint" ).css( "display", "block" );
   }
   else{
-    console.log("hu");
     $( "#branchenHint" ).hide();
   }
 }
