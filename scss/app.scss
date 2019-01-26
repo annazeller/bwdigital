@@ -475,6 +475,7 @@ transition: 0.8s;
         position: relative;
         right: -40px;
       }
+    }
 }
 
 #section-map,
@@ -568,10 +569,15 @@ transition: 0.8s;
 
 
 /* ---- keyfacts ---- */
-
 .keyfact-box {
-  cursor: pointer;
-}
+    //cursor:pointer;
+    margin: 0 auto;
+    left: 50%;
+    top: 50%;
+    position: absolute;
+    width: 250px;
+  }
+
 .keyfact-headline{
   color: white;
   font-family: 'Fira Sans', sans-serif;
@@ -612,6 +618,14 @@ transition: 0.8s;
   }
 
 }
+
+.keyfact-fact{
+  //visibility: hidden;
+  display:flex !important;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+  margin-top: -15px;
+}
 .keyfact-numbers{
   color: white;
   font-family: 'Fira Sans', sans-serif;
@@ -641,8 +655,7 @@ main {
   box-shadow: 0 3px 5px rgba(0,0,0,0.2);
 }
 
-#map-path, 
-.keyfact-box * {
+#map-path {
   transition: all 0.5s;
 }
 
@@ -686,8 +699,16 @@ main {
 }
 
 #section-industrie40 {
-  .text-colored {
-    color: $red !important;
+  .keyfact-box.isActive,
+  .keyfact-box:hover {
+    .keyfact-headline, 
+    .keyfact-subheadline {
+      color: $red !important;
+    }
+  }
+  .keyfact-box.isActive .keyfact-fact{
+    //visibility: visible;
+    opacity: 1;
   }
 }
 
@@ -696,8 +717,16 @@ main {
 }
 
 #section-iot {
-  .text-colored {
-    color: $blue !important;
+  .keyfact-box.isActive,
+  .keyfact-box:hover {
+    .keyfact-headline, 
+    .keyfact-subheadline {
+      color: $blue !important;
+    }
+  }
+  .keyfact-box.isActive .keyfact-fact{
+    //visibility: visible;
+    opacity: 1;
   }
 }
 
@@ -706,8 +735,16 @@ main {
 }
 
 #section-smartServices {
-  .text-colored {
-    color: $mdgreen !important;
+  .keyfact-box.isActive,
+  .keyfact-box:hover {
+    .keyfact-headline, 
+    .keyfact-subheadline {
+      color: $mdgreen !important;
+    }
+  }
+  .keyfact-box.isActive .keyfact-fact{
+    //visibility: visible;
+    opacity: 1;
   }
 }
 
@@ -716,8 +753,16 @@ main {
 }
 
 #section-bigData {
-  .text-colored {
-    color: $yellow !important;
+  .keyfact-box.isActive,
+  .keyfact-box:hover {
+    .keyfact-headline, 
+    .keyfact-subheadline {
+      color: $yellow !important;
+    }
+  }
+  .keyfact-box.isActive .keyfact-fact{
+    //visibility: visible;
+    opacity: 1;
   }
 }
 
@@ -726,8 +771,16 @@ main {
 }
 
 #section-robotikUndSensorik {
-  .text-colored {
-    color: $orange !important;
+  .keyfact-box.isActive,
+  .keyfact-box:hover {
+    .keyfact-headline, 
+    .keyfact-subheadline {
+      color: $orange !important;
+    }
+  }
+  .keyfact-box.isActive .keyfact-fact{
+    //visibility: visible;
+    opacity: 1;
   }
 }
 
@@ -736,8 +789,16 @@ main {
 }
 
 #section-ki {
-  .text-colored {
-    color: $purple !important;
+  .keyfact-box.isActive,
+  .keyfact-box:hover {
+    .keyfact-headline, 
+    .keyfact-subheadline {
+      color: $purple !important;
+    }
+  }
+  .keyfact-box.isActive .keyfact-fact{
+    //visibility: visible;
+    opacity: 1;
   }
 }
 

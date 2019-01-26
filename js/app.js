@@ -80,12 +80,12 @@ var section = 1;
 var direction = "";
 var $left = $('.wrap');
 var $svgMap = $('#mapSVG');
-var svg_industrie40 = new Vivus('svg_industrie40', {duration: 100,type: "delayed", start: "manual"});
-var svg_iot = new Vivus('svg_iot', {duration: 100,type: "delayed", start: "manual"});
-var svg_smartServices = new Vivus('svg_smartServices', {duration: 100,type: "delayed", start: "manual"});
-var svg_bigData = new Vivus('svg_bigData', {duration: 100,type: "delayed", start: "manual"});
-var svg_robotik = new Vivus('svg_robotik', {duration: 100,type: "delayed", start: "manual"});
-var svg_ki = new Vivus('svg_ki', {duration: 100,type: "delayed", start: "manual"});
+var svg_industrie40 = new Vivus('svg_industrie40', {duration: 200,type: "delayed", start: "manual",animTimingFunction: Vivus.EASE});
+var svg_iot = new Vivus('svg_iot', {duration: 200,type: "delayed", start: "manual",animTimingFunction: Vivus.EASE});
+var svg_smartServices = new Vivus('svg_smartServices', {duration: 200,type: "delayed", start: "manual",animTimingFunction: Vivus.EASE});
+var svg_bigData = new Vivus('svg_bigData', {duration: 200,type: "delayed", start: "manual",animTimingFunction: Vivus.EASE});
+var svg_robotik = new Vivus('svg_robotik', {duration: 200,type: "delayed", start: "manual",animTimingFunction: Vivus.EASE});
+var svg_ki = new Vivus('svg_ki', {duration: 200,type: "delayed", start: "manual",animTimingFunction: Vivus.EASE});
 var animationEnd = (function(el) {
         var animations = {
             "animation": "animationend",
@@ -971,19 +971,29 @@ $(document).on('mouseenter', '.keyfact-box', function() {
   var index = $(this).attr('data-mid');
   console.log(index);
 
-  $('#map-path.st' + index + '').siblings('path').not('#map-path.st' + index + '').addClass('stroke-white');
-  $('#map-path.st' + index + '').addClass('stroke-colored');
-  $(this).find('p').addClass('text-colored');
+if (!($(this).hasClass('isActive') || $(this).siblings('.keyfact-box').hasClass('isActive'))) {
+	  $('#map-path.st' + index).siblings('path').not('#map-path.st' + index).addClass('stroke-white');
+	  $('#map-path.st' + index).addClass('stroke-colored');
+	  //$(this).find('p').addClass('text-colored');
+	} else {
+		$('#map-path.st' + index).removeClass('stroke-white').addClass('stroke-colored');
+	}
 });
 $(document).on('mouseleave', '.keyfact-box', function() {
-	console.log("mouse leave");
+	
 	var index = $(this).attr('data-mid');
+	console.log("mouse leave " + !($(this).hasClass('isActive') || $(this).siblings('.keyfact-box').hasClass('isActive')));
 	// $svgMap.addClass('map-svg-second-slide');
 
-	if (!$(this).find('p').hasClass('isActive')) {
-	  $('#map-path.st' + index + '').siblings('path').removeClass('stroke-white');
-	  $('#map-path.st' + index + '').removeClass('stroke-colored');
-	  $(this).find('p').removeClass('text-colored');
+	if (!($(this).hasClass('isActive') || $(this).siblings('.keyfact-box').hasClass('isActive'))) {
+		console.log("niemand ist aktiv");
+		$('#map-path.st' + index).siblings('path').removeClass('stroke-white');
+		$('#map-path.st' + index).removeClass('stroke-colored');
+		//$(this).find('p').removeClass('text-colored');
+	} else {
+		if (!($('#map-path.st' + index).hasClass('isActive'))) {
+			$('#map-path.st' + index).removeClass('stroke-colored').addClass('stroke-white');
+		}
 	}
 });
 
@@ -992,12 +1002,22 @@ $(document).on('click', '.keyfact-box', function() {
   var index = $(this).attr('data-mid');
   console.log(index);
 
-  $('#map-path.st' + index + '').siblings('path').not('#map-path.st' + index + '').addClass('stroke-white');
-  $('#map-path.st' + index + '').addClass('stroke-colored');
-  $(this).find('p').addClass('text-colored isActive');
+  $(this).toggleClass('isActive');
 
-  $('.keyfact-box[data-mid="'+index+'"]').children(".keyfact-subheadline").addClass("animated fadeOut");
-  $('.keyfact-box[data-mid="'+index+'"]').children(".keyfact-fact").css("display", "flex").addClass("animated fadeIn");
+  if ($(this).siblings('.keyfact-box').hasClass('isActive')) {
+  	if ($('#map-path.st' + index).hasClass('isActive')) {
+  		$('#map-path.st' + index).removeClass('stroke-colored isActive').addClass('stroke-white');
+  	} else {
+	  	$('#map-path.st' + index).addClass('stroke-colored isActive');
+  	}
+  } else {
+  	$('#map-path.st' + index).siblings('path').not('#map-path.st' + index).addClass('stroke-white');
+  	$('#map-path.st' + index).addClass('stroke-colored isActive');
+  	//$(this).find('p').addClass('text-colored');
+  }
+
+  $('.keyfact-box[data-mid="'+index+'"]').children(".keyfact-subheadline").toggleClass("animated fadeOut");
+  //$('.keyfact-box[data-mid="'+index+'"]').children(".keyfact-fact");
 });
 
 
