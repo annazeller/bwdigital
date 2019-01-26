@@ -11,12 +11,21 @@ var currentTooltip;
   var ki = ["#a42cd6", "#a42cd6", "rgba(255, 255, 255, 0.55)", "rgba(255, 255, 255, 0.55)"];
   var robotikUndSensorik = ["#fe7f2d", "#fe7f2d", "rgba(255, 255, 255, 0.55)", "rgba(255, 255, 255, 0.55)"];
 
+var activeColoring;
+
 async function color(now, future, kategorie, tooltip)
 {
+  console.log("coloring");
   var circles = $('.map-circle');
   var circleCount = circles.length;
   var nutzenWir = Math.round(circleCount * now);
   var planenWir = Math.round(circleCount * future);
+
+  if(activeColoring){
+    return ;
+  }
+
+  activateColoring();
 
   //Cleanup
   cleanupCircles();
@@ -27,7 +36,7 @@ async function color(now, future, kategorie, tooltip)
       circles[i].style.fill=eval(kategorie)[0];
       circles[i].setAttribute("aria-label", Math.floor(now*100) + "% der Unternehmen nutzen " + tooltip + " bereits");
       circles[i].classList.add('enabled');
-      await Sleep(5);
+      await Sleep(1);
     }
 
     currentCircle = circleCount - nutzenWir +1;
@@ -39,7 +48,7 @@ async function color(now, future, kategorie, tooltip)
       circles[i].style.fill=eval(kategorie)[0];
       circles[i].setAttribute("aria-label", Math.floor(future*100) + "% der Unternehmen nutzen " + tooltip + " bereits");
       circles[i].classList.add('enabled');
-      await Sleep(5);
+      await Sleep(1);
     }
     currentFutureCircle = circleCount - planenWir;
     currentCircle = circleCount - nutzenWir +1;
@@ -48,12 +57,19 @@ async function color(now, future, kategorie, tooltip)
 
   currentKategorie = kategorie;
   currentTooltip = tooltip;
+  deActivateColoring();
 }
 
 async function colorFuture(){
   var circles = $('.map-circle');
   var circleCount = circles.length;
   console.log("colorfuture");
+
+  if(activeColoring){
+    return ;
+  }
+
+  activateColoring();
 
   if(currentKategorie != null)
   {
@@ -84,15 +100,23 @@ async function colorFuture(){
       circles[i].style.fill=eval(currentKategorie)[0];
       circles[i].setAttribute("aria-label", Math.floor(future*100) + "% der Unternehmen werden " + currentTooltip + " zukünftig einsetzen");
       circles[i].classList.add('enabled');
-      await Sleep(5);
+      await Sleep(1);
     }
     currentFutureCircle = circleCount - future;
   }
+
+  deActivateColoring();
 }
 
 async function romveColorFuture(){
   var circles = $('.map-circle');
   var circleCount = circles.length;
+  if(activeColoring){
+    return ;
+  }
+
+  activateColoring();
+
   if(currentFutureCircle !== null && currentFutureCircle !== undefined)
   {
     console.log("removeFuture" + currentFutureCircle);
@@ -104,7 +128,7 @@ async function romveColorFuture(){
       circles[i].classList.remove('enabled');
       circles[i].style.fill="rgba(255, 255, 255, 0.55)";
       circles[i].removeAttribute("aria-label");
-      await Sleep(5);
+      await Sleep(1);
     }
   }
   else
@@ -136,10 +160,12 @@ async function romveColorFuture(){
       circles[i].classList.remove('enabled');
       circles[i].style.fill="green";
       circles[i].removeAttribute("aria-label");
-      await Sleep(5);
+      await Sleep(1);
     }
 
   }
+
+  deActivateColoring();
 
 }
 
@@ -173,43 +199,69 @@ $( "#mapSVG" ).on( "mouseleave", ".enabled", function( event ) {
 
 $(document).on('mousemove', function(e){
 $('.description').css({
-    left:  e.pageX -257,
+    left:  e.pageX -300,
     top:   e.pageY - 338
   });
 });
 
 document.getElementById('switchy').addEventListener('click', function() {
-	if ( document.getElementById('switchy').checked ) {
-		console.log("Future selected");
+  if(activeColoring){
+    console.log("do nothing -coloring in progress");
 
-    if ($('#now').hasClass('active')){
-      $('#now').removeClass('active');
+    if ( document.getElementById('switchy').checked ) {
+      document.getElementById('switchy').checked =false;
     }
-    $('#future').addClass('active');
-    colorFuture();
-    document.getElementById("kiSpan").innerHTML="8%";
-    document.getElementById("RUSSpan").innerHTML="11%";
-    document.getElementById("BDSpan").innerHTML="24%";
-    document.getElementById("SSSpan").innerHTML="46%";
-    document.getElementById("iotSpan").innerHTML="59%";
-    document.getElementById("indSpan").innerHTML="21%";
-
-    setBarWidth(".style-1 span", ".style-1 em", "width", 100);
-	} else {
-    console.log("Now selected");
-
-    if ($('#future').hasClass('active')){
-      $('#future').removeClass('active');
+    else {
+      document.getElementById('switchy').checked =true;
     }
-    $('#now').addClass('active');
-    romveColorFuture();
-    document.getElementById("kiSpan").innerHTML="4%";
-    document.getElementById("RUSSpan").innerHTML="6%";
-    document.getElementById("BDSpan").innerHTML="18%";
-    document.getElementById("SSSpan").innerHTML="31%";
-    document.getElementById("iotSpan").innerHTML="48%";
-    document.getElementById("indSpan").innerHTML="9%";
+  }
+  else{
+    if ( document.getElementById('switchy').checked ) {
+      console.log("Future selected");
 
-    setBarWidth(".style-1 span", ".style-1 em", "width", 100);
-	}
+      if ($('#now').hasClass('active')){
+        $('#now').removeClass('active');
+      }
+      $('#future').addClass('active');
+      colorFuture();
+      document.getElementById("kiSpan").innerHTML="8%";
+      document.getElementById("RUSSpan").innerHTML="11%";
+      document.getElementById("BDSpan").innerHTML="24%";
+      document.getElementById("SSSpan").innerHTML="46%";
+      document.getElementById("iotSpan").innerHTML="59%";
+      document.getElementById("indSpan").innerHTML="21%";
+
+      setBarWidth(".style-1 span", ".style-1 em", "width", 100);
+    } else {
+      console.log("Now selected");
+
+      if ($('#future').hasClass('active')){
+        $('#future').removeClass('active');
+      }
+      $('#now').addClass('active');
+      romveColorFuture();
+      document.getElementById("kiSpan").innerHTML="4%";
+      document.getElementById("RUSSpan").innerHTML="6%";
+      document.getElementById("BDSpan").innerHTML="18%";
+      document.getElementById("SSSpan").innerHTML="31%";
+      document.getElementById("iotSpan").innerHTML="48%";
+      document.getElementById("indSpan").innerHTML="9%";
+
+      setBarWidth(".style-1 span", ".style-1 em", "width", 100);
+    }
+  }
+
 });
+
+
+function activateColoring(){
+  activeColoring = true;
+  $("#mapAction li").css("cursor", "default");
+
+}
+
+function deActivateColoring(){
+  activeColoring = false;
+  $("#mapAction li").css("cursor", "pointer");
+
+}
