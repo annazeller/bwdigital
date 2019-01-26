@@ -568,6 +568,10 @@ transition: 0.8s;
 
 
 /* ---- keyfacts ---- */
+
+.keyfact-box {
+  cursor: pointer;
+}
 .keyfact-headline{
   color: white;
   font-family: 'Fira Sans', sans-serif;
@@ -579,6 +583,7 @@ transition: 0.8s;
   //border-bottom: 1px solid #ffffff;
   //margin-top:10px;
   margin-bottom: 3px !important;
+  cursor: pointer;
 
   &.right {
     text-align: left;
@@ -597,6 +602,7 @@ transition: 0.8s;
   text-transform: uppercase;
   letter-spacing: 1px;
   line-height: 1.7vmin;
+  cursor: pointer;
 
   &.right {
     text-align: left;

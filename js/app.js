@@ -251,11 +251,7 @@ function secondToThird() {
 	console.log(section);
 
 	console.log(allowChange);
-	dataset = eval("dataset_"+currentKategorie);
-	    //window.myDoughnut.reset();
-	element = $('#donut_'+currentKategorie);
 
-	     
 	setTimeout(function(){
 
 		//section-map ausblenden
@@ -272,14 +268,19 @@ function secondToThird() {
 		$('#section-circlecompare').removeClass();
 		$('#section-circlecompare').addClass('animated fadeInUp');
 
-		setTimeout(function(){
-			console.log("before toggle");
-			myDoughnut.reset();
+		if (currentKategorie) {
+			console.log("kategorie :" + currentKategorie);
+			dataset = eval("dataset_"+currentKategorie);
+			element = $('#donut_'+currentKategorie);
+			setTimeout(function(){
+				console.log("before toggle");
+				myDoughnut.reset();
 
-			toggleDataset(element,dataset);
-			//console.log(toggleDataset(element,dataset));
-			console.log("after toggle");
-		},200);
+				toggleDataset(element,dataset);
+				//console.log(toggleDataset(element,dataset));
+				console.log("after toggle");
+			},200);
+		}
 
 		allowChange = true;
 		console.log(allowChange);
@@ -616,6 +617,8 @@ function resetUI(){
 	$('.wrapper .animated.fadeIn').removeClass('fadeIn').addClass('fadeOut').hide();
 	$('.wrapper .animated.fadeInDown').removeClass('fadeInDown').addClass('fadeOut').hide();
 	$('.wrapper .animated.fadeInUp').removeClass('fadeInUp').addClass('fadeOut').hide();
+
+	cleanupCircles();
 
 	$svgMap.addClass('animated fadeOutMap');
 	$svgMap.removeClass();
