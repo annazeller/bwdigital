@@ -189,6 +189,7 @@ $( document ).ready(function() {
     {
         $('input[type=checkbox]').not(':checked').attr("disabled",true);
         $("#branchenOverlay").removeClass("active");
+        document.getElementById("plus-button").classList.toggle("open");
     }
     else
     {
