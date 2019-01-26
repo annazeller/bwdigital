@@ -199,8 +199,8 @@ $( "#mapSVG" ).on( "mouseleave", ".enabled", function( event ) {
 
 $(document).on('mousemove', function(e){
 $('.description').css({
-    left:  e.pageX -300,
-    top:   e.pageY - 338
+    left:  e.pageX -312,
+    top:   e.pageY - 371
   });
 });
 
@@ -218,6 +218,7 @@ document.getElementById('switchy').addEventListener('click', function() {
   else{
     if ( document.getElementById('switchy').checked ) {
       console.log("Future selected");
+      $(".description").css("width", "423px");      
 
       if ($('#now').hasClass('active')){
         $('#now').removeClass('active');
@@ -234,6 +235,8 @@ document.getElementById('switchy').addEventListener('click', function() {
       setBarWidth(".style-1 span", ".style-1 em", "width", 100);
     } else {
       console.log("Now selected");
+
+      $(".description").css("width", "300px");
 
       if ($('#future').hasClass('active')){
         $('#future').removeClass('active');

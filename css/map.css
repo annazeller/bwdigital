@@ -2,6 +2,10 @@
   list-style: none;
 }
 
+#mapSVG{
+  z-index: 49;
+}
+
 ul li a {
 font-weight: normal;
 color: white;
@@ -23,6 +27,8 @@ circle {
 .description {
   pointer-events: none;
   position: absolute;
+  width: 300px;
+  height: 70px;
   font-size: 18px;
   background: white;
   padding: 10px 15px;
@@ -38,7 +44,7 @@ circle {
   display: none;
 }
 .description.active {
-  display: block !important;
+  display: flex !important;
 }
 .description:after {
   content: "";
@@ -52,5 +58,3 @@ circle {
   border-right: 10px solid transparent;
   border-top: 10px solid white;
 }
-
-
