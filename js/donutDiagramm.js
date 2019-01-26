@@ -71,7 +71,7 @@ var dataset_industrie40 = {
     borderWidth: 1    
   };
 
-  var dataset_robotik = {
+  var dataset_robotikUndSensorik = {
     label: "Robotik und Sensorik",
     data: [6, 5, 80, 8, 1],
     backgroundColor: [
@@ -175,10 +175,10 @@ document.getElementById('donut_industrie40').addEventListener('click', function(
   toggleDataset($(this),dataset_industrie40);
 });
 
-document.getElementById('donut_robotik').addEventListener('click', function() {
+document.getElementById('donut_robotikUndSensorik').addEventListener('click', function() {
   
 
-  toggleDataset($(this),dataset_robotik);
+  toggleDataset($(this),dataset_robotikUndSensorik);
 });
 
 document.getElementById('donut_bigData').addEventListener('click', function() {
@@ -222,5 +222,6 @@ function toggleDataset(myObject,myDataset) {
     myObject.addClass('hollow');
   }
   window.myDoughnut.update();
+  console.log("dataset toggle complete");
 }
 

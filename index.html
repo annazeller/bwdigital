@@ -12,6 +12,7 @@
     <link rel="stylesheet" type="text/css" href="css/donutDiagramm.css">
     <link rel="stylesheet" href="css/app.css">
     <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="node_modules/hover.css/css/hover.css">
     <!--<link href="//netdna.bootstrapcdn.com/font-awesome/3.1.1/css/font-awesome.min.css" rel="stylesheet">-->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
     <!--<link rel="stylesheet" href="css/jquery.pagepiling.css">-->
@@ -258,8 +259,8 @@
               Die Digitalisierung schreitet in allen Teilen der Wirtschaft stetig voran. Doch wie digital ist Baden-Württemberg genau? Welche Branchen sind in der digitalen Transformation besonders fortgeschritten? Diese Fragen und viele Weitere beleuchten die Darstellungen der folgenden Webseite von unterschiedlichen Gesichtspunkten. Entdecken Sie Informationen zu digitalen Innovationen und Branchen.
             </p>
             <div class="cell flex-container" style="">
-                <button class="hollow button medium flex-child-auto" style="margin-right: 10px" href="#" onclick="openInfo(); loadNumbers()">Mehr Infos</button>
-                <button type="button" class="button medium flex-child-auto" href="#" onClick="showSection2()">Jetzt entdecken</button>
+                <button class="hollow button medium flex-child-auto hvr-icon-fade" style="margin-right: 10px" href="#" onclick="openInfo(); loadNumbers()">Mehr Infos <i class="fa fa-info-circle hvr-icon"></i></button>
+                <button type="button" class="button medium flex-child-auto hvr-icon-hang" href="#" onClick="showSection2()">Jetzt entdecken <i class="fa fa-arrow-down hvr-icon"></i></button>
             </div>
           </div>
           <!-- map -->
@@ -2584,7 +2585,7 @@
                     <span id="BDSpan">18%</span>
                   </div>
                 </li>
-                <li onClick='color(0.06, 0.11, "robotikUndSensorik","Robotik & Sensorik");' style="cursor: pointer;" class="li-robotikUndSensorik" data-donut="robotik">
+                <li onClick='color(0.06, 0.11, "robotikUndSensorik","Robotik & Sensorik");' style="cursor: pointer;" class="li-robotikUndSensorik" data-donut="robotikUndSensorik">
                   <div>
                     <em class="robotikUndSensorik-color">Robotik & Sensorik</em>
                     <span id="RUSSpan">6%</span>
@@ -3070,14 +3071,14 @@
           <div id="section-circlecompare" style="display:none;">
             <div class="cell">
               <h1 class=""><span class="sectionNumber">03 </span>Die digitalen Innovationen im Vergleich</h1>
-              <p style=" margin-top: -10px;">Wie relevant bewerten die Unternehmen den Einsatz der einzelnen digitalen Innovstionen? Welche digitale Innovation wird von den meisten Unternehmen bereits eingesetzt? Um Antworten auf diese und weitere spannende Fragen zu erhalten, wählen Sie mit einem Klick die digitalen Innovationen  aus und starten Sie den Vergleich.</p>
+              <p style=" margin-top: -10px;">Wie relevant bewerten die Unternehmen den Einsatz der einzelnen digitalen Innovationen? Welche digitale Innovation wird von den meisten Unternehmen bereits eingesetzt? Um Antworten auf diese und weitere spannende Fragen zu erhalten, wählen Sie mit einem Klick die digitalen Innovationen  aus und starten Sie den Vergleich.</p>
               <div id="donuts" style="display:block;">
                 <div class="cell" style="position: relative; height:48vh; width:70vw">
                   <canvas id="chart-area" class="chartjs-render-monitor" style="display: block;"></canvas>
                 </div>
                 <div class="cell" style="padding-top: 40px; text-align: center;">
                   <a id="donut_industrie40" class="red hollow round button">Industrie 4.0</a>
-                  <a id="donut_robotik" class="orange hollow button">Robotik und Sensorik</a>
+                  <a id="donut_robotikUndSensorik" class="orange hollow button">Robotik und Sensorik</a>
                   <a id="donut_bigData" class="yellow hollow button">Big Data</a>
                   <a id="donut_smartServices" class="mdgreen hollow button">Smart Services</a>
                   <a id="donut_iot" class="blue hollow button">Internet der Dinge</a>

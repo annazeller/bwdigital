@@ -15,6 +15,7 @@
   },
   "dependencies": {
     "foundation-sites": "^6.5.1",
+    "hover.css": "^2.3.2",
     "jquery": ">=3.0.0",
     "motion-ui": "~2.0.0",
     "vivus": "^0.4.4",

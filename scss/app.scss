@@ -65,8 +65,6 @@
 
 @import url('https://fonts.googleapis.com/css?family=Fira+Sans:200,400,600,800');
 
-
-
 @-webkit-keyframes fadeInMap {
   0% {
     opacity: 0;
@@ -457,6 +455,26 @@ transition: 0.8s;
     margin-left: 78.75px;
     width: 77%
   }
+  .button:not(.hollow) {
+    background: linear-gradient(110deg, #0977bc 75%, #1484ca 25%);
+    //transition: background 1s;
+    //border: none;
+    opacity: .85;
+    transition: opacity 0.25s ease-out,color 0.25s ease-out;
+    .fa {
+      position: relative;
+      right: -40px;
+    }
+    &:hover {
+      opacity: 1;
+    }
+
+  }
+  .button.hollow {
+      .fa {
+        position: relative;
+        right: -40px;
+      }
 }
 
 #section-map,

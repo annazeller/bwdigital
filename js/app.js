@@ -104,8 +104,6 @@ var scrollingDisabled=false;
 $(window).on('load', function() {
 	allowChange = true;
 
-	console.log(section + " " + JSON.stringify($left));
-
 	window.addEventListener('wheel', function(event){
 		if (scrollingDisabled){
 			return;
@@ -247,11 +245,17 @@ function secondToFirst() {
 	  $('body').removeClass('disable-click');
   }, 0);
 };
-
+var dataset;
+var element;
 function secondToThird() {
 	console.log(section);
 
 	console.log(allowChange);
+	dataset = eval("dataset_"+currentKategorie);
+	    //window.myDoughnut.reset();
+	element = $('#donut_'+currentKategorie);
+
+	     
 	setTimeout(function(){
 
 		//section-map ausblenden
@@ -267,6 +271,15 @@ function secondToThird() {
 		$('#section-circlecompare').show();
 		$('#section-circlecompare').removeClass();
 		$('#section-circlecompare').addClass('animated fadeInUp');
+
+		setTimeout(function(){
+			console.log("before toggle");
+			myDoughnut.reset();
+
+			toggleDataset(element,dataset);
+			//console.log(toggleDataset(element,dataset));
+			console.log("after toggle");
+		},200);
 
 		allowChange = true;
 		console.log(allowChange);
@@ -922,16 +935,15 @@ function setBarWidth(dataElement, barElement, cssProperty, barPercent) {
 }
 setBarWidth(".style-1 span", ".style-1 em", "width", 100);
 
-
-
 $('#mapAction li').click(function(e) {
     $(this).addClass('active').siblings().removeClass('active');
-    var donut = $(this).attr('data-donut');
-    var dataset = eval("dataset_"+donut);
+    //var donut = $(this).attr('data-donut');
+    //var dataset = eval("dataset_"+donut);
+    //window.myDoughnut.reset();
+    //var element = $('#donut_'+donut);
+    //toggleDataset(element,dataset);
 
-    /*toggleDataset($('#donut_'+donut),dataset);
-
-    if ($('#donut_'+donut).siblings('.button').not('.hollow').attr('id')) {
+    /*if ($('#donut_'+donut).siblings('.button').not('.hollow').attr('id')) {
     	var clicked_id = $('#donut_'+donut).siblings('.button').not('.hollow').attr('id');
     	var clicked = clicked_id.substr(6);
     	var clicked_dataset = eval("dataset_"+clicked);
@@ -942,7 +954,7 @@ $('#mapAction li').click(function(e) {
     	$('#donut_'+donut).siblings('.button').not('.hollow').addClass('hollow');
     }*/
 
-    $('#donut_'+donut)[0].click();
+    //$('#donut_'+donut)[0].click();
     //document.getElementById(donut).click();
 
     //$('#'+donut).siblings('.button').not('.hollow')[0].click();
