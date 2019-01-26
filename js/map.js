@@ -46,7 +46,7 @@ async function color(now, future, kategorie, tooltip)
   if($('#future').hasClass('active')){
     for (var i = circleCount - 1; i >= circleCount - planenWir; --i) {
       circles[i].style.fill=eval(kategorie)[0];
-      circles[i].setAttribute("aria-label", Math.floor(future*100) + "% der Unternehmen nutzen " + tooltip + " bereits");
+      circles[i].setAttribute("aria-label", Math.floor(future*100) + "% der Unternehmen werden " + tooltip + " zukünftig einsetzen");
       circles[i].classList.add('enabled');
       await Sleep(1);
     }
@@ -98,7 +98,7 @@ async function colorFuture(){
 
     for (var i = currentCircle -2; i >= circleCount - future; --i) {
       circles[i].style.fill=eval(currentKategorie)[0];
-      circles[i].setAttribute("aria-label", Math.floor(future*100) + "% der Unternehmen werden " + currentTooltip + " zukünftig einsetzen");
+      circles[i].setAttribute("aria-label", Math.floor((future/circleCount)*100) + "% der Unternehmen werden " + currentTooltip + " zukünftig einsetzen");
       circles[i].classList.add('enabled');
       await Sleep(1);
     }
@@ -218,7 +218,7 @@ document.getElementById('switchy').addEventListener('click', function() {
   else{
     if ( document.getElementById('switchy').checked ) {
       console.log("Future selected");
-      $(".description").css("width", "423px");      
+      $(".description").css("width", "423px");
 
       if ($('#now').hasClass('active')){
         $('#now').removeClass('active');
