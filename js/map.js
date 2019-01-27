@@ -3,6 +3,7 @@ var currentKategorie;
 var currentFutureCircle;
 var currentTooltip;
 var currentLine;
+var lastCompare;
 
 //colors
   var bigData = ["#ffdb5b", "#ffdb5b","rgba(255, 255, 255, 0.55)","rgba(255, 255, 255, 0.55)"];
@@ -47,7 +48,7 @@ async function color(now, future, kategorie, tooltip)
         $(this).attr('aria-label', Math.floor(now*100) + "% der Unternehmen nutzen " + tooltip + " bereits");
         $(this).addClass('enabled');
       });
-      await Sleep(45);
+      await Sleep(65);
     }
     else{
       var parentID = lineElements[i].id;
@@ -77,6 +78,7 @@ async function color(now, future, kategorie, tooltip)
       var compare = lineElements[i].id.substr(1) < planenWir;
       if(compare)
       {
+        
         var parentID = lineElements[i].id;
         var children = $("#"+parentID).children().children();
 
@@ -85,7 +87,7 @@ async function color(now, future, kategorie, tooltip)
           $(this).attr('aria-label', future*100 + "% der Unternehmen werden " + tooltip + " zukünftig einsetzen");
           $(this).addClass('enabled');
         });
-        await Sleep(45);
+        await Sleep(65);
       }
       else{
         var parentID = lineElements[i].id;
@@ -170,7 +172,7 @@ async function colorFuture(){
           $(this).attr('aria-label', futureDesc*100 + "% der Unternehmen werden " + currentTooltip + " zukünftig einsetzen");
           $(this).addClass('enabled');
         });
-        await Sleep(45);
+        await Sleep(65);
       }
       else{
         var parentID = lineElements[i].id;
@@ -222,7 +224,7 @@ async function romveColorFuture(){
           $(this).removeAttr('aria-label');
           $(this).removeClass('enabled');
         });
-        await Sleep(45);
+        await Sleep(65);
       }
       else{
         var parentID = lineElements[i-1].id;
@@ -292,7 +294,7 @@ async function romveColorFuture(){
           $(this).removeAttr('aria-label');
           $(this).removeClass('enabled');
         });
-        await Sleep(45);
+        await Sleep(65);
       }
       else{
         var parentID = lineElements[i-1].id;
