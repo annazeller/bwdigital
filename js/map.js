@@ -232,7 +232,7 @@ document.getElementById('switchy').addEventListener('click', function() {
       document.getElementById("iotSpan").innerHTML="59%";
       document.getElementById("indSpan").innerHTML="21%";
 
-      setBarWidth(".style-1 span", ".style-1 em", "width", 100);
+      setBarWidth(".style-1 span.progress-data", ".style-1 span.progress-meter", "width");
     } else {
       console.log("Now selected");
 
@@ -250,7 +250,7 @@ document.getElementById('switchy').addEventListener('click', function() {
       document.getElementById("iotSpan").innerHTML="48%";
       document.getElementById("indSpan").innerHTML="9%";
 
-      setBarWidth(".style-1 span", ".style-1 em", "width", 100);
+      setBarWidth(".style-1 span.progress-data", ".style-1 span.progress-meter", "width");
     }
   }
 

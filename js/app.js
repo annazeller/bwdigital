@@ -923,20 +923,18 @@ function disableScrollAndClick() {
 
 <!-- bar chart -->
 
-function setBarWidth(dataElement, barElement, cssProperty, barPercent) {
+function setBarWidth(dataElement, barElement, cssProperty) {
 	var listData = [];
 
 	$(dataElement).each(function() {
 		listData.push($(this).html().slice(0,-1));
-		console.log("listData:" + listData);
 	});
-	var listMax = "100";
-	console.log("listMax:" + listMax);
+	
 	$(barElement).each(function(index) {
-		$(this).css(cssProperty, (listData[index] / listMax) * barPercent + "%");
+		$(this).css(cssProperty, listData[index] + "%");
 	});
 }
-setBarWidth(".style-1 span", ".style-1 em", "width", 100);
+setBarWidth(".style-1 span.progress-data", ".style-1 span.progress-meter", "width");
 
 $('#mapAction li').click(function(e) {
 		//handleMapAction($(this));

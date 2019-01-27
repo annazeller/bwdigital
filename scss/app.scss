@@ -173,9 +173,10 @@ h1 {
 h2 {
   color: white;
   font-family: 'Fira Sans', sans-serif;
-  font-weight: 400;
-  font-size: 3vmin;
-  text-align:left;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 2.5vmin;
+  text-align: left;
 }
 
 h3{
@@ -183,10 +184,13 @@ h3{
   font-family: 'Fira Sans', sans-serif;
   font-weight: 400;
   font-size: 2vmin;
-  text-align:left;
+  text-align: left;
 
   strong {
     font-weight: 800;
+  }
+  &.skinny {
+    font-weight: 200 !important;
   }
 }
 
@@ -228,18 +232,6 @@ h3{
 
     transform: scale(1.1);
   }
-}
-
-.number {
-  color: white;
-  font-family: 'Fira Sans', sans-serif;
-  font-weight: 800;
-  font-size: 9vmin;
-}
-
-.number-align{
-  text-align:center;
-  align-items: center;
 }
 
 #topbar {
@@ -365,6 +357,79 @@ display: none; }*/
   height: 100px;
 }
 
+#impressum {
+  h1 {
+    font-weight: bold;
+  }
+  h2 {
+    font-weight: 200;
+  }
+  h3 {
+    font-size: 2.5vmin;
+    font-weight: 600;
+    //color: $primary-color;
+    opacity: .8;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 1.3rem;
+  }
+  .impressum-wrapper {
+    margin: 0 auto;
+    position: relative;
+    top: 23.5vh;
+    //width: 75vw;
+  }
+  p {
+    line-height: 3vmin;
+    strong {
+      font-weight: 400;
+    }
+  }
+}
+
+#studyinfo {
+  h1 {
+    font-weight: bold;
+  }
+  h2 {
+    font-weight: 200;
+  }
+  h3 {
+    font-size: 2.5vmin;
+    font-weight: 600;
+    //color: $primary-color;
+    opacity: .8;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 1.3rem;
+  }
+  .studyinfo-wrapper {
+    margin: 0 auto;
+    position: relative;
+    top: 21vh;
+    //width: 75vw;
+  }
+  p {
+    margin-top: 20px;
+    font-size: 2.2vmin;
+    line-height: 3vmin;
+    font-weight: 200;
+    strong {
+      font-weight: 400;
+    }
+  }
+  .number {
+    color: white;
+    font-family: 'Fira Sans', sans-serif;
+    font-weight: 800;
+    font-size: 9vmin;
+  }
+
+  .number-align{
+    text-align:center;
+    align-items: center;
+  }
+}
 
 canvas{ display: block; vertical-align: bottom; }
 /* ---- particles.js container ---- */
@@ -504,9 +569,12 @@ transition: 0.8s;
 #section-bigData,
 #section-robotikUndSensorik,
 #section-ki,
-#section-circlecompare
+#section-circlecompare,
+#chart-wrapper
 {
-  width: 75vw;
+    padding-right: .9375rem;
+    padding-left: .9375rem;
+    min-width: 70vw;
 }
 
 #section-industrie40,
@@ -516,6 +584,7 @@ transition: 0.8s;
 #section-robotikUndSensorik,
 #section-ki {
   height: 70vh;
+  width: 75vw;
 }
 
 #section-map{
@@ -523,6 +592,10 @@ transition: 0.8s;
     width: 660px;
     padding-left: .5em;
   }
+}
+
+#chart-wrapper {
+  margin-top: 30px;
 }
 
 .industrie40-image{
@@ -878,18 +951,26 @@ main {
       position:relative;
       top:-40px;
 
+      .progress {
+        background-color: rgba(92,101,135,.6);
+        height: 5px;
+        position: relative;
+        top:5px;
+        .progress-meter {
+          animation: grow-width 2s;
+          transition: all 0.5s;
+          //color: transparent;
+        }
+      }
+
       em, span {
         display: block;
-        border-bottom: 5px solid rgba(92,101,135,.6);
-        padding-bottom: 5px;
         transition: all 0.5s;
       }
       em {
         font-style: normal;
-        border-bottom-color: #DB6B6B;
         position: absolute;
         overflow: visible !important;
-        animation: grow-width 2s;
         display: inline-block;
         white-space: nowrap;
       }
@@ -898,26 +979,6 @@ main {
         //margin-top:-6%;
       }
     }
-
-    .industrie40-color{
-      border-bottom-color: $red;
-    }
-    .iot-color{
-      border-bottom-color: $blue;
-    }
-    .smartServices-color{
-      border-bottom-color: $mdgreen;
-    }
-    .bigData-color{
-      border-bottom-color: $yellow;
-    }
-    .robotikUndSensorik-color{
-      border-bottom-color: $orange;
-    }
-    .ki-color{
-      border-bottom-color: $purple;
-    }
-    
 
   }
 }
@@ -1011,4 +1072,74 @@ main {
       }
     }
   }
+}
+
+.branchenDropdown {
+  margin-top:35px;
+  white-space: nowrap;
+}
+
+#activeBranchen {
+  height:30px;
+  display:inline-block;
+}
+#branchenOverlay{
+  position:absolute;
+  z-index: 30;
+  
+  width: 60vw;
+  background: rgba(19,23,41,0.97);
+  display: block;
+  
+  padding-top: 40px;
+  padding-left: 60px;
+  padding-bottom: 50px;
+  padding-right: 60px;
+  margin-left: 3.8vw;
+  margin-top: 0;
+
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s, opacity 0.2s linear,box-shadow 0.3s ease-out;
+
+  #Dienstleistungen {
+    margin-right: 3.5rem;
+    //border-right: .5px solid rgba(255,255,255,.55);
+  }
+
+  h2 {
+    font-size: 2.5vmin;
+    font-weight: 800;
+    letter-spacing: 2px;
+    margin-top: 15px;
+  }
+
+  .checkElement {
+    //height: 3vmin;
+    margin-bottom: .5rem;
+    label {
+      font-size: 1.9vmin;
+      //margin-left: 15px;
+      //position:relative;
+      //top: -2px;
+      &::before {
+        top: 5px;
+        } 
+        &::after {
+        //position:relative;
+        top: 4px;
+      }
+    }
+    
+  }
+}
+
+#branchenOverlay.active{
+  visibility: visible;
+  opacity: 1;
+  box-shadow: 0 0 0 2038px rgba(18,17,31,0.5); 
+}
+
+.branchenOverlayContent{
+  display: flex;
 }
