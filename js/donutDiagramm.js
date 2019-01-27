@@ -21,6 +21,8 @@ var config = {
     rotation: -Math.PI,
 
     tooltips: {
+        backgroundColor: 'rgba(19,23,41,0.8)',
+        bodyFontSize: 16,
         callbacks: {
             label: function(tooltipItem, data) {
                 var index = tooltipItem.index;

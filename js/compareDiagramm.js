@@ -15,6 +15,21 @@ var barChart = new Chart(compareDiagramm, {
   type: 'bar',
   data: data,
   options: {
+    tooltips: {
+        backgroundColor: 'rgba(19,23,41,0.90)',
+        bodyFontSize: 16,
+        titleFontSize: 16,
+        titleMarginBottom: 0,
+        titleSpacing: 0,
+        callbacks: {
+          label: function(t, d) {
+             var dstLabel = d.datasets[t.datasetIndex].label;
+             var yLabel = t.yLabel;
+
+             return dstLabel + ': ' + yLabel + ' %';
+          },
+       }
+      },
     responsive:true,
     maintainAspectRatio: false,
     legend: {

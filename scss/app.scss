@@ -648,7 +648,7 @@ transition: 0.8s;
     left: 50%;
     top: 50%;
     position: absolute;
-    width: 250px;
+    max-width: 300px;
   }
 
 .keyfact-headline{
@@ -694,16 +694,17 @@ transition: 0.8s;
 
 .keyfact-fact{
   //visibility: hidden;
-  display:flex !important;
+  //display:flex !important;
   opacity: 0;
   transition: opacity 0.5s ease-in-out;
-  margin-top: -15px;
+  margin-top: -5px;
 }
 .keyfact-numbers{
   color: white;
   font-family: 'Fira Sans', sans-serif;
   font-weight: 600;
   font-size: 7vmin;
+  //padding-bottom: 20px;
 }
 
 .keyfact-percent{
@@ -711,6 +712,14 @@ transition: 0.8s;
   font-family: 'Fira Sans', sans-serif;
   font-weight: 400;
   font-size: 5vmin;
+}
+.keyfact-text{
+  display:block;
+  
+  &.right{
+    text-align: right;
+  }
+
 }
 
 
@@ -1112,23 +1121,18 @@ main {
     font-weight: 800;
     letter-spacing: 2px;
     margin-top: 15px;
+    opacity: .55;
   }
 
   .checkElement {
     //height: 3vmin;
-    margin-bottom: .5rem;
+    //margin-bottom: .1rem;
     label {
       font-size: 1.9vmin;
+      line-height: 2vmin;
       //margin-left: 15px;
       //position:relative;
       //top: -2px;
-      &::before {
-        top: 5px;
-        } 
-        &::after {
-        //position:relative;
-        top: 4px;
-      }
     }
     
   }
