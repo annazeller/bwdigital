@@ -2,6 +2,7 @@ var currentCircle;
 var currentKategorie;
 var currentFutureCircle;
 var currentTooltip;
+var currentLine;
 
 //colors
   var bigData = ["#ffdb5b", "#ffdb5b","rgba(255, 255, 255, 0.55)","rgba(255, 255, 255, 0.55)"];
@@ -11,7 +12,7 @@ var currentTooltip;
   var ki = ["#a42cd6", "#a42cd6", "rgba(255, 255, 255, 0.55)", "rgba(255, 255, 255, 0.55)"];
   var robotikUndSensorik = ["#fe7f2d", "#fe7f2d", "rgba(255, 255, 255, 0.55)", "rgba(255, 255, 255, 0.55)"];
 
-var activeColoring;
+var activeColoring = false;
 
 async function color(now, future, kategorie, tooltip)
 {
@@ -30,29 +31,81 @@ async function color(now, future, kategorie, tooltip)
   //Cleanup
   cleanupCircles();
 
-  //Nutzen wir
-  if($('#now').hasClass('active')){
-    for (var i = circleCount - 1; i >= circleCount - nutzenWir; --i) {
-      circles[i].style.fill=eval(kategorie)[0];
-      circles[i].setAttribute("aria-label", Math.floor(now*100) + "% der Unternehmen nutzen " + tooltip + " bereits");
-      circles[i].classList.add('enabled');
-      await Sleep(1);
-    }
 
-    currentCircle = circleCount - nutzenWir +1;
+  var lineElements = $('.gGrouping');
+
+  if($('#now').hasClass('active')){
+  for (var i = lineElements.length - 1; i >= 0; i--){
+    var compare = lineElements[i].id.substr(1) < nutzenWir;
+    if(compare)
+    {
+      var parentID = lineElements[i].id;
+      var children = $("#"+parentID).children().children();
+
+      $(children).each(function() {
+        $(this).css("fill",eval(kategorie)[0]);
+        $(this).attr('aria-label', Math.floor(now*100) + "% der Unternehmen nutzen " + tooltip + " bereits");
+        $(this).addClass('enabled');
+      });
+      await Sleep(45);
+    }
+    else{
+      var parentID = lineElements[i].id;
+
+      var children = $("#"+parentID).children().children();
+      var restCircles = lineElements[i].id.substr(1) - nutzenWir;
+      var restChildren = children.slice(children.length - restCircles,children.length);
+      console.log(parentID + restCircles);
+      $(restChildren).each(function() {
+         $(this).css("fill",eval(kategorie)[0]);
+         $(this).attr('aria-label', Math.floor(now*100) + "% der Unternehmen nutzen " + tooltip + " bereits");
+         $(this).addClass('enabled');
+       });
+
+       currentLine = i;
+       currentCircle = lineElements[i].id.substr(1) - restCircles;
+       console.log("currentCircle:" +currentCircle);
+
+      break;
+    }
+  }
   }
 
-  //Future if no item was selected first
   if($('#future').hasClass('active')){
-    for (var i = circleCount - 1; i >= circleCount - planenWir; --i) {
-      circles[i].style.fill=eval(kategorie)[0];
-      circles[i].setAttribute("aria-label", Math.floor(future*100) + "% der Unternehmen werden " + tooltip + " zukünftig einsetzen");
-      circles[i].classList.add('enabled');
-      await Sleep(1);
-    }
-    currentFutureCircle = circleCount - planenWir;
-    currentCircle = circleCount - nutzenWir +1;
 
+    for (var i = lineElements.length - 1; i >= 0; i--){
+      var compare = lineElements[i].id.substr(1) < planenWir;
+      if(compare)
+      {
+        var parentID = lineElements[i].id;
+        var children = $("#"+parentID).children().children();
+
+        $(children).each(function() {
+          $(this).css("fill",eval(kategorie)[0]);
+          $(this).attr('aria-label', future*100 + "% der Unternehmen werden " + tooltip + " zukünftig einsetzen");
+          $(this).addClass('enabled');
+        });
+        await Sleep(45);
+      }
+      else{
+        var parentID = lineElements[i].id;
+        var children = $("#"+parentID).children().children();
+        var restCircles = lineElements[i].id.substr(1) - planenWir;
+        var restChildren = children.slice(children.length - restCircles,children.length);
+
+        $(restChildren).each(function() {
+           $(this).css("fill",eval(kategorie)[0]);
+           $(this).attr('aria-label', Math.floor(future*100) + "% der Unternehmen werden " + tooltip + " zukünftig einsetzen");
+           $(this).addClass('enabled');
+         });
+
+         currentLine = i;
+         currentCircle = null;
+         currentFutureCircle = lineElements[i].id.substr(1) - restCircles;
+         console.log(currentFutureCircle);
+        break;
+      }
+    }
   }
 
   currentKategorie = kategorie;
@@ -75,36 +128,71 @@ async function colorFuture(){
   {
     console.log("future");
     var future;
+    var futureDesc;
     switch(currentKategorie) {
       case "industrie40":
+        futureDesc = 0.21;
         future = Math.round(circleCount * 0.21);
       break;
       case "iot":
+        futureDesc = 0.59;
         future=Math.round(circleCount * 0.59);
       break;
       case "smartServices":
+        futureDesc = 0.46;
         future=Math.round(circleCount * 0.46);
       break;
       case "bigData":
+        futureDesc= 0.24;
         future= Math.round(circleCount * 0.24);
       break;
       case "robotikUndSensorik":
+        futureDesc = 0.11;
         future= Math.round(circleCount * 0.11);
       break;
       case "ki":
+       futureDesc= 0.08;
         future= Math.round(circleCount * 0.08);
       break;
     }
 
-    for (var i = currentCircle -2; i >= circleCount - future; --i) {
-      circles[i].style.fill=eval(currentKategorie)[0];
-      circles[i].setAttribute("aria-label", Math.floor((future/circleCount)*100) + "% der Unternehmen werden " + currentTooltip + " zukünftig einsetzen");
-      circles[i].classList.add('enabled');
-      await Sleep(1);
-    }
-    currentFutureCircle = circleCount - future;
-  }
+    var lineElements = $('.gGrouping');
 
+    for (var i = currentLine; i > 0; i--){
+      var compare = lineElements[i].id.substr(1) < future;
+      if(compare)
+      {
+        var parentID = lineElements[i].id;
+        var children = $("#"+parentID).children().children();
+
+        $(children).each(function() {
+          $(this).css("fill",eval(currentKategorie)[0]);
+          $(this).attr('aria-label', futureDesc*100 + "% der Unternehmen werden " + currentTooltip + " zukünftig einsetzen");
+          $(this).addClass('enabled');
+        });
+        await Sleep(45);
+      }
+      else{
+        var parentID = lineElements[i].id;
+        var children = $("#"+parentID).children().children();
+        var restCircles = lineElements[i].id.substr(1) - future;
+        var restChildren = children.slice(0,restCircles);
+        var restChildren = children.slice(children.length - restCircles,children.length);
+
+        $(restChildren).each(function() {
+          $(this).css("fill",eval(currentKategorie)[0]);
+          $(this).attr('aria-label', futureDesc*100 + "% der Unternehmen werden " + currentTooltip + " zukünftig einsetzen");
+          $(this).addClass('enabled');
+         });
+
+         currentLine = i;
+         currentFutureCircle = lineElements[i].id.substr(1)- restChildren;
+
+         $(".enabled").attr('aria-label' , futureDesc*100 + "% der Unternehmen werden " + currentTooltip + " zukünftig einsetzen");
+        break;
+      }
+    }
+   }
   deActivateColoring();
 }
 
@@ -117,52 +205,113 @@ async function romveColorFuture(){
 
   activateColoring();
 
-  if(currentFutureCircle !== null && currentFutureCircle !== undefined)
+  if(currentCircle !== null && currentCircle !== undefined)
   {
-    console.log("removeFuture" + currentFutureCircle);
-    console.log(currentCircle);
-    console.log("currentFutureCircle");
+    var lineElements = $('.gGrouping');
 
-    for (var i = currentFutureCircle; i <= currentCircle -2; i++) {
-      console.log("iterate");
-      circles[i].classList.remove('enabled');
-      circles[i].style.fill="rgba(255, 255, 255, 0.55)";
-      circles[i].removeAttribute("aria-label");
-      await Sleep(1);
+    for (var i = currentLine; i < lineElements.length; i++){
+      var compare = lineElements[i].id.substr(1) > currentCircle;
+      console.log(compare);
+      if(compare)
+      {
+        var parentID = lineElements[i].id;
+        var children = $("#"+parentID).children().children();
+
+        $(children).each(function() {
+          $(this).css("fill","rgba(255, 255, 255, 0.55)");
+          $(this).removeAttr('aria-label');
+          $(this).removeClass('enabled');
+        });
+        await Sleep(45);
+      }
+      else{
+        var parentID = lineElements[i-1].id;
+        var children = $("#"+parentID).children().children();
+        var restCircles = lineElements[i-1].id.substr(1) - currentCircle;
+        console.log("CC"+currentCircle);
+        console.log(restCircles);
+        var restChildren = children.slice(children.length - restCircles,children.length);
+
+        console.log(restChildren);
+
+        $(restChildren).each(function() {
+          $(this).css("fill",eval(currentKategorie)[0]);
+          $(this).attr('aria-label', Math.floor(now*100) + "% der Unternehmen nutzen " + currentTooltip + " bereits");
+          $(this).addClass('enabled');
+         });
+
+         currentLine = i-1;
+         $(".enabled").attr('aria-label', Math.floor(now*100) + "% der Unternehmen nutzen " + currentTooltip + " bereits");
+
+        break;
+      }
     }
   }
   else
   {
     console.log("inside");
+    var descNow;
     switch(currentKategorie) {
       case "industrie40":
-        future = Math.round(circleCount * 0.09);
+        descNow = 0.09;
+        now = Math.round(circleCount * 0.09);
       break;
       case "iot":
-        future=Math.round(circleCount * 0.48);
+        descNow = 0.48;
+        now=Math.round(circleCount * 0.48);
       break;
       case "smartServices":
-        future=Math.round(circleCount * 0.31);
+        descNow = 0.31;
+        now=Math.round(circleCount * 0.31);
       break;
       case "bigData":
-        future= Math.round(circleCount * 0.18);
+        descNow =0.18;
+        now= Math.round(circleCount * 0.18);
       break;
       case "robotikUndSensorik":
-        future= Math.round(circleCount * 0.06);
+        descNow =0.06;
+        now= Math.round(circleCount * 0.06);
       break;
       case "ki":
-        future= Math.round(circleCount * 0.04);
+       descNow =0.04;
+        now= Math.round(circleCount * 0.04);
       break;
     }
-    console.log(future);
 
-    for (var i = currentCircle -2; i >= circleCount - future; --i) {
-      circles[i].classList.remove('enabled');
-      circles[i].style.fill="green";
-      circles[i].removeAttribute("aria-label");
-      await Sleep(1);
+    var lineElements = $('.gGrouping');
+
+    for (var i = currentLine; i < lineElements.length; i++){
+      var compare = lineElements[i].id.substr(1) > now;
+      if(compare)
+      {
+        var parentID = lineElements[i].id;
+        var children = $("#"+parentID).children().children();
+
+        $(children).each(function() {
+          $(this).css("fill","rgba(255, 255, 255, 0.55");
+          $(this).removeAttr('aria-label');
+          $(this).removeClass('enabled');
+        });
+        await Sleep(45);
+      }
+      else{
+        var parentID = lineElements[i-1].id;
+        var children = $("#"+parentID).children().children();
+        var restCircles = lineElements[i-1].id.substr(1) - now;
+        var restChildren = children.slice(children.length - restCircles,children.length);
+
+        $(restChildren).each(function() {
+          $(this).css("fill",eval(currentKategorie)[0]);
+          $(this).attr('aria-label', descNow*100 + "% der Unternehmen nutzen " + currentTooltip + " bereits");
+          $(this).addClass('enabled');
+         });
+
+         currentLine = i-1;
+
+         $(".enabled").attr('aria-label', descNow*100 + "% der Unternehmen nutzen " + currentTooltip + " bereits");
+        break;
+      }
     }
-
   }
 
   deActivateColoring();
@@ -181,6 +330,8 @@ function cleanupCircles(){
 function Sleep(milliseconds) {
   return new Promise(resolve => setTimeout(resolve, milliseconds));
 }
+
+
 
 $('ul li a').click(function() {
      $('ul li a.highlight').removeClass('highlight');
@@ -259,12 +410,14 @@ document.getElementById('switchy').addEventListener('click', function() {
 
 function activateColoring(){
   activeColoring = true;
+  scrollingDisabled=true;
   $("#mapAction li").css("cursor", "default");
 
 }
 
 function deActivateColoring(){
   activeColoring = false;
+  scrollingDisabled=false;
   $("#mapAction li").css("cursor", "pointer");
 
 }
