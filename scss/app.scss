@@ -728,7 +728,7 @@ main {
   box-shadow: 0 3px 5px rgba(0,0,0,0.2);
 }
 
-#map-path {
+.map-path {
   transition: all 0.5s;
 }
 
@@ -765,7 +765,8 @@ main {
   .st17.stroke-white,
   .st18.stroke-white,
   .st19.stroke-white,
-  .st20.stroke-white {
+  .st20.stroke-white,
+  .st21.stroke-white, {
     //stroke: #fff !important;
     opacity: .3 !important;
   }

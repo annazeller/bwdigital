@@ -986,11 +986,11 @@ $(document).on('mouseenter', '.keyfact-box', function() {
   console.log(index);
 
 if (!($(this).hasClass('isActive') || $(this).siblings('.keyfact-box').hasClass('isActive'))) {
-	  $('#map-path.st' + index).siblings('path').not('#map-path.st' + index).addClass('stroke-white');
-	  $('#map-path.st' + index).addClass('stroke-colored');
+	  $('.map-path.st' + index).siblings('.map-path').not('.map-path.st' + index).addClass('stroke-white');
+	  $('.map-path.st' + index).addClass('stroke-colored');
 	  //$(this).find('p').addClass('text-colored');
 	} else {
-		$('#map-path.st' + index).removeClass('stroke-white').addClass('stroke-colored');
+		$('.map-path.st' + index).removeClass('stroke-white').addClass('stroke-colored');
 	}
 });
 $(document).on('mouseleave', '.keyfact-box', function() {
@@ -1001,12 +1001,12 @@ $(document).on('mouseleave', '.keyfact-box', function() {
 
 	if (!($(this).hasClass('isActive') || $(this).siblings('.keyfact-box').hasClass('isActive'))) {
 		console.log("niemand ist aktiv");
-		$('#map-path.st' + index).siblings('path').removeClass('stroke-white');
-		$('#map-path.st' + index).removeClass('stroke-colored');
+		$('.map-path.st' + index).siblings('.map-path').removeClass('stroke-white');
+		$('.map-path.st' + index).removeClass('stroke-colored');
 		//$(this).find('p').removeClass('text-colored');
 	} else {
-		if (!($('#map-path.st' + index).hasClass('isActive'))) {
-			$('#map-path.st' + index).removeClass('stroke-colored').addClass('stroke-white');
+		if (!($('.map-path.st' + index).hasClass('isActive'))) {
+			$('.map-path.st' + index).removeClass('stroke-colored').addClass('stroke-white');
 		}
 	}
 });
@@ -1019,14 +1019,14 @@ $(document).on('click', '.keyfact-box', function() {
   $(this).toggleClass('isActive');
 
   if ($(this).siblings('.keyfact-box').hasClass('isActive')) {
-  	if ($('#map-path.st' + index).hasClass('isActive')) {
-  		$('#map-path.st' + index).removeClass('stroke-colored isActive').addClass('stroke-white');
+  	if ($('.map-path.st' + index).hasClass('isActive')) {
+  		$('.map-path.st' + index).removeClass('stroke-colored isActive').addClass('stroke-white');
   	} else {
-	  	$('#map-path.st' + index).addClass('stroke-colored isActive');
+	  	$('.map-path.st' + index).addClass('stroke-colored isActive');
   	}
   } else {
-  	$('#map-path.st' + index).siblings('path').not('#map-path.st' + index).addClass('stroke-white');
-  	$('#map-path.st' + index).addClass('stroke-colored isActive');
+  	$('.map-path.st' + index).siblings('.map-path').not('.map-path.st' + index).addClass('stroke-white');
+  	$('.map-path.st' + index).addClass('stroke-colored isActive');
   	//$(this).find('p').addClass('text-colored');
   }
 
