@@ -7,7 +7,7 @@ Chart.defaults.global.defaultFontColor = 'white';
 var colors = ["#e9242f", "#fe7f2d", "#ffdb5b", "#00c7ff", "#a42cd6", "#56e39f"];
 
 var data = {
-  labels: [[[],[],["Industrie"],["4.0"]], [[],[],["Künstliche"],["Intelligenz"]],[[],[],["Internet"],["of Things"]],[[],[],["Smart"], ["Services"]], [[],["Big Data"]], [[],[],["Robotik"],["und Sensorik"]]],
+  labels: [[[],[],["Industrie"],["4.0"]], [[],[],["Künstliche"],["Intelligenz"]],[[],[],["Internet"],["of Things"]],[[],[],["Smart"], ["Services"]], [[],[],["Big"],["Data"]], [[],[],["Robotik"],["und Sensorik"]]],
   datasets: []
 };
 
@@ -19,8 +19,6 @@ var barChart = new Chart(compareDiagramm, {
         backgroundColor: 'rgba(19,23,41,0.90)',
         bodyFontSize: 16,
         titleFontSize: 16,
-        titleMarginBottom: 0,
-        titleSpacing: 0,
         callbacks: {
           label: function(t, d) {
              var dstLabel = d.datasets[t.datasetIndex].label;
@@ -28,6 +26,9 @@ var barChart = new Chart(compareDiagramm, {
 
              return dstLabel + ': ' + yLabel + ' %';
           },
+           title: function(tooltipItems, data) {
+            return  tooltipItems[0].xLabel[2] + " " + tooltipItems[0].xLabel[3];;
+        }
        }
       },
     responsive:true,
