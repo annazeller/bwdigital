@@ -270,7 +270,6 @@ function secondToThird() {
 
 		$svgMap.removeClass();
 		$svgMap.addClass('animated fadeOutMap');
-		$svgMap.hide();
 		cleanupCircles();
 		$('#mapAction li').removeClass('active');
 
@@ -278,6 +277,9 @@ function secondToThird() {
 		$('#section-circlecompare').show();
 		$('#section-circlecompare').removeClass();
 		$('#section-circlecompare').addClass('animated fadeInUp');
+		setTimeout(function(){
+			$svgMap.hide();
+		},100);
 
 		if (currentKategorie) {
 			console.log("kategorie :" + currentKategorie);
@@ -633,7 +635,9 @@ function resetUI(){
 
 	$svgMap.addClass('animated fadeOutMap');
 	$svgMap.removeClass();
-	$svgMap.hide();
+	setTimeout(function(){
+		$svgMap.hide();
+	},100);
 
 	$('#mapAction li').removeClass('active');
 }
