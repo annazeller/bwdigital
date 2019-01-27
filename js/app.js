@@ -270,6 +270,10 @@ function secondToThird() {
 
 		$svgMap.removeClass();
 		$svgMap.addClass('animated fadeOutMap');
+		setTimeout(function(){
+			$svgMap.hide();
+			console.log("timeout");
+		}, 150);
 		cleanupCircles();
 		$('#mapAction li').removeClass('active');
 
@@ -277,9 +281,6 @@ function secondToThird() {
 		$('#section-circlecompare').show();
 		$('#section-circlecompare').removeClass();
 		$('#section-circlecompare').addClass('animated fadeInUp');
-		setTimeout(function(){
-			$svgMap.hide();
-		},100);
 
 		if (currentKategorie) {
 			console.log("kategorie :" + currentKategorie);
@@ -627,17 +628,19 @@ function tenthToNinth() {
 function resetUI(){
 	console.log("reset");
 
-	$('.wrapper .animated.fadeIn').removeClass('fadeIn').addClass('fadeOut').hide();
+	$('.wrapper .animated.fadeIn').removeClass('fadeIn').addClass('fadeOut');
 	$('.wrapper .animated.fadeInDown').removeClass('fadeInDown').addClass('fadeOut').hide();
 	$('.wrapper .animated.fadeInUp').removeClass('fadeInUp').addClass('fadeOut').hide();
 
 	cleanupCircles();
 
+	$('.wrapper .animated.fadeIn').hide();
+	$('.wrapper .animated.fadeInDown').hide();
+	$('.wrapper .animated.fadeInUp').hide();
+
 	$svgMap.addClass('animated fadeOutMap');
 	$svgMap.removeClass();
-	setTimeout(function(){
-		$svgMap.hide();
-	},100);
+	$svgMap.hide();
 
 	$('#mapAction li').removeClass('active');
 }
