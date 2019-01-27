@@ -44,7 +44,7 @@ circle {
   display: none;
 }
 .description.active {
-  display: flex !important;
+  display: block !important;
 }
 .description:after {
   content: "";

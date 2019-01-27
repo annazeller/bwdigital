@@ -200,6 +200,7 @@ function renderSectionUI(section, direction) {
 function firstToSecond() {
 	console.log(section);
 	console.log(allowChange);
+
 	setTimeout(function(){
 
 		//section-1 ausblenden
@@ -251,6 +252,11 @@ function secondToThird() {
 	console.log(section);
 
 	console.log(allowChange);
+
+	if($(".description").hasClass("active")){
+		$(".description").removeClass("active");
+	}
+
 
 	setTimeout(function(){
 
@@ -929,7 +935,7 @@ function setBarWidth(dataElement, barElement, cssProperty) {
 	$(dataElement).each(function() {
 		listData.push($(this).html().slice(0,-1));
 	});
-	
+
 	$(barElement).each(function(index) {
 		$(this).css(cssProperty, listData[index] + "%");
 	});
@@ -991,7 +997,7 @@ if (!($(this).hasClass('isActive') || $(this).siblings('.keyfact-box').hasClass(
 	}
 });
 $(document).on('mouseleave', '.keyfact-box', function() {
-	
+
 	var index = $(this).attr('data-mid');
 	console.log("mouse leave " + !($(this).hasClass('isActive') || $(this).siblings('.keyfact-box').hasClass('isActive')));
 	// $svgMap.addClass('map-svg-second-slide');
