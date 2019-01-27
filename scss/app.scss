@@ -902,54 +902,40 @@ main {
       opacity: 1 !important;
       transition: all 0.5s;
     }
-    &.li-industrie40.active:before{
-      content: url('/img/icon_kreis_industrie40_active.svg');
+    &.li-industrie40.active{
+      .li-svg {
+        fill: $red !important;
+      }
     }
-    &.li-iot.active:before{
-      content: url('/img/icon_kreis_internetderdinge_active.svg');
+    &.li-iot.active{
+      .li-svg {
+        fill: $blue !important;
+      }
     }
-    &.li-smartServices.active:before{
-      content: url('/img/icon_kreis_smartservices_active.svg');
+    &.li-smartServices.active{
+      .li-svg {
+        fill: $mdgreen !important;
+      }
     }
-    &.li-bigData.active:before{
-      content: url('/img/icon_kreis_bigdata_active.svg');
+    &.li-bigData.active{
+      .li-svg {
+        fill: $yellow !important;
+      }
     }
-    &.li-robotikUndSensorik.active:before{
-      content: url('/img/icon_kreis_robotiksensorik_active.svg');
+    &.li-robotikUndSensorik.active{
+      .li-svg {
+        fill: $orange !important;
+      }
     }
-    &.li-ki.active:before{
-      content: url('/img/icon_kreis_kuenstlicheintelligenz_active.svg');
+    &.li-ki.active{
+      .li-svg {
+        fill: $purple !important;
+      }
     }
-
-    &:before {
-      display: inline-block;
-      width: 40px;
-      height: 40px;
-      position: relative;
-      left: -65px;
-      top:7px;
-    }
-    &.li-industrie40:before{
-      content: url('/img/icon_kreis_industrie40.svg');
-    }
-    &.li-iot:before{
-      content: url('/img/icon_kreis_internetderdinge.svg');
-    }
-    &.li-smartServices:before{
-      content: url('/img/icon_kreis_smartservices.svg');
-    }
-    &.li-bigData:before{
-      content: url('/img/icon_kreis_bigdata.svg');
-    }
-    &.li-robotikUndSensorik:before{
-      content: url('/img/icon_kreis_robotiksensorik.svg');
-    }
-    &.li-ki:before{
-      content: url('/img/icon_kreis_kuenstlicheintelligenz.svg');
-    }
+    
     div {
       position:relative;
-      top:-40px;
+      top:-48px;
 
       .progress {
         background-color: rgba(92,101,135,.6);
@@ -977,6 +963,19 @@ main {
       span {
         text-align: right;
         //margin-top:-6%;
+      }
+    }
+    .li-svg {
+      stroke: #fff;
+      fill: #fff;
+      stroke-width: 0px;
+      position: relative;
+      left: -60px;
+      //top: 8px;
+      //margin-left: -70px;
+      circle {
+        fill: #252A4C;
+        stroke: #252A4C;
       }
     }
 
