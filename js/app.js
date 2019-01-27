@@ -80,12 +80,12 @@ var section = 1;
 var direction = "";
 var $left = $('.wrap');
 var $svgMap = $('#mapSVG');
-var svg_industrie40 = new Vivus('svg_industrie40', {duration: 200,type: "delayed", start: "manual",animTimingFunction: Vivus.EASE});
-var svg_iot = new Vivus('svg_iot', {duration: 200,type: "delayed", start: "manual",animTimingFunction: Vivus.EASE});
-var svg_smartServices = new Vivus('svg_smartServices', {duration: 200,type: "delayed", start: "manual",animTimingFunction: Vivus.EASE});
-var svg_bigData = new Vivus('svg_bigData', {duration: 200,type: "delayed", start: "manual",animTimingFunction: Vivus.EASE});
-var svg_robotik = new Vivus('svg_robotik', {duration: 200,type: "delayed", start: "manual",animTimingFunction: Vivus.EASE});
-var svg_ki = new Vivus('svg_ki', {duration: 200,type: "delayed", start: "manual",animTimingFunction: Vivus.EASE});
+var svg_industrie40 = new Vivus('svg_industrie40', {duration: 150,type: "delayed", start: "manual",animTimingFunction: Vivus.EASE});
+var svg_iot = new Vivus('svg_iot', {duration: 150,type: "delayed", start: "manual",animTimingFunction: Vivus.EASE});
+var svg_smartServices = new Vivus('svg_smartServices', {duration: 150,type: "delayed", start: "manual",animTimingFunction: Vivus.EASE});
+var svg_bigData = new Vivus('svg_bigData', {duration: 150,type: "delayed", start: "manual",animTimingFunction: Vivus.EASE});
+var svg_robotik = new Vivus('svg_robotik', {duration: 150,type: "delayed", start: "manual",animTimingFunction: Vivus.EASE});
+var svg_ki = new Vivus('svg_ki', {duration: 150,type: "delayed", start: "manual",animTimingFunction: Vivus.EASE});
 var animationEnd = (function(el) {
         var animations = {
             "animation": "animationend",
@@ -100,9 +100,13 @@ var animationEnd = (function(el) {
         }
 })(document.createElement("fakeelement"));
 
-var scrollingDisabled=false;
+var scrollingDisabled = false;
 $(window).on('load', function() {
-	allowChange = true;
+	
+	disableScrollAndClick();
+    allowChange = true;
+    console.log(allowChange);
+    $('body').removeClass('disable-click');
 
 	window.addEventListener('wheel', function(event){
 		if (scrollingDisabled){
@@ -146,7 +150,7 @@ $(window).on('load', function() {
           	}
 		}
 		scrollingDisabled = true;
-    setTimeout(function(){scrollingDisabled = false;}, 1500);
+    	setTimeout(function(){scrollingDisabled = false;}, 1500);
 	});
 });
 
@@ -266,6 +270,7 @@ function secondToThird() {
 
 		$svgMap.removeClass();
 		$svgMap.addClass('animated fadeOutMap');
+		$svgMap.hide();
 		cleanupCircles();
 		$('#mapAction li').removeClass('active');
 
@@ -912,14 +917,6 @@ function showSection10() {
 		renderNavigationUI(section);
 	}
 }
-
-$(window).on('load', function() {
-
-    disableScrollAndClick();
-    allowChange = true;
-    console.log(allowChange);
-    $('body').removeClass('disable-click');
-});
 
 function disableScrollAndClick() {
   allowChange = false;
